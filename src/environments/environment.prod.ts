@@ -1,4 +1,4 @@
-const baseApi = 'http://localhost:4200/';
+const baseApi = 'globilehub-vm.westeurope.cloudapp.azure.com:8085/globileHub/';
 export const environment = {
   production: false,
   apiUrl: '',
