@@ -18,8 +18,8 @@
   </section>
   <app-create-app-modal
     [dependencies]="componentDependencies$ | async"
-    [images]="images$ | async"
-    [technologies]="technologies$ | async"
+    [images]="images$"
+    [technologies]="technologies$"
     [navigationTypes]="navigationTypes"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
