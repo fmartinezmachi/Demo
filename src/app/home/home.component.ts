@@ -58,15 +58,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   submitCreateAppForm = (form: Project) => {
     this.subscriptions.add(
-      this.homeService.sendForm(form).subscribe(
-        response => {
-          alert(`App created successfully`);
-          this.modalService.toggleVisibility();
-          this.modalRef.resetForm();
-          this.appDependencies$ = this.homeService.getApplicationDependencies();
-        },
-        error => alert(`Something went wrong: ${error.msg}`),
-      ),
+      this.homeService.sendForm(form).subscribe(response => {
+        alert(`App created successfully`);
+        this.modalService.toggleVisibility();
+        this.modalRef.resetForm();
+        this.appDependencies$ = this.homeService.getApplicationDependencies();
+      }),
     );
   };
 

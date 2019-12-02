@@ -12,6 +12,8 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   private formatErrors(error: any) {
+    const { statusText, message } = error;
+    alert(`${statusText}\n ${message}`);
     return throwError(error.error);
   }
 
