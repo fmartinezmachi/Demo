@@ -26,7 +26,7 @@
             "styles": ["src/styles.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets/stylesheets", "src/assets/images"]
+              "includePaths": ["src/styles", "src/assets/images"]
             }
           },
           "configurations": {
@@ -101,7 +101,7 @@
             "styles": ["src/styles.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets/stylesheets", "src/assets/images"]
+              "includePaths": ["src/styles", "src/assets/images"]
             }
           }
         },
