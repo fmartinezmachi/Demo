@@ -3,28 +3,54 @@
 input,
 textarea,
 select {
-  background-color: $white;
-  border: 1px solid $blue-border;
-  border-radius: 4px;
-  color: $grey-dark;
+  &:not([type='checkbox']):not([type='radio']) {
+    background-color: $white;
+    border: 1px solid $blue-border;
+    border-radius: 4px;
+    color: $grey-dark;
+    font-family: $santander-hl-regular;
+    font-size: em(20);
+    height: em(40, 20);
+    margin-bottom: em(15, 20);
+    padding: 0 em(10, 20);
+    width: em(321, 20);
+
+    &.error {
+      border-color: $main;
+      color: $main;
+    }
+
+    &::placeholder {
+      color: rgba($black, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      outline-offset: 0;
+      border-color: $blue-light;
+    }
+  }
+}
+
+label {
+  color: $blue-label;
+  display: block;
   font-family: $santander-hl-regular;
-  height: em(40);
+  font-size: em(21);
+  line-height: em(35, 21);
+}
+
+.image-sample {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+
+  &:not(:first-of-type) {
+    margin-left: em(19);
+  }
+}
+
+.form-group {
+  display: flex;
   margin-bottom: em(15);
-  padding: 0 em(10);
-  width: em(321);
-
-  &.error {
-    border-color: $main;
-    color: $main;
-  }
-
-  &::placeholder {
-    color: rgba($black, 0.3);
-  }
-
-  &:focus {
-    outline: none;
-    outline-offset: 0;
-    border-color: $blue-light;
-  }
 }

@@ -1,0 +1,10 @@
+{
+  "/backend/*": {
+    "target": "http://172.21.12.108:8085/globileHub/",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "/backend/": ""
+    }
+  }
+}

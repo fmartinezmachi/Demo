@@ -1,0 +1,29 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+h2 {
+  @include header-title;
+}
+
+button {
+  &.btn {
+    &--blue {
+      font-size: em(24);
+      height: em(49, 24);
+      width: em(160, 24);
+    }
+  }
+}
+
+form {
+  input {
+    &:not([type='checkbox']):not([type='radio']) {
+      width: em(501);
+    }
+
+    &[type='checkbox'] {
+      margin-left: em(15);
+    }
+  }
+}

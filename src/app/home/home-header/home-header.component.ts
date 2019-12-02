@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Icon } from '@sharedModels/icon';
+import { ModalService } from '../../shared/components/modal/modal.service';
 
 @Component({
   selector: 'app-home-header',
@@ -10,7 +11,11 @@ export class HomeHeaderComponent implements OnInit {
   @Input() icons: Icon[] = [];
   @Input() title = '';
 
+  @Output() createAppClick = new EventEmitter<boolean>();
+
   constructor() {}
 
   ngOnInit() {}
+
+  showCreateAppModal = () => this.createAppClick.emit(true);
 }

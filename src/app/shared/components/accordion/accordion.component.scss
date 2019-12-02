@@ -12,6 +12,8 @@
     display: flex;
     height: em(50);
     background-color: $grey-light;
+    padding: 0;
+    padding-right: 30px;
   }
 
   &__title {
@@ -27,21 +29,35 @@
     }
   }
 
-  &__actions {
-    display: flex;
+  &__filters {
+    display: inline-flex;
     height: 100%;
     margin-left: auto;
 
-    button {
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
-      height: 100%;
-      width: em(50);
+    section {
+      margin-top: 10px;
+    }
 
-      &.accordion__sel {
-        background: $white;
-        color: $grey-icons;
+    section + section {
+      margin-left: 20px;
+    }
+
+    button {
+      &[type='submit'] {
+        color: $alternate-btn;
+        background-color: rgba($grey-icons, 0.7);
+        border-color: $grey-icons;
+        font-family: $open-sans-bold;
+        font-size: em(12);
+        height: em(28, 12);
+        margin-left: em(5, 12);
+        transition: 0.5s;
+
+        &:hover {
+          &:not(:disabled) {
+            background-color: rgba($grey-icons, 1);
+          }
+        }
       }
     }
   }

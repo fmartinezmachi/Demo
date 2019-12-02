@@ -17,6 +17,7 @@
       "@mocks/*": ["src/app/core/mocks/*"],
       "@sharedModels/*": ["src/app/shared/models/*"],
       "@sharedServices/*": ["src/app/shared/services/*"],
+      "@coreEnums/*": ["src/app/core/enums/*"],
       "@coreModels/*": ["src/app/core/models/*"],
       "@coreServices/*": ["src/app/core/services/*"]
     }

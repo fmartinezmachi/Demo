@@ -1,81 +1,54 @@
 <table>
   <thead>
     <tr>
-      <th>Yesterday</th>
-      <th class="right">Last access</th>
-      <th class="right">Last release</th>
-      <th>Past Tests</th>
-      <th class="right">Code coverage</th>
-      <th>Sast analysis</th>
       <th></th>
+      <th>Name</th>
+      <th>Description/Tags</th>
+      <th>Code coverage</th>
+      <th>Modificacion</th>
+      <th>Last release</th>
+      <th>Past Tests</th>
+      <th>Sast analysis</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let dependency of dependencies | reverse | slice: 0:8">
+      <td><svg-icon src="/assets/images/01_icon_comp_android.svg"></svg-icon></td>
       <td>
-        <i class="icon-chart-pie"></i> los.name.component.button.call -&nbsp;
-        <span>Functional</span>
-      </td>
-      <td class="right">25/10/2019</td>
-      <td class="right">20/10/2019</td>
-      <td><a href="">11 of 24 detail</a></td>
-      <td class="right black-font">70%</td>
-      <td>
-        <i class="icon-codiepie"></i> <i class="icon-modx"></i> <i class="icon-first-order"></i>
+        <div class="row">
+          <div class="name">{{ dependency.projectName }}</div>
+          <div class="type">{{ dependency.projectScopeName }}</div>
+        </div>
       </td>
       <td>
-        <button type="button" class="row--view">View</button>
-        <button type="button" class="row--edit">Open</button>
+        <div class="description block-with-text">{{ dependency.projectDescription }}</div>
+        <div class="tags">
+          <span>Button</span> <span>Global</span><span>Component</span><span>Android</span
+          ><span>Active</span>
+        </div>
       </td>
-    </tr>
-    <tr>
+      <td class="color-grey">Sonar: A</td>
       <td>
-        <i class="icon-chart-pie"></i> Android.name.component.button.call -&nbsp;
-        <span>Technical</span>
+        <div class="row">
+          <div class="color-grey">YESTERDAY</div>
+          <div class="state-active color-grey">alexandergarcia</div>
+        </div>
       </td>
-      <td class="right">25/10/2019</td>
-      <td class="right">20/10/2019</td>
-      <td><a href="">15 of 24 detail</a></td>
-      <td class="right black-font">65%</td>
-      <td>
-        <i class="icon-codiepie"></i> <i class="icon-modx"></i> <i class="icon-first-order"></i>
-      </td>
-      <td>
-        <button type="button" class="row--view">View</button>
-        <button type="button" class="row--edit">Open</button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <i class="icon-table"></i> Angular.name.component.button.call -&nbsp; <span>Technical</span>
-      </td>
-      <td class="right">25/10/2019</td>
-      <td class="right">22/10/2019</td>
-      <td><a href="">13 of 24 detail</a></td>
-      <td class="right black-font">80%</td>
-      <td>
-        <i class="icon-codiepie"></i> <i class="icon-modx"></i> <i class="icon-first-order"></i>
+      <td class="color-grey">This month</td>
+      <td class="color-grey">
+        15 of 24 detail
       </td>
       <td>
-        <button type="button" class="row--view">View</button>
-        <button type="button" class="row--edit">Open</button>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <i class="icon-chart-pie"></i> los.name.component.button.call -&nbsp;
-        <span>Functional</span>
-      </td>
-      <td class="right">25/10/2019</td>
-      <td class="right">20/10/2019</td>
-      <td><a href="">11 of 24 detail</a></td>
-      <td class="right black-font">70%</td>
-      <td>
-        <i class="icon-codiepie"></i> <i class="icon-modx"></i> <i class="icon-first-order"></i>
-      </td>
-      <td>
-        <button type="button" class="row--view">View</button>
-        <button type="button" class="row--edit">Open</button>
+        <div class="action">
+          <div class="action-row">
+            <button type="button" class="action-circle-edit"></button>
+            <button type="button" class="action-circle-view"></button>
+          </div>
+          <div class="action-row">
+            <button type="button" class="row--edit">Open</button>
+            <button type="button" class="row--view">Coding</button>
+          </div>
+        </div>
       </td>
     </tr>
   </tbody>

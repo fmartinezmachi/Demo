@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { FooterComponent } from './components/footer/footer.component';
@@ -32,7 +31,7 @@ const components = [
 
 const extraModules = environment.mockApi ? [MockModule] : [];
 
-const imports = [CommonModule, HttpClientModule, SharedModule, ...extraModules];
+const imports = [CommonModule, SharedModule, ...extraModules];
 
 @NgModule({
   declarations: [...components],
