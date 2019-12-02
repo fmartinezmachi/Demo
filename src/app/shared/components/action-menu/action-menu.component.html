@@ -1,16 +1,11 @@
 <section class="action-menu">
   <section class="action-menu__btns">
-    <button type="button">
-      <img src="/assets/images/icons/files-icon-ppt.svg" alt="" />
-      Create component
-    </button>
-    <button type="button">
-      <img src="/assets/images/icons/files-icon-xls.svg" alt="" />
-      Create application
-    </button>
+    <ng-container *ngTemplateOutlet="menuBody"></ng-container>
   </section>
-  <section class="action-menu__hamburguer">
+  <!--section class="action-menu__hamburguer">
     <button type="button"><i class="icon-menu"></i></button>
   </section>
-  <section class="action-menu__hiden-actions"></section>
+  <section class="action-menu__hiden-actions">
+    <ng-container *ngTemplateOutlet="menuHidden"></ng-container>
+  </section-->
 </section>

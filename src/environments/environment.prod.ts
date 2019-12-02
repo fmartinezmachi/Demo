@@ -1,7 +1,10 @@
-const baseApi = 'http://localhost:4200/';
+const baseApi = 'http://10.11.165.199:8085/globileHub/';
 export const environment = {
   production: true,
-  api_url: '',
+  apiUrl: '',
   mockApi: false,
-  technologies: `${baseApi}technologies`,
+  technologiesApi: `${baseApi}technologies`,
+  imagesApi: `${baseApi}images`,
+  projectApi: `${baseApi}project`,
+  dependenciesApi: `${baseApi}projects`,
 };

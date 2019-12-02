@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { CreateAppService } from './create-app.service';
+import { HomeService } from './home.service';
 
-describe('CreateAppService', () => {
+describe('HomeService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
@@ -11,7 +11,7 @@ describe('CreateAppService', () => {
   );
 
   it('should be created', () => {
-    const service: CreateAppService = TestBed.get(CreateAppService);
+    const service: HomeService = TestBed.get(HomeService);
     expect(service).toBeTruthy();
   });
 });

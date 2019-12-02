@@ -2,19 +2,7 @@
 @import 'mixins';
 @import 'fonts';
 
-button {
-  border: none;
-  height: em(22);
-  padding: 0 em(20) 0 em(10);
-  position: relative;
-
-  &:hover {
-    background-color: $hover;
-  }
-}
-
 .action-menu {
-  @include box-shadow;
   align-items: center;
   display: flex;
   height: em(50);
@@ -22,6 +10,18 @@ button {
   button {
     border: none;
     border-radius: 0;
+    height: em(22);
+    padding: 0 em(20) 0 em(10);
+    position: relative;
+
+    i:first-child {
+      font-size: 2em;
+    }
+
+    &:hover {
+      background-color: #26446c;
+      opacity: 0.7;
+    }
   }
 
   &__btns {
@@ -35,46 +35,25 @@ button {
       display: flex;
       font-family: $open-sans;
       height: 100%;
-      padding: 0 em(20) 0 em(10);
-      position: relative;
       width: auto;
+      width: 220px;
+      background: #26446c;
+      color: white;
+      border-radius: 4px;
 
-      img {
-        margin-right: em(10);
+      i:first-child {
+        font-size: 2em;
       }
 
-      &:not(:last-child) {
-        &::after {
-          content: '';
-          height: 100%;
-          background-color: $grey-light;
-          position: absolute;
-          right: 0;
-          top: 0;
-          width: 1px;
+      &.last-button {
+        width: 47px;
+        i:first-child {
+          font-size: 1.2em;
         }
       }
 
       & + button {
-        padding-left: em(15);
-      }
-    }
-  }
-
-  &__hamburguer {
-    border-left: 1px solid $grey-light;
-    height: em(50);
-    width: em(47);
-
-    button {
-      color: $grey-icons;
-      height: 100%;
-      padding: em(13) em(10);
-      position: relative;
-      width: 100%;
-
-      img {
-        width: 100%;
+        margin-left: em(15);
       }
     }
   }

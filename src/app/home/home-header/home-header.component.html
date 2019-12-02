@@ -1,13 +1,24 @@
+<ng-template #actionBtns>
+  <button type="button">
+    <i class="icon-cog"></i>
+    Create component
+  </button>
+  <button type="button" (click)="showCreateAppModal()">
+    <i class="icon-cog-alt"></i>
+    Create application
+  </button>
+  <button class="last-button" type="button">
+    <i class="icon-right-open"></i>
+  </button>
+</ng-template>
 <section class="home-header">
   <div class="home-header__title-wrapper">
     <div class="home-header__title">
-      <h1>
-        {{ title }}
-      </h1>
+      <h1>{{ title }}</h1>
       <app-icon-group [icons]="icons"></app-icon-group>
     </div>
   </div>
   <div class="home-header__actions">
-    <app-action-menu></app-action-menu>
+    <app-action-menu [menuBody]="actionBtns"></app-action-menu>
   </div>
 </section>

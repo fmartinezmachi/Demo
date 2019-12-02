@@ -8,6 +8,7 @@
       "@mocks/*": ["app/core/mocks/*"],
       "@sharedModels/*": ["app/shared/models/*"],
       "@sharedServices/*": ["app/shared/services/*"],
+      "@coreEnums/*": ["app/core/enums/*"],
       "@coreModels/*": ["app/core/models/*"],
       "@coreServices/*": ["app/core/services/*"]
     }

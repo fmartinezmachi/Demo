@@ -2,11 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const baseApi = 'http://localhost:4200/';
+const backendApi = '/backend/';
 export const environment = {
   production: false,
-  api_url: '',
+  apiUrl: '',
   mockApi: true,
-  technologies: `${baseApi}technologies`,
+  technologiesApi: `${baseApi}technologies`,
+  imagesApi: `${baseApi}images`,
+  projectApi: `${backendApi}project`,
+  dependenciesApi: `${backendApi}projects`,
 };
 
 /*

@@ -2,10 +2,11 @@
 @import 'mixins';
 
 .modal {
-  background-color: rgba($color: $grey, $alpha: 0.95);
+  background-color: rgba($color: $blue-label, $alpha: 0.6);
   height: 100vh;
   left: 0;
-  padding: em(152) 0 em(40);
+  max-height: calc(100vh + #{em(40)});
+  padding-top: em(152);
   position: fixed;
   overflow: auto;
   top: 0;
@@ -18,6 +19,8 @@
     background: $white;
     border-radius: 4px;
     padding: em(40) em(30);
+    position: relative;
+    z-index: 1001;
   }
 
   &__header {

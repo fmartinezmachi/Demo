@@ -5,7 +5,7 @@
   position: relative;
 }
 
-input {
+input[type='text'] {
   @include box-shadow;
   border: none;
   height: em(36);

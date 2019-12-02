@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { ModalService } from './modal.service';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,6 @@ export class ModalComponent implements OnInit {
   @Input() headerTemplate: TemplateRef<any>;
   @Input() bodyTemplate: TemplateRef<any>;
   @Input() footerTemplate: TemplateRef<any>;
-  @Output() wrapperClick = new EventEmitter<boolean>();
 
   isVisible = new Observable<boolean>();
 
@@ -21,7 +20,10 @@ export class ModalComponent implements OnInit {
     this.isVisible = this.modalService.visible$;
   }
 
-  closeModal = () => this.modalService.toggleVisibility();
-
-  sendEvent = () => this.wrapperClick.emit(true);
+  closeModal = (event = null) => {
+    if (event && !event.target.classList.contains('modal')) {
+      return;
+    }
+    this.modalService.toggleVisibility();
+  };
 }
