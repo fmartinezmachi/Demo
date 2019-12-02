@@ -99,11 +99,12 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
     };
   }
 
-  resetForm = () => {};
+  resetForm = () => {
+    this.appForm.reset();
+  };
 
   submitForm = () => {
     const formData = this.projectData;
     this.submitClick.emit(formData);
-    // this.appForm.reset();
   };
 }
