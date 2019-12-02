@@ -31,8 +31,17 @@ export class HomeComponent implements OnInit, OnDestroy {
   title = 'My Projects';
   appDependencies$: Observable<Project[]> = null;
   componentDependencies$: Observable<Project[]> = null;
-  technologies$: Observable<Technology[]> = null;
-  images$: Observable<string[]> = null;
+  technologies$ = [
+    {
+      technologyId: 1,
+      technologyName: 'Android',
+    },
+    {
+      technologyId: 2,
+      technologyName: 'Ios',
+    },
+  ];
+  images$ = ['ICO red', 'ICO black', 'ICO small', 'ICO big'];
   navigationTypes: string[] = [];
   subscriptions = new Subscription();
 
@@ -43,8 +52,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.technologies$ = this.homeService.getTechnologies();
-    this.images$ = this.homeService.getImages();
     this.appDependencies$ = this.homeService.getApplicationDependencies();
     this.componentDependencies$ = this.homeService.getComponentDependencies();
     this.navigationTypes = this.homeService.navigationTypes;
