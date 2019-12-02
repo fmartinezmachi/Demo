@@ -19,6 +19,7 @@ import { PageMenuComponent } from '../shared/components/page-menu/page-menu.comp
 import { SearchInputComponent } from '../shared/components/search-input/search-input.component';
 import { SvgIconComponent } from 'angular-svg-icon';
 import { TableComponent } from '../shared/components/table/table.component';
+import { ReversePipe } from '../shared/pipes/reverse.pipe';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -41,6 +42,7 @@ describe('HomeComponent', () => {
         ModalComponent,
         NavMenuComponent,
         PageMenuComponent,
+        ReversePipe,
         SearchInputComponent,
         SvgIconComponent,
         TableComponent,
