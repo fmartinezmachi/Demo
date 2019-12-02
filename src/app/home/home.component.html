@@ -19,7 +19,7 @@
   <app-create-app-modal
     [dependencies]="componentDependencies$ | async"
     [images]="images$"
-    [technologies]="technologies$ | async"
+    [technologies]="technologies$"
     [navigationTypes]="navigationTypes"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
