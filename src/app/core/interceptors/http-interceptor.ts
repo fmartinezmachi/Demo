@@ -19,6 +19,7 @@ export class HTTPStatus {
   }
 }
 
+@Injectable()
 export class HTTPListener implements HttpInterceptor {
   count = 0;
 
@@ -29,8 +30,14 @@ export class HTTPListener implements HttpInterceptor {
     this.status.setHttpStatus(true);
     return next.handle(req).pipe(
       tap(
-        event => console.log(event),
-        error => console.log(error),
+        event => {
+          // uncomment for development purposes only
+          // console.log(event)
+        },
+        error => {
+          // uncomment for development purposes only
+          // console.log(error)
+        },
       ),
       finalize(() => {
         this.count--;
