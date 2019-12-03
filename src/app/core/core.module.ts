@@ -19,7 +19,20 @@ import { MockModule } from '@mocks/mock.module';
 
 import { environment } from './../../environments/environment';
 
-const providers = [ApiService, UserService];
+import { HTTPStatus, HTTPListener } from './interceptors/http-interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+const providers = [
+  ApiService,
+  HTTPListener,
+  HTTPStatus,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HTTPListener,
+    multi: true,
+  },
+  UserService,
+];
 const components = [
   FooterComponent,
   FooterMenuComponent,
