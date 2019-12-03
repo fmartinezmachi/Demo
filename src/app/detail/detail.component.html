@@ -1,0 +1,25 @@
+<section class="detail">
+  <app-page-menu
+    [menu]="headerMenu"
+    [activeOption]="activeHeaderMenuOption"
+    (menuLinkClicked)="updateActiveMenuLink($event)"
+  >
+  </app-page-menu>
+
+  <section class="detail__header">
+    <a href=""> < Back </a>
+    <app-detail-header [data]="headerInfo | async"></app-detail-header>
+  </section>
+  <section class="detail__body">
+    <app-detail-sections
+      [sections]="detailMenu"
+      [active]="activeDetailMenuOption"
+      [data]="sectionsInfo | async"
+      (menuLinkClicked)="updateSectionMenuLink($event)"
+    ></app-detail-sections>
+  </section>
+  <section class="detail__related-content">
+    <app-aditional-content [sections]="sections"></app-aditional-content>
+    <app-learn-more [content]="learnMore"></app-learn-more>
+  </section>
+</section>

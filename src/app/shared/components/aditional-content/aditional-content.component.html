@@ -1,0 +1,9 @@
+<section class="aditional-content">
+  <article class="aditional-content__section" *ngFor="let item of sections">
+    <h3>{{ item.title }}</h3>
+    <div class="aditional-content__links">
+      <a href="{{ link.url }}" *ngFor="let link of item.links">{{ link.label }}</a>
+    </div>
+    <a href="{{ item.footer.url }}">{{ item.footer.label }}</a>
+  </article>
+</section>

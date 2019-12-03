@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+.detail {
+  @include main-container;
+
+  &__header {
+    padding: em(30) em(30) 0;
+    margin-bottom: em(50);
+
+    a {
+      color: $blue-mid;
+      font-family: $santander-hl-regular;
+      font-size: em(14);
+      text-decoration: underline;
+    }
+  }
+
+  &__related-content {
+    padding: em(40) em(30);
+  }
+}

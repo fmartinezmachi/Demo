@@ -1,0 +1,55 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Description/Tags</th>
+      <th>Code coverage</th>
+      <th>Modificacion</th>
+      <th>Last release</th>
+      <th>Past Tests</th>
+      <th>Sast analysis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dependency of dependencies | reverse | slice: 0:8">
+      <td><svg-icon src="/assets/images/01_icon_comp_android.svg"></svg-icon></td>
+      <td>
+        <div class="row">
+          <div class="name">{{ dependency.projectName }}</div>
+          <div class="type">{{ dependency.projectScopeName }}</div>
+        </div>
+      </td>
+      <td>
+        <div class="description block-with-text">{{ dependency.projectDescription }}</div>
+        <div class="tags">
+          <span>Button</span> <span>Global</span><span>Component</span><span>Android</span
+          ><span>Active</span>
+        </div>
+      </td>
+      <td class="color-grey">Sonar: A</td>
+      <td>
+        <div class="row">
+          <div class="color-grey">YESTERDAY</div>
+          <div class="state-active color-grey">alexandergarcia</div>
+        </div>
+      </td>
+      <td class="color-grey">This month</td>
+      <td class="color-grey">
+        15 of 24 detail
+      </td>
+      <td>
+        <div class="action">
+          <div class="action-row">
+            <button type="button" class="action-circle-edit"></button>
+            <button type="button" class="action-circle-view"></button>
+          </div>
+          <div class="action-row">
+            <button type="button" class="row--edit">Open</button>
+            <button type="button" class="row--view">Coding</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

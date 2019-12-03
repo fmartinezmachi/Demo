@@ -1,30 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module'; // must be imported as the last module as it contains the fallback route
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ButtonComponent } from './button/button.component';
-import { ImageComponent } from './image/image.component';
-import { FirstPageComponent } from './first-page/first-page.component';
-import { SecondPageComponent } from './second-page/second-page.component';
+
+import { CoreModule } from './core/core.module';
+import { DetailModule } from './detail/detail.module';
+import { HomeModule } from './home/home.module';
+
+// Modules
+const imports = [
+  BrowserModule,
+  CoreModule,
+  DetailModule,
+  HomeModule,
+  AppRoutingModule,
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ButtonComponent,
-    ImageComponent,
-    FirstPageComponent,
-    SecondPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent],
+  imports,
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

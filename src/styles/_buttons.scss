@@ -1,0 +1,98 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+button,
+.btn {
+  background-color: $white;
+  border: 1px solid $main;
+  border-radius: 4px;
+  font-family: $santander-hl-regular;
+  color: $main;
+  cursor: pointer;
+  font-size: em(16);
+  height: em(49, 16);
+  transition: 0.3s;
+  width: em(160, 16);
+
+  &:hover {
+    &:not(:disabled) {
+      background-color: rgba($main, 0.05);
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: $blue-disabled;
+    border-color: $blue-disabled;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--filter {
+    background-color: $blue-background-btn;
+    border-color: $grey-border;
+    border-radius: 3px;
+    color: #444;
+    font-family: $santander-tx-regular;
+    font-size: em(14);
+    height: em(28, 14);
+    padding: 0 em(25, 14);
+    width: auto;
+
+    &.active {
+      background-color: $white;
+      color: $main;
+      font-weight: bold;
+
+      &:hover {
+        &:not(:disabled) {
+          background-color: rgba($blue-background-btn, 0.7);
+        }
+      }
+    }
+
+    &:hover {
+      &:not(:disabled),
+      &:not(.active) {
+        background-color: $white;
+      }
+    }
+  }
+
+  &--small {
+    border-radius: em(20, 16);
+    font-size: em(16);
+    height: em(35, 16);
+    width: em(140, 16);
+  }
+
+  &--red {
+    background-color: $main;
+    color: $white;
+
+    &:hover {
+      &:not(:disabled) {
+        background-color: darken($color: $main, $amount: 4%);
+      }
+    }
+  }
+
+  &--blue {
+    background-color: $blue-disabled;
+    border-color: $blue-disabled;
+    color: $white;
+
+    &:hover {
+      &:not(:disabled) {
+        background-color: darken($color: $blue-disabled, $amount: 4%);
+      }
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    width: em(200, 24);
+  }
+}

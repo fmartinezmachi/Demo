@@ -1,0 +1,56 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+nav {
+  ul {
+    display: flex;
+    li {
+      &:first-child {
+        a {
+          padding-left: 0;
+        }
+      }
+      &:last-of-type {
+        a {
+          padding-right: 0;
+        }
+      }
+      &:not(:last-child) {
+        a {
+          &:after {
+            content: '';
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+            height: 100%;
+            right: 0;
+            top: 0;
+            width: 1px;
+          }
+        }
+      }
+      a {
+        align-items: center;
+        color: $white;
+        display: flex;
+        font-family: $open-sans-light;
+        font-size: em(10);
+        height: 100%;
+        padding: 0 em(11, 10) 0 em(10, 10);
+        position: relative;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    ul {
+      li {
+        a {
+          font-size: em(12);
+          padding: 0 em(11, 12) 0 em(10, 12);
+        }
+      }
+    }
+  }
+}

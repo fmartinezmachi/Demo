@@ -1,0 +1,9 @@
+<nav>
+  <ul>
+    <li *ngFor="let menuOption of menu">
+      <a href="{{ menuOption.link }}" [ngClass]="{ active: menuOption.active }">{{
+        menuOption.label
+      }}</a>
+    </li>
+  </ul>
+</nav>

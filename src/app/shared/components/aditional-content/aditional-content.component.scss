@@ -1,0 +1,67 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+.aditional-content {
+  background-color: $grey-light;
+  display: grid;
+  font-family: $open-sans;
+  grid-template-columns:
+    minmax(25%, 2.5fr)
+    minmax(25%, 2.5fr)
+    minmax(25%, 2.5fr)
+    minmax(25%, 2.5fr);
+  margin-bottom: em(40);
+  min-width: 100%;
+  padding: em(20) em(20) em(40);
+
+  a {
+    color: $main;
+    font-size: em(12);
+
+    &:hover {
+      color: darken($main, 10%);
+    }
+  }
+
+  h3 {
+    color: $grey-dark-title;
+    font-family: $open-sans-bold;
+    font-size: em(18);
+    margin-bottom: em(24, 18);
+    text-transform: uppercase;
+  }
+
+  &__links {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: em(83);
+    margin-bottom: em(20);
+    overflow: hidden;
+
+    a {
+      color: $grey-font;
+      font-size: em(13);
+      margin-bottom: em(15, 13);
+      margin-right: em(15, 13);
+
+      &:hover {
+        color: darken($grey-font, 20%);
+      }
+    }
+  }
+
+  &__section {
+    padding-right: em(25);
+
+    &:not(:first-child) {
+      padding-left: em(18);
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid $grey-border;
+    }
+  }
+}

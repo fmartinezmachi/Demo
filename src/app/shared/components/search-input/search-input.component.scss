@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'mixins';
+:host {
+  margin-left: auto;
+  position: relative;
+}
+
+input[type='text'] {
+  @include box-shadow;
+  border: none;
+  height: em(36);
+  margin-bottom: 0;
+  margin-left: auto;
+  padding-left: em(55);
+  position: relative;
+  width: em(530);
+
+  & + span {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    margin-top: -1px;
+    margin-left: em(15);
+    top: 0;
+    i {
+      color: $grey-dark;
+      font-size: em(24);
+    }
+  }
+}

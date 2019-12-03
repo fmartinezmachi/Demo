@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  &:not(:last-child) {    
+      span {    
+        &:last-child {
+          &::after {
+            content: '-';
+            height: 100%;
+            position: relative;
+            width: em(3);
+          }
+        }
+      }    
+    }
+  }
+
+
+.tag {
+  display: inline;
+
+  &__warn {
+    color: $warn;
+    font-weight: bold;
+  }
+
+  &__success {
+    color: $success;
+    font-weight: bold;
+  }
+
+}

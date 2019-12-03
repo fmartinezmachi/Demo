@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+.main {
+  @include main-container;
+
+  &__container {
+    padding: em(28) em(30);
+  }
+}
