@@ -1,0 +1,56 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+$menu-link: #3c577b;
+$menu-link-active: $blue;
+$body-background: rgba(250, 250, 250, 0.4);
+$body-border: #ececec;
+:host {
+  ::ng-deep {
+    app-nav-menu {
+      nav {
+        ul {
+          li {
+            a {
+              color: $menu-link;
+              font-family: $santander-tx-regular;
+              font-size: em(21);
+              padding: 0 em(40, 21);
+              letter-spacing: 0.1em;
+              transition: text-shadow 0.3s;
+
+              &.active {
+                color: $menu-link-active;
+                // font-family: $santander-tx-bold; changing font weight causes width changes
+                text-shadow: 0 0 0.65px #333, 0 0 0.65px #333;
+
+                &:after {
+                  background-color: $blue-mid;
+                  height: 4px;
+                }
+              }
+
+              &:hover {
+                color: $menu-link-active;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.detail-sections {
+  &__content {
+    background-color: $body-background;
+    border-top: 1px solid $body-border;
+    border-bottom: 1px solid $body-border;
+    padding: em(20) em(30) em(36);
+  }
+
+  &__menu {
+    height: em(40);
+    padding: 0 em(30);
+  }
+}

@@ -1,0 +1,25 @@
+<section class="detail-sections">
+  <section class="detail-sections__menu">
+    <app-nav-menu
+      [menu]="sections"
+      [activeOption]="active"
+      (menuLinkClicked)="emitClickEvent($event)"
+    ></app-nav-menu>
+  </section>
+  <section class="detail-sections__content" [ngSwitch]="active">
+    <app-overview
+      *ngSwitchCase="'Overview'"
+      [references]="data?.overview.references"
+      [properties]="data?.overview.properties"
+    ></app-overview>
+    <p *ngSwitchCase="'Code'">
+      ACTIVE 2
+    </p>
+    <p *ngSwitchCase="'Dependencies'">
+      ACTIVE 3
+    </p>
+    <p *ngSwitchCase="'Metadata'">
+      ACTIVE 4
+    </p>
+  </section>
+</section>

@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+header {
+  align-items: center;
+  background-image: url('/assets/images/header.png');
+  border-bottom: 1px solid $main;
+  display: flex;
+  height: em(74);
+  object-fit: contain;
+  padding: 0 em(25);
+
+  img {
+    height: em(38);
+    width: em(295);
+  }
+
+  nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 0 em(20);
+
+    a {
+      border-radius: em(3);
+      color: $white;
+      cursor: pointer;
+      font-size: em(16);
+      padding: em(8) em(16);
+      text-decoration: none;
+      &:not(:last-child) {
+        margin-right: em(15);
+      }
+      &.active {
+        background: $main;
+      }
+    }
+  }
+
+  .header__wrapper {
+    @include wrapper;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 0;
+  }
+
+  ::ng-deep {
+    app-user-feed {
+      height: calc(100% - 1px);
+      margin-left: auto;
+    }
+  }
+
+  @include for-tablet-portrait-up {
+    height: em(112);
+  }
+}

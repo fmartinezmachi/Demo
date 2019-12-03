@@ -1,0 +1,141 @@
+@mixin for-phone-only {
+  @media (max-width: $phone) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: $tablet-landscape) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: $desktop-big) {
+    @content;
+  }
+}
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin box-shadow {
+  // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  @include for-desktop-up() {
+    width: em(1200);
+  }
+  @include for-big-desktop-up() {
+    width: em($body-width);
+  }
+}
+
+@mixin icon-style {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: 0.2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+@mixin filter-gradient($color1, $color2) {
+  background: $color1;
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%);
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, $color1),
+    color-stop(100%, $color2)
+  );
+  background: -webkit-linear-gradient(top, $color1 0%, $color2 100%);
+  background: -o-linear-gradient(top, $color1 0%, $color2 100%);
+  background: -ms-linear-gradient(top, $color1 0%, $color2 100%);
+  background: linear-gradient(to bottom, $color1 0%, $color2 100%);
+}
+
+@mixin header-title {
+  color: $main;
+  display: inline-block;
+  font-size: em(32);
+  font-family: $open-sans-light;
+  margin-right: em(10);
+}
+
+@mixin main-container {
+  background-color: $white;
+  border-left: 1px solid $grey-border;
+  border-right: 1px solid $grey-border;
+  border-bottom: 1px solid $grey-border;
+}
+
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+.block-with-text {
+  @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);
+}

@@ -1,0 +1,30 @@
+<section class="accordion">
+  <section class="accordion__header">
+    <section class="accordion__title">
+      <h3>{{ title }}</h3>
+    </section>
+    <section class="accordion__filters">
+      <section>
+        <button class="btn btn--filter" [ngClass]="{ active: allClicked }">
+          All dates
+        </button>
+        <button class="btn btn--filter">
+          Range
+        </button>
+      </section>
+      <section>
+        <button class="btn btn--filter">
+          Technical
+        </button>
+        <button class="btn btn--filter">
+          Functional
+        </button>
+      </section>
+    </section>
+  </section>
+  <section class="accordion__body" [ngClass]="{ 'accordion__body--expanded': expanded }">
+    <main>
+      <ng-content></ng-content>
+    </main>
+  </section>
+</section>

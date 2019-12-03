@@ -1,0 +1,60 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+.action-menu {
+  align-items: center;
+  display: flex;
+  height: em(50);
+
+  button {
+    border: none;
+    border-radius: 0;
+    height: em(22);
+    padding: 0 em(20) 0 em(10);
+    position: relative;
+
+    i:first-child {
+      font-size: 2em;
+    }
+
+    &:hover {
+      background-color: #26446c;
+      opacity: 0.7;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    height: 100%;
+    padding: 0;
+
+    button {
+      align-items: center;
+      color: $black;
+      display: flex;
+      font-family: $open-sans;
+      height: 100%;
+      width: auto;
+      width: 220px;
+      background: #26446c;
+      color: white;
+      border-radius: 4px;
+
+      i:first-child {
+        font-size: 2em;
+      }
+
+      &.last-button {
+        width: 47px;
+        i:first-child {
+          font-size: 1.2em;
+        }
+      }
+
+      & + button {
+        margin-left: em(15);
+      }
+    }
+  }
+}

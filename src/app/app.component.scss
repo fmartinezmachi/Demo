@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+::ng-deep {
+  app-nav-menu {
+    height: 100%;
+  }
+}

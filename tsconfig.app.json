@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "paths": {
+      "@mocks/*": ["app/core/mocks/*"],
+      "@sharedModels/*": ["app/shared/models/*"],
+      "@sharedServices/*": ["app/shared/services/*"],
+      "@coreEnums/*": ["app/core/enums/*"],
+      "@coreModels/*": ["app/core/models/*"],
+      "@coreServices/*": ["app/core/services/*"]
+    }
+  },
+  "files": ["src/main.ts", "src/polyfills.ts"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/test.ts", "src/**/*.spec.ts"]
+}

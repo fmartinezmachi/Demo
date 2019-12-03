@@ -1,0 +1,81 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
+.accordion {
+  @include box-shadow;
+  background-color: $white;
+  margin-bottom: em(45);
+
+  &__header {
+    align-items: center;
+    display: flex;
+    height: em(50);
+    background-color: $grey-light;
+    padding: 0;
+    padding-right: 30px;
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: em(13) em(20);
+
+    h3 {
+      color: $main;
+      font-family: $open-sans-light;
+      font-size: em(18);
+    }
+  }
+
+  &__filters {
+    display: inline-flex;
+    height: 100%;
+    margin-left: auto;
+
+    section {
+      margin-top: 10px;
+    }
+
+    section + section {
+      margin-left: 20px;
+    }
+
+    button {
+      &[type='submit'] {
+        color: $alternate-btn;
+        background-color: rgba($grey-icons, 0.7);
+        border-color: $grey-icons;
+        font-family: $open-sans-bold;
+        font-size: em(12);
+        height: em(28, 12);
+        margin-left: em(5, 12);
+        transition: 0.5s;
+
+        &:hover {
+          &:not(:disabled) {
+            background-color: rgba($grey-icons, 1);
+          }
+        }
+      }
+    }
+  }
+
+  &__body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.1s ease-out;
+
+    &--expanded {
+      max-height: em(800);
+      padding: em(20) em(20);
+      transition: max-height 0.15s ease-in;
+    }
+
+    main {
+      max-width: 100%;
+      overflow: auto;
+    }
+  }
+}
