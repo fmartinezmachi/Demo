@@ -1,0 +1,108 @@
+library "pipeline-globile@master"
+
+
+def pipelineParams
+
+if (params.OVERRIDE_JOB_PARAMETERS) {
+    pipelineParams = params
+} else {
+    pipelineParams = [
+        AGENT: 'docker-slave',
+        PROJECT_NAME: 'globilehub-front',
+        USE_AUTOMATIC_VERSION_GENERATION: true,
+        //Obtain the version of the package and the docker
+        VERSION_FILE: 'package.json',
+        DISTRIBUTION_BRANCHES: 'feat-pr-devops',
+
+        //Steps
+            //1. Verify options
+              //Automatically check the variables in Jenkins and show messages
+
+            //2. Checkout: Checkout the project and install submodules if needed
+            SKIP_UPDATE_SUBMODULES: true,
+                CMD_UPDATE_SUBMODULES: 'git submodule init && git submodule update',
+                //[DEPRECATED - OLD COMMAND UPDATE_SUBMODULES_COMMAND]
+                //UPDATE_SUBMODULES_COMMAND: 'git submodule init && git submodule update',
+
+            //3. Compile
+            SKIP_COMPILE: false,
+                //3.1 Install Dependencies
+                SKIP_INSTALL_DEPENDECIES: false,
+                    CMD_DEPENDENCIES: 'npm install',
+                    //[DEPRECATED - OLD COMMAND INSTALL_DEPENDENCIES_COMMAND]
+                    //INSTALL_DEPENDENCIES_COMMAND: "npm install && npm install npm-cli-login publish",
+
+                CMD_COMPILE: 'npm run build',
+                //[DEPRECATED - OLD COMMAND]
+                //COMPILE_COMMAND: "npm run build",
+
+            //4. Unit Test
+            SKIP_TEST: true,
+                CMD_TEST: 'npm run test-headless-coverage',
+
+            //5. Sonar test:
+            SKIP_SONAR: true,
+                CMD_SONAR: 'npm run sonar',
+
+            //6. Execute SAST Test
+            PERFORM_SAST: false,
+              //Don't change
+              PERFORM_KIUWAN_PATH: '/opt/tools/kiuwan/KiuwanLocalAnalyzer/bin',
+              //--
+                //-Paralell 1 Execute KIUWAN test
+                PERFORM_KIUWAN_ANALYSIS: false,
+
+            //7. DEPLOYDOCKER: Build Docker and push Registry
+            SKIP_DEPLOYDOCKER: false,
+              //Variables
+              DOCKER_BUILD_NAME: 'globilehub-front',
+
+              //Docker TAG, if not present it's used VERSION_FILE version with build number
+              //DOCKER_BUILD_TAG: '0.0.1',
+
+              //*DOCKER_BUILD_ARGS: Extra options to build a Docker 'docker build... $DOCKER_BUILD_ARGS'
+              //[Optional]DOCKER_BUILD_ARGS: ''
+
+                //Build with lastest tag too
+                SKIP_TAGLATEST: true,
+
+            //8. Distribute: Deploy Yaml file in kubernetes cluster
+            SKIP_DISTRIBUTE: false, //Distribute in kubernete cluster
+
+              //[OPTIONAL*]URLPUBLICDEPLOYMENT: 'www.serviceangular.blue4sky.com',
+                //Only available in master deployment, if its develop the URL is PROJECT_NAME.develop.blue4sky.com
+              //[OPTIONAL]IP_ADDRESS_AKS: '1.1.1.1',
+                //This option is disabled for now
+
+
+            //9. RELEASE: Luncha release pipeline with all the componetes
+            SKIP_RELEASE: true,
+
+              //Variables
+              RELEASE_JOB: '../demo-angular-example-release', //Name of the job release
+              LIBRARY_BRANCH: 'master',  // [OPTIONAL]
+              DEVOPS_FORCE_RELEASE: true,
+                CMD_RELEASE: 'npm version patch',
+
+                //9.1 Publish to maven: Publish in nexus
+                PUBLISH_TO_MAVEN: true,
+                    //Variables
+                    PUBLISH_EMAIL: 'globile@santander.com',
+                    PUBLISH_REPO_CREDENTIALS: 'demo-nexus-user',
+                      //secret in jenkins to access nexus URL
+                    PUBLISH_REPO_RELEASE_URL: 'https://nexus.devops.blue4sky.com/repository/npm-releases/',
+                    //The repo must finish with /
+
+            //10. Notifications: Send Notifications
+            SKIP_NOTIFICATIONS: true,
+                SKIP_NOTIFICATIONS_EMAIL: true,
+                  //[Optional]CMD_NOTIFICATIONS_EMAIL: '',
+                  //List emails with ,
+                  VAR_NOTIFICATIONS_EMAIL_LIST: '',
+
+            //10. CLEAN: Clean up Jenkins workspace
+            SKIP_CLEAN: true, //Clean up Jenkins workspace
+  ]
+}
+
+compileAngularApp pipelineParams
