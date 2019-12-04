@@ -8,6 +8,7 @@ import { CreateAppModalComponent } from './components/create-app-modal/create-ap
 import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -15,7 +16,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { ModalService } from './components/modal/modal.service';
 import { ReversePipe } from './pipes/reverse.pipe';
 
-const components = [AccordionComponent, CreateAppModalComponent, ModalComponent];
+const components = [AccordionComponent, CreateAppModalComponent, ModalComponent, StepperComponent];
 
 const exports = [
   AccordionComponent,
@@ -23,6 +24,7 @@ const exports = [
   ModalComponent,
   SafePipe,
   AngularSvgIconModule,
+  StepperComponent,
 ];
 
 @NgModule({
