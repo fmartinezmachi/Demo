@@ -10,13 +10,7 @@ import { DetailModule } from './detail/detail.module';
 import { HomeModule } from './home/home.module';
 
 // Modules
-const imports = [
-  BrowserModule,
-  CoreModule,
-  DetailModule,
-  HomeModule,
-  AppRoutingModule,
-];
+const imports = [BrowserModule, CoreModule, DetailModule, HomeModule, AppRoutingModule];
 
 @NgModule({
   declarations: [AppComponent],

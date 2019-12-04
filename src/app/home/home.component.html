@@ -8,4 +8,7 @@
     [navigationTypes]="navigationTypes"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
+  <form action="" [formGroup]="testInput">
+    <app-input-text [label]="'mylabel'" formControlName="test"></app-input-text>
+  </form>
 </section>

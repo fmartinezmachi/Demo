@@ -1,3 +1,4 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import { HomeService } from './home.service';
 import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
@@ -20,7 +21,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   navigationTypes: string[] = [];
   subscriptions = new Subscription();
 
-  constructor(private modalService: ModalService, private homeService: HomeService) {}
+  testInput: FormGroup;
+
+  constructor(private modalService: ModalService, private homeService: HomeService) {
+    this.testInput = new FormGroup({
+      test: new FormControl('Test value'),
+    });
+  }
 
   ngOnInit() {
     this.appDependencies$ = this.homeService.getApplicationDependencies();
