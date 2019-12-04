@@ -6,12 +6,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home.component';
-import { HomeFiltersComponent } from './home-filters/home-filters.component';
-import { HomeHeaderComponent } from './home-header/home-header.component';
 import { HomeService } from './home.service';
 
 @NgModule({
-  declarations: [HomeComponent, HomeFiltersComponent, HomeHeaderComponent],
+  declarations: [HomeComponent],
   imports: [CommonModule, HomeRoutingModule, HttpClientModule, SharedModule, ReactiveFormsModule],
   providers: [HomeService],
 })

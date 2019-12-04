@@ -3,7 +3,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { CreateAppModalComponent } from './create-app-modal.component';
 import { ModalComponent } from '../modal/modal.component';
-import { IconGroupComponent } from '../icon-group/icon-group.component';
 import { AccordionComponent } from '../accordion/accordion.component';
 
 describe('CreateAppModalComponent', () => {
@@ -13,12 +12,7 @@ describe('CreateAppModalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
-      declarations: [
-        AccordionComponent,
-        CreateAppModalComponent,
-        IconGroupComponent,
-        ModalComponent,
-      ],
+      declarations: [AccordionComponent, CreateAppModalComponent, ModalComponent],
     }).compileComponents();
   }));
 
