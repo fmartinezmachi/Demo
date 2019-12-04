@@ -9,6 +9,10 @@
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
   <form action="" [formGroup]="testInput">
-    <app-input-text [label]="'mylabel'" formControlName="test"></app-input-text>
+    <app-input-text
+      [label]="'mylabel'"
+      formControlName="test"
+      [placeholder]="'my placeholder'"
+    ></app-input-text>
   </form>
 </section>

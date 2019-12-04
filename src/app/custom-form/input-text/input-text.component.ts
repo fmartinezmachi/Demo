@@ -6,9 +6,15 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'app-input-text',
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputTextComponent),
+      multi: true,
+    },
+  ],
 })
-export class InputTextComponent extends InputComponent implements OnInit {
-  @Input() label: string;
+export class InputTextComponent extends InputComponent<any> implements OnInit {
   constructor() {
     super();
   }
