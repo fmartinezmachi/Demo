@@ -5,10 +5,10 @@
 button,
 .btn {
   background-color: $white;
-  border: 1px solid $main;
+  border: 1px solid $color-primary-santander;
   border-radius: 4px;
   font-family: $santander-hl-regular;
-  color: $main;
+  color: $color-primary-santander;
   cursor: pointer;
   font-size: em(16);
   height: em(49, 16);
@@ -17,14 +17,14 @@ button,
 
   &:hover {
     &:not(:disabled) {
-      background-color: rgba($main, 0.05);
+      background-color: rgba($color-primary-santander, 0.05);
     }
   }
 
   &:disabled {
     cursor: default;
-    background-color: $blue-disabled;
-    border-color: $blue-disabled;
+    background-color: $color-secondary-accessiblesky;
+    border-color: $color-secondary-accessiblesky;
   }
 
   &:focus {
