@@ -136,6 +136,10 @@ spec:
         backend:
           serviceName: APPNAME-service
           servicePort: 80
+      - path: /api/globileHub
+        backend:
+          serviceName: globilehub-backend-service
+          servicePort: 80
 ---
 
 apiVersion: extensions/v1beta1
