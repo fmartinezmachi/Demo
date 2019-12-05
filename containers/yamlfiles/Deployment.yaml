@@ -122,7 +122,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
     nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:
@@ -136,6 +136,32 @@ spec:
         backend:
           serviceName: APPNAME-service
           servicePort: 80
+      - path: /api/(.*)
+        backend:
+          serviceName: globilehub-backend-service
+          servicePort: 80
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: APPNAME-2-ingress
+  namespace: DEVTEAM-ns
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
+    nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  tls:
+  - hosts:
+    - PUBLICURLAPP
+    secretName: aks-ingress-tls
+  rules:
+  - host: PUBLICURLAPP
+    http:
+      paths:
       - path: /api/(.*)
         backend:
           serviceName: globilehub-backend-service
