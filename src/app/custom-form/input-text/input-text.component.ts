@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, ViewChild, ElementRef, Input } from '@angular/core';
 import { BaseInput } from '../BaseInput';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -15,11 +15,25 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class InputTextComponent extends BaseInput<any> implements OnInit {
+  @Input() showClearBtn? = false;
+  @ViewChild('inputRef', { static: false }) inputRef: ElementRef;
+
+  focused = false;
+
   constructor() {
     super();
   }
 
   ngOnInit() {}
 
-  resetValue = () => this.onInput(null);
+  focusElement = () => this.inputRef.nativeElement.focus();
+
+  onBlur = () => (this.focused = false);
+
+  onFocus = () => (this.focused = true);
+
+  resetValue = () => {
+    this.onInput(null);
+    this.focusElement();
+  };
 }
