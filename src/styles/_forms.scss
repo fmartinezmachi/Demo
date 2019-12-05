@@ -5,9 +5,9 @@ textarea,
 select {
   &:not([type='checkbox']):not([type='radio']) {
     background-color: $white;
-    border: 1px solid $blue-border;
+    border: 1px solid $color-primary-darksky;
     border-radius: 4px;
-    color: $grey-dark;
+    color: $color-primary-grey;
     font-family: $santander-hl-regular;
     font-size: em(20);
     height: em(40, 20);
@@ -16,8 +16,8 @@ select {
     width: em(321, 20);
 
     &.error {
-      border-color: $main;
-      color: $main;
+      border-color: $color-primary-santander;
+      color: $color-primary-santander;
     }
 
     &::placeholder {
@@ -27,13 +27,13 @@ select {
     &:focus {
       outline: none;
       outline-offset: 0;
-      border-color: $blue-light;
+      border-color: $color-primary-mediumsky;
     }
   }
 }
 
 label {
-  color: $blue-label;
+  color: $color-secondary-accessiblesky;
   display: block;
   font-family: $santander-hl-regular;
   font-size: em(21);
