@@ -9,6 +9,8 @@ import { ModalComponent } from './components/modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { CardComponent } from './card/card.component';
+import { ComponentCardComponent } from './component-card/component-card.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -25,10 +27,12 @@ const exports = [
   SafePipe,
   AngularSvgIconModule,
   StepperComponent,
+  CardComponent,
+  ComponentCardComponent,
 ];
 
 @NgModule({
-  declarations: [...components, SafePipe, ReversePipe],
+  declarations: [...components, SafePipe, ReversePipe, CardComponent, ComponentCardComponent],
   imports: [CommonModule, HttpClientModule, AngularSvgIconModule, ReactiveFormsModule],
   providers: [ModalService],
   exports,

@@ -1,0 +1,33 @@
+@import 'fonts';
+
+.component-card {
+  --gray: #444444;
+  --white: #ffffff;
+  --santander: #ec0000;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  background: var(--white);
+  .icons {
+    width: 40px;
+  }
+  .body {
+    margin-left: 17px;
+    flex: 1;
+    label.name {
+      font-family: $santander-tx-bold;
+      font-size: 24px;
+      color: var(--gray);
+    }
+    .description {
+      font-family: $santander-tx-light;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.43;
+      letter-spacing: normal;
+    }
+  }
+  &.active {
+    border: 1px var(--santander) solid;
+  }
+}
