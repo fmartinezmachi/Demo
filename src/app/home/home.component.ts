@@ -1,4 +1,4 @@
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomeService } from './home.service';
 import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private modalService: ModalService, private homeService: HomeService) {
     this.testInput = new FormGroup({
-      test: new FormControl('Test value'),
+      test: new FormControl('', Validators.required),
     });
   }
 
@@ -40,7 +40,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  showCreateModal = () => this.modalService.toggleVisibility();
+  showCreateModal = () => {
+    debugger;
+    this.modalService.toggleVisibility();
+  };
 
   submitCreateAppForm = (form: Project) => {
     this.subscriptions.add(
