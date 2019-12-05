@@ -122,7 +122,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/auth-signin: https://$host/oauth2/start?rd=$escaped_request_uri
     nginx.ingress.kubernetes.io/auth-url: https://$host/oauth2/auth
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -136,7 +136,7 @@ spec:
         backend:
           serviceName: APPNAME-service
           servicePort: 80
-      - path: /api/globileHub
+      - path: /api/(.*)
         backend:
           serviceName: globilehub-backend-service
           servicePort: 80
