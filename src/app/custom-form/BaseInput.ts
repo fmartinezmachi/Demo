@@ -1,7 +1,7 @@
 import { Input } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
-export class InputComponent<T> implements ControlValueAccessor {
+export class BaseInput<T> implements ControlValueAccessor {
   @Input() label? = '';
   @Input() placeholder? = '';
   @Input() error? = '';

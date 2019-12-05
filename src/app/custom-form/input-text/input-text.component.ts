@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef } from '@angular/core';
-import { InputComponent } from './../input/input.component';
+import { BaseInput } from '../BaseInput';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     },
   ],
 })
-export class InputTextComponent extends InputComponent<any> implements OnInit {
+export class InputTextComponent extends BaseInput<any> implements OnInit {
   constructor() {
     super();
   }
