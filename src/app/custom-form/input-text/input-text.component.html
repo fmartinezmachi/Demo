@@ -1,3 +1,8 @@
-<label for="">{{ label }}</label>
-<input type="text" [value]="value" (input)="onInput($event.target.value)" />
-<span>placeholder: {{ placeholder }}</span>
+<div class="input-group">
+  <span class="input-group__placeholder" *ngIf="placeholder">{{ placeholder }}</span>
+  <input type="text" [value]="value" (input)="onInput($event.target.value)" />
+  <span class="input-group__info" [ngClass]="{ input-group__info--error: error }">
+    {{ info || error }}
+  </span>
+  <button class="input-group__reset icon-FUNC031_EXP" (click)="resetValue()"></button>
+</div>

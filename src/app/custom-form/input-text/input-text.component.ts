@@ -20,4 +20,6 @@ export class InputTextComponent extends BaseInput<any> implements OnInit {
   }
 
   ngOnInit() {}
+
+  resetValue = () => this.onInput(null);
 }
