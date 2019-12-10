@@ -1,0 +1,26 @@
+<div class="input-group">
+  <span
+    class="input-group__placeholder"
+    [ngClass]="{ 'input-group__placeholder--up': value || focused }"
+    *ngIf="placeholder"
+    (click)="focusElement()"
+  >
+    {{ placeholder }}
+  </span>
+  <input
+    #inputRef
+    type="text"
+    [value]="value"
+    (blur)="onBlur()"
+    (focus)="onFocus()"
+    (input)="onInput($event.target.value)"
+  />
+  <span class="input-group__info" [ngClass]="{ 'input-group__info--error': error && !focused }">
+    {{ error && !focused ? error : info }}
+  </span>
+  <button
+    class="input-group__reset icon-SYS022_EXP"
+    *ngIf="value && showClearBtn"
+    (click)="resetValue()"
+  ></button>
+</div>
