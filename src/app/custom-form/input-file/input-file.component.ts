@@ -1,5 +1,4 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseInput } from '../BaseInput';
 import { acceptedImageTypes } from './input-file.consts';
