@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ComponentCardComponent } from './components/component-card/component-card.component';
+import { SelectableListComponent } from './components/selectable-list/selectable-list.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -27,10 +28,17 @@ const exports = [
   AngularSvgIconModule,
   StepperComponent,
   ComponentCardComponent,
+  SelectableListComponent,
 ];
 
 @NgModule({
-  declarations: [...components, SafePipe, ReversePipe, ComponentCardComponent],
+  declarations: [
+    ...components,
+    SafePipe,
+    ReversePipe,
+    ComponentCardComponent,
+    SelectableListComponent,
+  ],
   imports: [CommonModule, HttpClientModule, AngularSvgIconModule, ReactiveFormsModule],
   providers: [ModalService],
   exports,
