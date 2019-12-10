@@ -20,7 +20,7 @@ export class InputFileComponent extends BaseInput<any> implements OnInit {
   fileToUpload: File = null;
   fileLoaded: string = null;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor() {
     super();
   }
 
@@ -35,7 +35,7 @@ export class InputFileComponent extends BaseInput<any> implements OnInit {
     }
     this.fileToUpload = file;
     this.onInput(files);
-    this.fileLoaded = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
+    this.fileLoaded = URL.createObjectURL(file);
   };
 
   /**
