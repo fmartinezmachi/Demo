@@ -1,13 +1,22 @@
 @import 'fonts';
+@import 'icons';
+@import 'mixins';
 
 .component-card {
   --gray: #444444;
+  --light-gray: #cccccc;
   --white: #ffffff;
   --santander: #ec0000;
   display: flex;
   flex-direction: row;
   padding: 16px;
   background: var(--white);
+  width: 328px;
+  height: 168px;
+  border-radius: 5px;
+  border: 1px var(--white) solid;
+  box-shadow: 0 2px 4px 0 var(--light-gray);
+  position: relative;
   .icons {
     width: 40px;
   }
@@ -27,7 +36,19 @@
       letter-spacing: normal;
     }
   }
-  &.active {
+  &.active,
+  &:hover {
+    color: var(--santander);
     border: 1px var(--santander) solid;
+    box-shadow: none;
+    &::before {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      top: 16px;
+      right: 16px;
+      background-image: url('../../../assets/images/tick-in-a-circle.svg');
+      content: ' ';
+    }
   }
 }
