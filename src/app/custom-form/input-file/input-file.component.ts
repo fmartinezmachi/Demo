@@ -1,30 +1,49 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseInput } from '../BaseInput';
+import { acceptedImageTypes } from './input-file.consts';
 
 @Component({
   selector: 'app-input-file',
   templateUrl: './input-file.component.html',
   styleUrls: ['./input-file.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputFileComponent),
+      multi: true,
+    },
+  ],
 })
 export class InputFileComponent extends BaseInput<any> implements OnInit {
-  @ViewChild('labelImport', { static: false }) labelImport: ElementRef;
-
   fileToUpload: File = null;
+  fileLoaded: string = null;
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     super();
   }
 
   ngOnInit() {}
 
-  onFileChange(files: FileList) {
-    this.labelImport.nativeElement.innerText = Array.from(files)
-      .map(f => f.name)
-      .join(', ');
-    this.fileToUpload = files.item(0);
-  }
+  getPreviewImg = file => {};
 
-  import(): void {
-    console.log('import ' + this.fileToUpload.name);
-  }
+  onFileChange = (files: FileList) => {
+    const file = files.item(0);
+    if (!this.validateImage(file)) {
+      return false;
+    }
+    this.fileToUpload = file;
+    this.onInput(files);
+    this.fileLoaded = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
+  };
+
+  /**
+   * checks if file is image
+   * checks if file type is allowed
+   */
+  validateImage = file => {
+    const { type = {} } = file;
+    return file && type.split('/')[0] === 'image' && acceptedImageTypes.includes(type);
+  };
 }

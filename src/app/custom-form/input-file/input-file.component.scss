@@ -1,0 +1,58 @@
+@import 'variables';
+@import 'mixins';
+
+.input-file {
+  align-items: center;
+  background-color: #eff6f9;
+  border: 1px solid #ccd3d7;
+  border-radius: 100%;
+  color: $color-primary-santander;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: em(16);
+  font-weight: bold;
+  height: em(150);
+  justify-content: flex-end;
+  overflow: hidden;
+  padding-bottom: em(40);
+  position: relative;
+  width: em(150);
+
+  img {
+    margin-bottom: auto;
+    margin-top: em(25);
+    max-height: em(51);
+    max-width: em(54);
+  }
+
+  input[type='file'] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+  }
+
+  &--loaded {
+    &::before {
+      display: none;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: url('/assets/images/santander_ico4.svg');
+    height: em(51);
+    left: em(48);
+    top: em(25);
+    width: em(54);
+  }
+}

@@ -1,7 +1,12 @@
-<input
-  type="file"
-  class="custom-file-input"
-  multiple
-  id="importFile"
-  (change)="onFileChange($event.target.files)"
-/>
+<label [for]="name" class="input-file" [ngClass]="{ 'input-file--loaded': fileLoaded }">
+  <input
+    type="file"
+    [name]="name"
+    accept="image/*"
+    class="custom-file-input"
+    id="importFile"
+    (change)="onFileChange($event.target.files)"
+  />
+  <img [src]="fileLoaded" alt="" *ngIf="fileLoaded" />
+  {{ fileToUpload ? 'Change' : 'Upload an icon' }}
+</label>
