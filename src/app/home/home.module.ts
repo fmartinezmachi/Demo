@@ -7,10 +7,18 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home.component';
 import { HomeService } from './home.service';
+import { CustomFormModule } from '../custom-form/custom-form.module';
 
 @NgModule({
   declarations: [HomeComponent],
-  imports: [CommonModule, HomeRoutingModule, HttpClientModule, SharedModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    HttpClientModule,
+    SharedModule,
+    ReactiveFormsModule,
+    CustomFormModule,
+  ],
   providers: [HomeService],
 })
 export class HomeModule {}

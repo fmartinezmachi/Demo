@@ -8,4 +8,12 @@
     [navigationTypes]="navigationTypes"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
+  <form action="" [formGroup]="testInput">
+    <app-input-text
+      formControlName="test"
+      [label]="'mylabel'"
+      [placeholder]="'my placeholder'"
+    ></app-input-text>
+  </form>
+  {{ testInput.status }}
 </section>
