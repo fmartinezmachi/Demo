@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+
+.input-radio {
+  align-items: center;
+  color: $color-primary-grey;
+  cursor: pointer;
+  font-size: em(20);
+  display: flex;
+  position: relative;
+  max-height: em(32, 20);
+
+  input[type='radio'] {
+    position: absolute;
+    left: -4000px;
+  }
+
+  &:hover {
+    &:not(.input-radio--checked) {
+      &::after {
+        background: $color-primary-mediumgrey;
+        opacity: 0.2;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    border-radius: 100%;
+    display: block;
+    height: em(18, 20);
+    left: em(6.5, 20);
+    position: absolute;
+    top: em(6.5, 20);
+    width: em(18, 20);
+  }
+
+  &::before {
+    content: '';
+    border: 2px solid $color-primary-mediumgrey;
+    border-radius: 100%;
+    box-sizing: border-box;
+    display: block;
+    height: em(32, 20);
+    margin-right: em(8, 20);
+    width: em(32, 20);
+  }
+
+  &--checked {
+    &::before {
+      content: '';
+      border: 3px solid $color-primary-boston;
+    }
+
+    &::after {
+      background: $color-primary-boston;
+    }
+  }
+}
