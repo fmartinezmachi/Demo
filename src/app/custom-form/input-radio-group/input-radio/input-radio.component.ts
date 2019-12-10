@@ -1,21 +1,20 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { BaseInput } from '../BaseInput';
+import { BaseInput } from '../../BaseInput';
 
 @Component({
   selector: 'app-input-radio',
   templateUrl: './input-radio.component.html',
   styleUrls: ['./input-radio.component.scss'],
 })
-export class InputRadioComponent extends BaseInput<boolean> implements OnInit {
-  @Input() label? = '';
-  @Input() checked? = false;
+export class InputRadioComponent implements OnInit {
+  @Input() selected = false;
+  @Input() label = '';
+  @Input() value = '';
   @Output() radioClick = new EventEmitter<string>();
 
-  constructor() {
-    super();
-  }
+  constructor() {}
 
   ngOnInit() {}
 
-  updateChecked = () => this.radioClick.emit(this.label);
+  updateChecked = () => this.radioClick.emit(this.value);
 }

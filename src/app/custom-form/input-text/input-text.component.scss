@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'mixins';
+
+::ng-deep {
+  app-input-radio {
+    & + app-input-radio {
+      margin-left: em(40);
+    }
+  }
+}
