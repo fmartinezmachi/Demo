@@ -9,8 +9,13 @@ import { Project } from '@coreModels/project';
 export class ComponentCardComponent implements OnInit {
   @Input() component: Project;
   @Input() active: boolean = false;
+  technologyName: string = 'android';
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.component.projectTechnologies.length > 0) {
+      this.technologyName = this.component.projectTechnologies[0].technologyName.toLowerCase();
+    }
+  }
 }

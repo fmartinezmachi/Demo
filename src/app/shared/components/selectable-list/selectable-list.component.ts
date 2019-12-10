@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, Output, TemplateRef, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-selectable-list',
@@ -9,6 +9,9 @@ export class SelectableListComponent implements OnInit {
   @Input() items: any[] = [];
   @Input() multi: boolean = true;
   @Input() itemTpl: TemplateRef<any>;
+
+  @Output() changeSelection = new EventEmitter<boolean[]>();
+
   selected: boolean[] = [];
   lastSelected: number = -1;
 
@@ -32,5 +35,6 @@ export class SelectableListComponent implements OnInit {
 
   toggleSelection = (idx: number) => {
     this.multi ? this.toggleSectionMulti(idx) : this.toggleSelectionUnique(idx);
+    this.changeSelection.emit(this.selected);
   };
 }
