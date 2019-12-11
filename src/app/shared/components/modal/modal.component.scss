@@ -2,11 +2,11 @@
 @import 'mixins';
 
 .modal {
-  background-color: rgba($color: $color-secondary-accessiblesky, $alpha: 0.6);
+  background-color: rgba($color: $black, $alpha: 0.5);
   height: 100vh;
   left: 0;
   max-height: calc(100vh + #{em(40)});
-  padding-top: em(152);
+  padding-top: em(60);
   position: fixed;
   overflow: auto;
   top: 0;
@@ -17,21 +17,34 @@
     @include box-shadow;
     @include wrapper;
     background: $white;
-    border-radius: 4px;
-    padding: em(40) em(30);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: em(40) em(40);
     position: relative;
     z-index: 1001;
   }
 
   &__header {
     display: flex;
+    flex-direction: column;
+    position: relative;
+
+    h2 {
+      margin-left: em(35, 36);
+      margin-top: em(30, 36);
+    }
   }
 
   &__close-btn {
-    font-size: em(12);
-    height: em(27, 12);
-    margin-left: auto;
-    width: em(75, 12);
+    border: none;
+    display: flex;
+    font-size: em(40);
+    height: em(40, 40);
+    right: 0;
+    padding: 0;
+    position: absolute;
+    min-width: auto;
+    width: em(40, 40);
   }
 
   &__body {
