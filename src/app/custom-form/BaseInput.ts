@@ -2,6 +2,7 @@ import { Input } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 export class BaseInput<T> implements ControlValueAccessor {
+  @Input() name? = '';
   @Input() placeholder? = '';
   @Input() error? = '';
   @Input() info? = '';
