@@ -7,9 +7,9 @@ a {
 }
 html,
 body {
-  height: 100%;
+  background: $color-background-blue;
   font-family: 'Open Sans';
-  background: $color-primary-lightgrey;
+  height: 100%;
 }
 .wrapper {
   @include wrapper;
