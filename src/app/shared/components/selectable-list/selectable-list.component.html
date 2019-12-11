@@ -1,0 +1,6 @@
+<ng-container *ngFor="let item of items; let idx = index">
+  <div (click)="toggleSelection(idx)">
+    <ng-container *ngTemplateOutlet="itemTpl; context: { item: item, active: selected[idx] }">
+    </ng-container>
+  </div>
+</ng-container>

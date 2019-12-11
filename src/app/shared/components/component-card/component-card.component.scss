@@ -1,0 +1,92 @@
+@import 'fonts';
+@import 'icons';
+@import 'mixins';
+
+.component-card {
+  --gray: #444444;
+  --light-gray: #cccccc;
+  --white: #ffffff;
+  --santander: #ec0000;
+  --santander16: 236, 0, 0;
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  background: var(--white);
+  width: 328px;
+  height: 168px;
+  border-radius: 0 5px 5px 5px;
+  border: 1px var(--white) solid;
+  box-shadow: 0 2px 4px 0 var(--light-gray);
+  position: relative;
+  transition: all 0.3s ease;
+  &::before {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+    background-image: url('/tick-in-a-circle.svg');
+    content: ' ';
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    cursor: pointer;
+    border-color: rgba(var(--santander16), 0.5);
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+    border: 1px var(--light-gray) solid;
+    border-radius: 50%;
+    box-sizing: content-box;
+    &::before {
+      content: ' ';
+      display: inline-block;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+    }
+    &.android::before {
+      background: url('/icon_tech_android.svg') 10px 8px no-repeat;
+    }
+    &.angular::before {
+      background: url('/icon_tech_angular.svg') 9px 9px no-repeat;
+    }
+    &.apple::before {
+      background: url('/icon_tech_apple.svg') 10px 6px no-repeat;
+    }
+    &.java::before {
+      background: url('/icon_tech_java.svg') 10px 6px no-repeat;
+    }
+  }
+  .body {
+    margin-left: 19px;
+    flex: 1;
+    label.name {
+      font-family: $santander-tx-bold;
+      font-size: 24px;
+      color: var(--gray);
+      line-height: 1.4em;
+      width: 205px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .description {
+      font-family: $santander-tx-light;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.43;
+      letter-spacing: normal;
+    }
+  }
+  &.active {
+    color: var(--santander);
+    border: 1px var(--santander) solid;
+    box-shadow: none;
+    &:before {
+      opacity: 1;
+    }
+  }
+}

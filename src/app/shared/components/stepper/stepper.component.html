@@ -1,0 +1,6 @@
+<div class="stepper">
+  <div
+    *ngFor="let step of steps"
+    [ngClass]="{ step: true, 'step--active': step.active, 'step--complete': step.complete }"
+  ></div>
+</div>

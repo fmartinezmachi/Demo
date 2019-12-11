@@ -1,0 +1,9 @@
+<div [ngClass]="{ 'component-card': true, active: active }">
+  <div [ngClass]="'icon ' + technologyName"></div>
+  <div class="body">
+    <label class="name">{{ component.projectName }}</label>
+    <div class="description">
+      {{ component.projectDescription }}
+    </div>
+  </div>
+</div>
