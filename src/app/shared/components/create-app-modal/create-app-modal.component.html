@@ -2,24 +2,32 @@
   {{ title }}
 </ng-template>
 <ng-template #body>
-  <section class="steps">
-    <app-steps></app-steps>
-  </section>
+  <section class="steps"></section>
   <section [ngSwitch]="step" class="form__container">
-    <ng-container *ngSwitchCase="1">
+    <ng-container *ngSwitchCase="0">
       1
     </ng-container>
-    <ng-container *ngSwitchCase="2">
+    <ng-container *ngSwitchCase="1">
       2
     </ng-container>
-    <ng-container *ngSwitchCase="3">
+    <ng-container *ngSwitchCase="2">
       3
     </ng-container>
   </section>
 </ng-template>
 <ng-template #footer>
-  <button class="btn" (click)="goToPrevStep()" *ngIf="step > 1">Back</button>
-  <button class="btn btn--red" (click)="goToNextStep()" *ngIf="step < 3">Next</button>
+  <section [ngSwitch]="step">
+    <ng-container *ngSwitchCase="0">
+      <button class="btn btn--red" (click)="goToNextStep()">Next</button>
+    </ng-container>
+    <ng-container *ngSwitchCase="1">
+      <button class="btn" (click)="goToPrevStep()">Back</button>
+      <button class="btn btn--red" (click)="goToNextStep()">Next</button>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <button class="btn" (click)="goToPrevStep()">Back</button>
+    </ng-container>
+  </section>
 </ng-template>
 
 <app-modal [headerTemplate]="header" [bodyTemplate]="body" [footerTemplate]="footer"></app-modal>

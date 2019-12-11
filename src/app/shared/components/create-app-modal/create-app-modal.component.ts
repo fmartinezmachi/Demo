@@ -26,7 +26,7 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   @Output() submitClick = new EventEmitter<Project>();
 
   appForm: FormGroup;
-  step = 1;
+  step = 0;
   title = 'Create application';
 
   constructor(private formBuilder: FormBuilder) {}
