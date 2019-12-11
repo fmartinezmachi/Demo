@@ -6,31 +6,46 @@ button,
 .btn {
   background-color: $white;
   border: 1px solid $color-primary-santander;
-  border-radius: 4px;
+  border-radius: 100px;
   font-family: $santander-hl-regular;
   color: $color-primary-santander;
   cursor: pointer;
   font-size: em(16);
-  height: em(49, 16);
+  height: em(48, 16);
+  min-width: em(88, 16);
+  padding: 0 em(27);
   transition: 0.3s;
-  width: em(160, 16);
 
   &:hover {
     &:not(:disabled) {
+      color: $white;
+      background-color: $color-primary-santander;
     }
   }
 
   &:disabled {
     cursor: default;
-    background-color: $color-secondary-accessiblesky;
-    border-color: $color-secondary-accessiblesky;
+    color: $color-primary-mediumgrey;
+    border-color: $color-primary-lightgrey;
   }
 
   &:focus {
     outline: none;
   }
 
-  @include for-tablet-portrait-up {
-    width: em(200, 24);
+  &--red {
+    &:not(:disabled) {
+      color: $white;
+      background-color: $color-primary-santander;
+
+      &:hover {
+        color: $white;
+        background-color: $color-primary-ruby;
+      }
+    }
+  }
+
+  &--large {
+    width: em(200);
   }
 }

@@ -5,6 +5,14 @@
   @include main-container;
 
   &__container {
-    padding: em(28) em(30);
+    @include container-section;
+  }
+
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: em(40) 0 em(30);
   }
 }

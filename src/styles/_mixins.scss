@@ -104,10 +104,13 @@
 }
 
 @mixin main-container {
+  margin: 0 auto;
+  width: em(1128);
+}
+
+@mixin container-section {
   background-color: $white;
-  border-left: 1px solid $color-primary-lightgrey;
-  border-right: 1px solid $color-primary-lightgrey;
-  border-bottom: 1px solid $color-primary-lightgrey;
+  padding: em(36);
 }
 
 /* mixin for multiline */

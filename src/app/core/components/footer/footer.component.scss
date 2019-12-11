@@ -7,45 +7,11 @@
 }
 
 footer {
-  background-color: $color-secondary-accessiblesky;
-  height: em(70);
-  margin-top: em(35);
-  padding: 0 em(25);
-
-  section {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-
-    &.footer__wrapper {
-      @include wrapper;
-    }
-  }
-
+  padding: em(30) 0;
   p {
-    color: $white;
+    color: #595959;
     font-family: $open-sans;
-    font-size: em(10);
-    margin-bottom: em(5, 10);
-  }
-
-  @include for-tablet-portrait-up {
-    section {
-      align-items: center;
-      flex-direction: row;
-    }
-
-    p {
-      font-size: em(12);
-      margin-bottom: 0;
-    }
-
-    ::ng-deep {
-      app-footer-menu {
-        margin-left: auto;
-      }
-    }
+    font-size: em(12);
+    text-align: center;
   }
 }
