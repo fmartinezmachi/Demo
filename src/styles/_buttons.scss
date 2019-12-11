@@ -23,6 +23,10 @@ button,
     }
   }
 
+  &--large {
+    width: em(200);
+  }
+
   &:hover {
     &:not(:disabled) {
     }
