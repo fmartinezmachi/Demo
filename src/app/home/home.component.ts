@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   componentDependencies$: Observable<Project[]> = null;
   technologies$: Observable<Technology[]> = null;
   navigationTypes: string[] = [];
-  subscriptions = new Subscription();  
+  subscriptions = new Subscription();
 
   constructor(private modalService: ModalService, private homeService: HomeService) {}
 
@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   showCreateModal = () => {
-    debugger;
     this.modalService.toggleVisibility();
   };
 
