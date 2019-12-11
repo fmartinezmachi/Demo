@@ -1,0 +1,13 @@
+app-selectable-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  app-component-card {
+    margin-bottom: 29px;
+    margin-right: 24px;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}

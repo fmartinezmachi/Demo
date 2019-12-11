@@ -1,11 +1,20 @@
-import { Component, OnInit, Input, Output, TemplateRef, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  Input,
+  Output,
+  TemplateRef,
+  EventEmitter,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-selectable-list',
   templateUrl: './selectable-list.component.html',
   styleUrls: ['./selectable-list.component.scss'],
 })
-export class SelectableListComponent implements OnInit {
+export class SelectableListComponent implements OnInit, OnChanges {
   @Input() items: any[] = [];
   @Input() multi: boolean = true;
   @Input() itemTpl: TemplateRef<any>;
@@ -18,7 +27,11 @@ export class SelectableListComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.selected = Array(this.items.length).fill(false);
+    this.selected = this.items ? Array(this.items.length).fill(false) : [];
+  }
+
+  ngOnChanges() {
+    this.selected = this.items ? Array(this.items.length).fill(false) : [];
   }
 
   toggleSelectionUnique = (idx: number) => {

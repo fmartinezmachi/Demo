@@ -1,4 +1,4 @@
-<div [ngClass]="{ 'component-card': true, active: active }">
+<div [ngClass]="{ 'component-card': true, active: active }" (click)="onClickCard($event)">
   <div [ngClass]="'icon ' + technologyName"></div>
   <div class="body">
     <label class="name">{{ component.projectName }}</label>
