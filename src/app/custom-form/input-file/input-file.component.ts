@@ -26,9 +26,7 @@ export class InputFileComponent extends BaseInput<any> implements OnInit {
 
   ngOnInit() {}
 
-  getPreviewImg = file => {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
-  };
+  getPreviewImg = file => this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
 
   onFileChange = (files: FileList) => {
     const file = files.item(0);
