@@ -1,8 +1,12 @@
-<section class="modal" *ngIf="isVisible | async" (click)="closeModal($event)">
+<section class="modal" *ngIf="isVisible | async">
   <section class="modal__content">
     <section class="modal__header">
-      <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
-      <button class="btn btn--red modal__close-btn" (click)="closeModal()">Close</button>
+      <button class="modal__close-btn" (click)="closeModal()">
+        <span class="icon icon-SYS022_EXP"></span>
+      </button>
+      <h2>
+        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+      </h2>
     </section>
     <section class="modal__body">
       <ng-container *ngTemplateOutlet="bodyTemplate"></ng-container>

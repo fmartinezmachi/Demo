@@ -21,13 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   navigationTypes: string[] = [];
   subscriptions = new Subscription();
 
-  testInput: FormGroup;
-
-  constructor(private modalService: ModalService, private homeService: HomeService) {
-    this.testInput = new FormGroup({
-      test: new FormControl('', Validators.required),
-    });
-  }
+  constructor(private modalService: ModalService, private homeService: HomeService) {}
 
   ngOnInit() {
     this.appDependencies$ = this.homeService.getApplicationDependencies();
@@ -41,7 +35,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   showCreateModal = () => {
-    debugger;
     this.modalService.toggleVisibility();
   };
 

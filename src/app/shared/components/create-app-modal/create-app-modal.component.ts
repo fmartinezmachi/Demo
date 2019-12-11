@@ -25,8 +25,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
 
   @Output() submitClick = new EventEmitter<Project>();
 
-  title = 'Create application';
   appForm: FormGroup;
+  step = 0;
+  title = 'Create application';
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -98,6 +99,10 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       projectScopeId: 1,
     };
   }
+
+  goToNextStep = () => this.step++;
+
+  goToPrevStep = () => this.step--;
 
   resetForm = () => {
     this.appForm.reset();

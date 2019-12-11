@@ -1,19 +1,13 @@
 <section class="main">
-  <section class="main__container">
-    <button (click)="showCreateModal()">Create app</button>
+  <section class="main__header">
+    <h1>My Projects</h1>
+    <button class="btn btn--red btn--large" (click)="showCreateModal()">Create Application</button>
   </section>
+  <section class="main__container"></section>
   <app-create-app-modal
     [dependencies]="componentDependencies$ | async"
     [technologies]="technologies$ | async"
     [navigationTypes]="navigationTypes"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
-  <form action="" [formGroup]="testInput">
-    <app-input-text
-      formControlName="test"
-      [label]="'mylabel'"
-      [placeholder]="'my placeholder'"
-    ></app-input-text>
-  </form>
-  {{ testInput.status }}
 </section>
