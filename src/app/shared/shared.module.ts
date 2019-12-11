@@ -8,7 +8,6 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CreateAppModalComponent } from './components/create-app-modal/create-app-modal.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { StepsComponent } from './components/steps/steps.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -16,14 +15,13 @@ import { ReversePipe } from './pipes/reverse.pipe';
 
 import { ModalService } from './components/modal/modal.service';
 
-const components = [AccordionComponent, CreateAppModalComponent, ModalComponent, StepsComponent];
+const components = [AccordionComponent, CreateAppModalComponent, ModalComponent];
 
 const exports = [
   AccordionComponent,
   AngularSvgIconModule,
   CreateAppModalComponent,
   ModalComponent,
-  StepsComponent,
   SafePipe,
 ];
 
