@@ -1,0 +1,15 @@
+h1,
+h2 {
+  color: $color-primary-grey;
+  font-family: $santander-tx-regular;
+}
+h1,
+.title {
+  font-size: em(48);
+
+  font-weight: 300;
+}
+
+h2,
+.subtitle {
+}
