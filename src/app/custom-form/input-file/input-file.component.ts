@@ -1,5 +1,6 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { BaseInput } from '../BaseInput';
 import { acceptedImageTypes } from './input-file.consts';
 
@@ -17,15 +18,15 @@ import { acceptedImageTypes } from './input-file.consts';
 })
 export class InputFileComponent extends BaseInput<any> implements OnInit {
   fileToUpload: File = null;
-  fileLoaded: string = null;
+  fileLoaded: SafeResourceUrl = null;
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     super();
   }
 
   ngOnInit() {}
 
-  getPreviewImg = file => {};
+  getPreviewImg = file => this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
 
   onFileChange = (files: FileList) => {
     const file = files.item(0);
@@ -34,7 +35,7 @@ export class InputFileComponent extends BaseInput<any> implements OnInit {
     }
     this.fileToUpload = file;
     this.onInput(files);
-    this.fileLoaded = URL.createObjectURL(file);
+    this.fileLoaded = this.getPreviewImg(file);
   };
 
   /**
