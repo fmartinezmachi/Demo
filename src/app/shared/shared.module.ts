@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 // Components
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CreateAppModalComponent } from './components/create-app-modal/create-app-modal.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';

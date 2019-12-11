@@ -56,9 +56,11 @@ label {
   }
 }
 
-.form-group {
-  display: flex;
-  margin-bottom: em(15);
+.form {
+  &__container {
+    background-color: $color-background-blue;
+    padding: em(32) em(35);
+  }
 }
 
 .input-group {
