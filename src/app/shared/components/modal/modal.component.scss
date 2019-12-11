@@ -3,9 +3,8 @@
 
 .modal {
   background-color: rgba($color: $black, $alpha: 0.5);
-  height: 100vh;
   left: 0;
-  max-height: calc(100vh + #{em(40)});
+  height: 100vh;
   padding-top: em(60);
   position: fixed;
   overflow: auto;
@@ -19,6 +18,9 @@
     background: $white;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: em(40) em(40);
     position: relative;
     z-index: 1001;
@@ -30,7 +32,7 @@
     position: relative;
 
     h2 {
-      margin-left: em(35, 36);
+      padding-left: em(35, 36);
       margin-top: em(30, 36);
     }
   }
@@ -52,6 +54,8 @@
   }
 
   &__footer {
+    margin-top: auto;
+    padding-left: em(35);
     padding-top: em(20);
   }
 }
