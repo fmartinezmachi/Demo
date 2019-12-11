@@ -11,6 +11,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ComponentCardComponent } from './components/component-card/component-card.component';
 import { SelectableListComponent } from './components/selectable-list/selectable-list.component';
+import { InputSelectComponentComponent } from './components/input-select-component/input-select-component.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -29,6 +30,7 @@ const exports = [
   StepperComponent,
   ComponentCardComponent,
   SelectableListComponent,
+  InputSelectComponentComponent,
 ];
 
 @NgModule({
@@ -38,6 +40,7 @@ const exports = [
     ReversePipe,
     ComponentCardComponent,
     SelectableListComponent,
+    InputSelectComponentComponent,
   ],
   imports: [CommonModule, HttpClientModule, AngularSvgIconModule, ReactiveFormsModule],
   providers: [ModalService],

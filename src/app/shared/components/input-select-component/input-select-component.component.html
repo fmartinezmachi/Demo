@@ -1,0 +1,8 @@
+<ng-template #card let-item="item" let-active="active">
+  <app-component-card [component]="item" [active]="active"></app-component-card>
+</ng-template>
+<app-selectable-list
+  [items]="componentList"
+  [itemTpl]="card"
+  (changeSelection)="changeSelection($event)"
+></app-selectable-list>
