@@ -1,7 +1,25 @@
 <ng-template #header>
   {{ title }}
 </ng-template>
-<ng-template #body> </ng-template>
-<ng-template #footer></ng-template>
+<ng-template #body>
+  <section class="steps">
+    <app-steps></app-steps>
+  </section>
+  <section [ngSwitch]="step" class="form__container">
+    <ng-container *ngSwitchCase="1">
+      1
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      2
+    </ng-container>
+    <ng-container *ngSwitchCase="3">
+      3
+    </ng-container>
+  </section>
+</ng-template>
+<ng-template #footer>
+  <button class="btn" (click)="goToPrevStep()" *ngIf="step > 1">Back</button>
+  <button class="btn btn--red" (click)="goToNextStep()" *ngIf="step < 3">Next</button>
+</ng-template>
 
 <app-modal [headerTemplate]="header" [bodyTemplate]="body" [footerTemplate]="footer"></app-modal>
