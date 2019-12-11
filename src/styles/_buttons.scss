@@ -16,19 +16,10 @@ button,
   padding: 0 em(27);
   transition: 0.3s;
 
-  &--red {
+  &:hover {
     &:not(:disabled) {
       color: $white;
       background-color: $color-primary-santander;
-    }
-  }
-
-  &--large {
-    width: em(200);
-  }
-
-  &:hover {
-    &:not(:disabled) {
     }
   }
 
@@ -40,5 +31,21 @@ button,
 
   &:focus {
     outline: none;
+  }
+
+  &--red {
+    &:not(:disabled) {
+      color: $white;
+      background-color: $color-primary-santander;
+
+      &:hover {
+        color: $white;
+        background-color: $color-primary-ruby;
+      }
+    }
+  }
+
+  &--large {
+    width: em(200);
   }
 }

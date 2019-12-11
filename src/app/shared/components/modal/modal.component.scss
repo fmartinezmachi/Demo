@@ -47,6 +47,11 @@
     position: absolute;
     min-width: auto;
     width: em(40, 40);
+
+    &:hover {
+      background: transparent;
+      color: $color-primary-santander;
+    }
   }
 
   &__body {
