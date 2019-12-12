@@ -40,6 +40,7 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       urlImage: [''],
       projectTechnologies: new FormArray(this.technologiesFBArray),
       navigationType: [''],
+      projectDependencies: [''],
     });
   }
 

@@ -1,13 +1,16 @@
 app-selectable-list {
   display: flex;
-  flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
+  margin: auto;
+  justify-content: space-between;
+
   app-component-card {
+    flex: 31.5% 0 0;
     margin-bottom: 29px;
-    margin-right: 24px;
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
+  }
+  &::after {
+    content: '';
+    flex: 31.5% 0 0;
   }
 }

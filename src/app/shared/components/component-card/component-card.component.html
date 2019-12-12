@@ -1,9 +1,11 @@
-<div [ngClass]="{ 'component-card': true, active: active }" (click)="onClickCard($event)">
-  <div [ngClass]="'icon ' + technologyName"></div>
-  <div class="body">
-    <label class="name">{{ component.projectName }}</label>
-    <div class="description">
-      {{ component.projectDescription }}
+<ng-container *ngIf="component !== null">
+  <div [ngClass]="{ 'component-card': true, active: active }" (click)="onClickCard($event)">
+    <div [ngClass]="'icon ' + technologyName"></div>
+    <div class="body">
+      <label class="name">{{ component.projectName }}</label>
+      <div class="description">
+        {{ component.projectDescription }}
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

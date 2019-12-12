@@ -1,8 +1,10 @@
 <ng-template ngFor let-item [ngForOf]="items" let-idx="index">
-  <ng-container
-    *ngTemplateOutlet="
-      itemTpl;
-      context: { item: item, active: selected[idx], clickItem: toggleSelection, index: idx }
-    "
-  ></ng-container>
+  <ng-container *ngIf="item !== null">
+    <ng-container
+      *ngTemplateOutlet="
+        itemTpl;
+        context: { item: item, active: selected[idx], clickItem: toggleSelection, index: idx }
+      "
+    ></ng-container>
+  </ng-container>
 </ng-template>

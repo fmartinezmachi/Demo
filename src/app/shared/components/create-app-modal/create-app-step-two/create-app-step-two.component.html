@@ -1,0 +1,28 @@
+<div class="create_app_step_two" [formGroup]="formRef">
+  <section class="metadata">
+    <h2 class="title">Let's go to create the {{ platform }} APP</h2>
+    <dl>
+      <dt>Platform</dt>
+      <dd>iOS</dd>
+      <dt>App Name</dt>
+      <dd>iOS</dd>
+      <dt>Icon App</dt>
+      <dd>iOS</dd>
+      <dt>Bundle ID</dt>
+      <dd>iOS</dd>
+    </dl>
+  </section>
+
+  <section class="search_bar">
+    <h2 class="title">Select the functional components</h2>
+    <app-searcher [(query)]="query" (queryChange)="p1($event)"></app-searcher>
+  </section>
+
+  <section class="cards">
+    <h3>FUNCTIONAL ({{ count }})</h3>
+    <app-input-select-component
+      formControlName="projectDependencies"
+      [componentList]="filteredDependencies"
+    ></app-input-select-component>
+  </section>
+</div>

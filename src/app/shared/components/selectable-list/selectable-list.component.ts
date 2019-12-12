@@ -31,7 +31,9 @@ export class SelectableListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.selected = this.items ? Array(this.items.length).fill(false) : [];
+    if (this.selected.length == 0) {
+      this.selected = this.items ? Array(this.items.length).fill(false) : [];
+    }
   }
 
   toggleSelectionUnique = (idx: number) => {
