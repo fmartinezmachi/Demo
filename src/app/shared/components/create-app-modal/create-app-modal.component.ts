@@ -21,7 +21,7 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   @Input() dependencies: Project[] = null;
   @Input() images: string[] = null;
   @Input() navigationTypes: any = null;
-  @Input() technologies: Technology[] = null;
+  @Input() technologies: string[] = null;
 
   @Output() submitClick = new EventEmitter<Project>();
 
@@ -36,8 +36,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       projectName: ['', Validators.required],
       projectDescription: ['', Validators.required],
       projectTypeName: [ProjectType.Application], // value fixed, we are generating an app
-      id: ['', Validators.required],
+      bundleId: ['', Validators.required],
       urlImage: [''],
+      platform: ['', Validators.required],
       projectTechnologies: new FormArray(this.technologiesFBArray),
       navigationType: [''],
     });

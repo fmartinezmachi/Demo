@@ -4,15 +4,20 @@
 <ng-template #body>
   <section class="steps"></section>
   <section [ngSwitch]="step" class="form__container">
-    <ng-container *ngSwitchCase="0">
-      1
-    </ng-container>
-    <ng-container *ngSwitchCase="1">
-      2
-    </ng-container>
-    <ng-container *ngSwitchCase="2">
-      3
-    </ng-container>
+    <form action="" [formGroup]="appForm">
+      <ng-container *ngSwitchCase="0">
+        <app-create-app-step-one
+          [formRef]="appForm"
+          [technologies]="technologies"
+        ></app-create-app-step-one>
+      </ng-container>
+      <ng-container *ngSwitchCase="1">
+        2
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        3
+      </ng-container>
+    </form>
   </section>
 </ng-template>
 <ng-template #footer>
