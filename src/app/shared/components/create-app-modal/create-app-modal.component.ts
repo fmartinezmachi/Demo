@@ -60,8 +60,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   }
 
   get projectTechnologies() {
-    const { projectTechnologies } = this.appForm.value;
-    return this.technologies.filter((technology, index) => projectTechnologies[index]);
+    // const { projectTechnologies } = this.appForm.value;
+    // return this.technologies.filter((technology, index) => projectTechnologies[index]);
+    return [];
   }
 
   get technologiesFBArray() {
@@ -115,6 +116,6 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
 
   submitForm = () => {
     const formData = this.projectData;
-    // this.submitClick.emit(formData);
+    this.submitClick.emit(formData);
   };
 }
