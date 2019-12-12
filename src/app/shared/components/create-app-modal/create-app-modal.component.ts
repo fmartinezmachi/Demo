@@ -21,7 +21,7 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   @Input() dependencies: Project[] = null;
   @Input() images: string[] = null;
   @Input() navigationTypes: any = null;
-  @Input() technologies: Technology[] = null;
+  @Input() technologies: string[] = null;
 
   @Output() submitClick = new EventEmitter<Project>();
 
@@ -36,9 +36,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       projectName: ['', Validators.required],
       projectDescription: ['', Validators.required],
       projectTypeName: [ProjectType.Application], // value fixed, we are generating an app
-      id: ['', Validators.required],
+      projectIdentification: ['', Validators.required],
       urlImage: [''],
-      projectTechnologies: new FormArray(this.technologiesFBArray),
+      projectTechnology: ['', Validators.required],
       navigationType: [''],
       projectDependencies: [''],
     });
@@ -61,8 +61,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   }
 
   get projectTechnologies() {
-    const { projectTechnologies } = this.appForm.value;
-    return this.technologies.filter((technology, index) => projectTechnologies[index]);
+    // const { projectTechnologies } = this.appForm.value;
+    // return this.technologies.filter((technology, index) => projectTechnologies[index]);
+    return [];
   }
 
   get technologiesFBArray() {
@@ -99,6 +100,11 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       brandId: 1,
       projectScopeId: 1,
     };
+  }
+
+  get stepOneValid() {
+    const { controls } = this.appForm;
+    return controls.projectName.value !== '' && controls.projectTechnology.value !== '';
   }
 
   goToNextStep = () => this.step++;

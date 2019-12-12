@@ -33,10 +33,11 @@ export class CreateAppStepTwoComponent implements OnInit, OnChanges {
     const { dependencies } = changes;
     if (dependencies.currentValue && dependencies.currentValue.length > 0) {
       this.filteredDependencies = this.dependencies.map(x => x);
+      this.count = this.filteredDependencies.filter(x => x !== null).length;
     }
   }
 
-  p1 = query => {
+  onQueryChange = query => {
     this.filteredDependencies = this.dependencies.map(x =>
       x.projectName.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1 ? x : null,
     );

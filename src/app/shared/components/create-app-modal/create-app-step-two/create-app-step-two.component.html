@@ -15,7 +15,7 @@
 
   <section class="search_bar">
     <h2 class="title">Select the functional components</h2>
-    <app-searcher [(query)]="query" (queryChange)="p1($event)"></app-searcher>
+    <app-searcher [(query)]="query" (queryChange)="onQueryChange($event)"></app-searcher>
   </section>
 
   <section class="cards">
