@@ -21,7 +21,7 @@
     height: 24px;
     top: 16px;
     right: 16px;
-    background-image: url('/tick-in-a-circle.svg');
+    background-image: url('/assets/images/tick-in-a-circle.svg');
     content: ' ';
     opacity: 0;
     transition: all 0.3s ease;
@@ -45,16 +45,16 @@
       background-repeat: no-repeat;
     }
     &.android::before {
-      background: url('/icon_tech_android.svg') 10px 8px no-repeat;
+      background: url('/assets/images/icon_tech_android.svg') 10px 8px no-repeat;
     }
     &.angular::before {
-      background: url('/icon_tech_angular.svg') 9px 9px no-repeat;
+      background: url('/assets/images/icon_tech_angular.svg') 9px 9px no-repeat;
     }
     &.apple::before {
-      background: url('/icon_tech_apple.svg') 10px 6px no-repeat;
+      background: url('/assets/images/icon_tech_apple.svg') 10px 6px no-repeat;
     }
     &.java::before {
-      background: url('/icon_tech_java.svg') 10px 6px no-repeat;
+      background: url('/assets/images/icon_tech_java.svg') 10px 6px no-repeat;
     }
   }
   .body {
