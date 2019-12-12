@@ -20,6 +20,7 @@ import { SafePipe } from './pipes/safe.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
 
 import { ModalService } from './components/modal/modal.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const components = [
   AccordionComponent,
@@ -27,6 +28,7 @@ const components = [
   CreateAppStepOneComponent,
   ComponentCardComponent,
   InputSelectComponentComponent,
+  LoaderComponent,
   ModalComponent,
   SelectableListComponent,
   StepperComponent,
@@ -34,15 +36,15 @@ const components = [
 
 const exports = [
   AccordionComponent,
-  AngularSvgIconModule,
-  CreateAppModalComponent,
-  ModalComponent,
-  SafePipe,
-  AngularSvgIconModule,
-  StepperComponent,
   ComponentCardComponent,
-  SelectableListComponent,
+  CreateAppModalComponent,
   InputSelectComponentComponent,
+  ModalComponent,
+  StepperComponent,
+  SelectableListComponent,
+  LoaderComponent,
+  AngularSvgIconModule,
+  SafePipe,
 ];
 
 @NgModule({
