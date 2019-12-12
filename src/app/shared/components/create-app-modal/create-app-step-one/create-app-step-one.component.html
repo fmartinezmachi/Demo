@@ -4,10 +4,10 @@
       <label for="">Select the platform/s for you application</label>
       <app-input-radio-group
         [radioList]="technologies"
-        formControlName="platform"
+        formControlName="projectTechnology"
       ></app-input-radio-group>
     </div>
-    <div class="form__group">
+    <div class="form__group" *ngIf="form.projectTechnology.value">
       <label for="">Identify it to find it easily</label>
       <app-input-text
         formControlName="projectName"
@@ -15,9 +15,12 @@
         [info]="'The app will be shown with this name in the store'"
       ></app-input-text>
     </div>
-    <div class="form__group">
+    <div class="form__group" *ngIf="form.projectTechnology.value === 'iOS'">
       <label for="">Identification iOS app:</label>
-      <app-input-text formControlName="bundleId" [placeholder]="'Bundle ID'"></app-input-text>
+      <app-input-text
+        formControlName="projectIdentification"
+        [placeholder]="'Bundle ID'"
+      ></app-input-text>
     </div>
   </div>
   <div class="step-one__right">

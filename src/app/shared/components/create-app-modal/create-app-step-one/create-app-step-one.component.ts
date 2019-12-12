@@ -13,4 +13,8 @@ export class CreateAppStepOneComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  get form() {
+    return this.formRef.controls;
+  }
 }
