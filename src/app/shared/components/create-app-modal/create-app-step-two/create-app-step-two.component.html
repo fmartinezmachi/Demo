@@ -1,15 +1,17 @@
 <div class="create_app_step_two" [formGroup]="formRef">
   <section class="metadata">
-    <h2 class="title">Let's go to create the {{ platform }} APP</h2>
+    <h2 class="title">Let's go to create the {{ formRef.get('projectTechnology').value }} APP</h2>
     <dl>
       <dt>Platform</dt>
-      <dd>iOS</dd>
+      <dd>{{ formRef.get('projectTechnology').value }}</dd>
       <dt>App Name</dt>
-      <dd>iOS</dd>
+      <dd>{{ formRef.get('projectName').value }}</dd>
       <dt>Icon App</dt>
-      <dd>iOS</dd>
-      <dt>Bundle ID</dt>
-      <dd>iOS</dd>
+      <dd>---</dd>
+      <ng-container *ngIf="formRef.get('projectTechnology').value == 'iOS'">
+        <dt>Bundle ID</dt>
+        <dd>{{ formRef.get('projectIdentification').value }}</dd>
+      </ng-container>
     </dl>
   </section>
 
