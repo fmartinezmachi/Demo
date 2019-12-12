@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild(CreateAppModalComponent, { static: false }) modalRef: CreateAppModalComponent;
   appDependencies$: Observable<Project[]> = null;
   componentDependencies$: Observable<Project[]> = null;
-  technologies$: Observable<Technology[]> = null;
+  technologies$: Observable<string[]> = null;
   navigationTypes: string[] = [];
   subscriptions = new Subscription();
 

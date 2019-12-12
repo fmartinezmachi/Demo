@@ -39,7 +39,7 @@ export class HomeService {
     );
   }
 
-  getTechnologies(): Observable<Technology[]> {
+  getTechnologies(): Observable<string[]> {
     const { technologiesApi } = environment;
     return this.apiService.get(technologiesApi);
   }
