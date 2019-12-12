@@ -1,4 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
 :host {
   display: flex;
   align-items: flex-start;
+}
+
+::ng-deep {
+  app-input-radio {
+    & + app-input-radio {
+      margin-left: em(40);
+    }
+  }
 }

@@ -17,6 +17,7 @@
   overflow: hidden;
   padding-bottom: em(40);
   position: relative;
+  transition: 0.3s;
   width: em(150);
 
   img {
@@ -46,10 +47,14 @@
     }
   }
 
+  &:hover {
+    color: $color-primary-ruby;
+  }
+
   &::before {
     content: '';
     position: absolute;
-    background: url('/assets/images/santander_ico4.svg');
+    background: url('/santander_ico4.svg');
     height: em(51);
     left: em(48);
     top: em(25);

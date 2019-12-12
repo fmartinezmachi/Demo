@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'mixins';
+
+.step-one {
+  display: flex;
+  flex-direction: row;
+
+  &__left {
+    flex-basis: 45%;
+  }
+  &__right {
+    flex-basis: 55%;
+    padding-top: em(48);
+  }
+}

@@ -4,7 +4,6 @@ input,
 textarea,
 select {
   &:not([type='checkbox']):not([type='radio']) {
-    background-color: rgba($color: $color-primary-sky, $alpha: 0.3);
     border: 1px solid rgba($color: $color-primary-darksky, $alpha: 0.5);
     border-bottom: 1px solid $color-secondary-accessiblesky;
     border-radius: 3px 3px 0 0;
@@ -39,11 +38,11 @@ select {
 }
 
 label {
-  color: $color-secondary-accessiblesky;
+  color: $color-primary-grey;
   display: block;
-  font-family: $santander-hl-regular;
-  font-size: em(21);
-  line-height: em(35, 21);
+  font-family: $santander-tx-regular;
+  font-size: em(24);
+  margin-bottom: em(24, 24);
 }
 
 .image-sample {
@@ -60,6 +59,10 @@ label {
   &__container {
     background-color: $color-background-blue;
     padding: em(32) em(35);
+  }
+
+  &__group {
+    margin-bottom: em(30);
   }
 }
 

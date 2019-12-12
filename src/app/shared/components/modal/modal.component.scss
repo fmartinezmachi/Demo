@@ -46,11 +46,12 @@
     padding: 0;
     position: absolute;
     min-width: auto;
+    transition: 0.3s;
     width: em(40, 40);
 
     &:hover {
       background: transparent;
-      color: $color-primary-santander;
+      color: $color-primary-ruby;
     }
   }
 

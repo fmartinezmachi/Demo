@@ -4,21 +4,26 @@
 <ng-template #body>
   <section class="steps"></section>
   <section [ngSwitch]="step" class="form__container">
-    <ng-container *ngSwitchCase="0">
-      1
-    </ng-container>
-    <ng-container *ngSwitchCase="1">
-      2
-    </ng-container>
-    <ng-container *ngSwitchCase="2">
-      3
-    </ng-container>
+    <form action="" [formGroup]="appForm">
+      <ng-container *ngSwitchCase="0">
+        <app-create-app-step-one
+          [formRef]="appForm"
+          [technologies]="technologies"
+        ></app-create-app-step-one>
+      </ng-container>
+      <ng-container *ngSwitchCase="1">
+        2
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        3
+      </ng-container>
+    </form>
   </section>
 </ng-template>
 <ng-template #footer>
   <section [ngSwitch]="step">
     <ng-container *ngSwitchCase="0">
-      <button class="btn btn--red" (click)="goToNextStep()">Next</button>
+      <button class="btn btn--red" (click)="goToNextStep()" [disabled]="!stepOneValid">Next</button>
     </ng-container>
     <ng-container *ngSwitchCase="1">
       <button class="btn" (click)="goToPrevStep()">Back</button>
