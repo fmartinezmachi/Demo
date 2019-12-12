@@ -383,16 +383,7 @@ function getTechnologies() {
   return of(
     new HttpResponse({
       status: 200,
-      body: [
-        {
-          technologyId: 1,
-          technologyName: 'Android',
-        },
-        {
-          technologyId: 2,
-          technologyName: 'Ios',
-        },
-      ],
+      body: ['Android', 'iOS', 'Angular'],
     }),
   );
 }
