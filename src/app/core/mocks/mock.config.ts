@@ -6,8 +6,8 @@ export default {
     'http://localhost:4200/technologies': {
       handler: getTechnologies,
     },
-    'http://localhost:4200/images': {
-      handler: getImages,
+    'http://localhost:4200/projects': {
+      handler: getAppDependencies,
     },
   },
 };
@@ -366,15 +366,6 @@ function getAppDependencies() {
       ].filter(dependency => {
         return dependency.projectTypeId === 2;
       }),
-    }),
-  );
-}
-
-function getImages() {
-  return of(
-    new HttpResponse({
-      status: 200,
-      body: ['ICO red', 'ICO black', 'ICO small', 'ICO big'],
     }),
   );
 }

@@ -44,11 +44,6 @@ export class HomeService {
     return this.apiService.get(technologiesApi);
   }
 
-  getImages(): Observable<string[]> {
-    const { imagesApi } = environment;
-    return this.apiService.get(imagesApi);
-  }
-
   get navigationTypes(): any[] {
     return Object.keys(NavigationTypes).map(navType => ({
       type: navType,
