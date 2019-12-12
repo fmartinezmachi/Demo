@@ -2,20 +2,17 @@
 @import 'mixins';
 header {
   align-items: center;
-  background-image: url('/assets/images/header.png');
-  border-bottom: 1px solid $color-primary-santander;
+  background-color: $color-primary-santander;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
   display: flex;
-  height: em(74);
-  object-fit: contain;
   padding: 0 em(25);
 
   img {
-    height: em(38);
-    width: em(295);
+    height: em(68);
   }
 
   .header__wrapper {
-    @include wrapper;
+    @include main-container;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -24,6 +21,6 @@ header {
   }
 
   @include for-tablet-portrait-up {
-    height: em(112);
+    height: em(72);
   }
 }
