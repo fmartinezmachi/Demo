@@ -23,7 +23,7 @@
 <ng-template #footer>
   <section [ngSwitch]="step">
     <ng-container *ngSwitchCase="0">
-      <button class="btn btn--red" (click)="goToNextStep()">Next</button>
+      <button class="btn btn--red" (click)="goToNextStep()" [disabled]="!stepOneValid">Next</button>
     </ng-container>
     <ng-container *ngSwitchCase="1">
       <button class="btn" (click)="goToPrevStep()">Back</button>

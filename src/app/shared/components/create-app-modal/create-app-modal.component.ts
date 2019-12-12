@@ -36,10 +36,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       projectName: ['', Validators.required],
       projectDescription: ['', Validators.required],
       projectTypeName: [ProjectType.Application], // value fixed, we are generating an app
-      bundleId: ['', Validators.required],
+      projectIdentification: ['', Validators.required],
       urlImage: [''],
-      platform: ['', Validators.required],
-      projectTechnologies: new FormArray(this.technologiesFBArray),
+      projectTechnology: ['', Validators.required],
       navigationType: [''],
     });
   }
@@ -101,6 +100,11 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
     };
   }
 
+  get stepOneValid() {
+    const { controls } = this.appForm;
+    return controls.projectName.value !== '' && controls.projectTechnology.value !== '';
+  }
+
   goToNextStep = () => this.step++;
 
   goToPrevStep = () => this.step--;
@@ -111,6 +115,6 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
 
   submitForm = () => {
     const formData = this.projectData;
-    this.submitClick.emit(formData);
+    // this.submitClick.emit(formData);
   };
 }
