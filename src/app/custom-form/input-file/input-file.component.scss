@@ -17,6 +17,7 @@
   overflow: hidden;
   padding-bottom: em(40);
   position: relative;
+  transition: 0.3s;
   width: em(150);
 
   img {
@@ -44,6 +45,10 @@
     &::before {
       display: none;
     }
+  }
+
+  &:hover {
+    color: $color-primary-ruby;
   }
 
   &::before {
