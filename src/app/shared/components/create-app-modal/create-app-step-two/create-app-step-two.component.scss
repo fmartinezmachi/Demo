@@ -54,12 +54,21 @@
       font-size: 16px;
       color: $color-primary-grey;
       flex: 1;
+      &.icon {
+        text-align: center;
+      }
     }
     dd {
       font-family: $santander-tx-light;
       font-size: 16px;
       color: $color-primary-grey;
       flex: 1;
+      &.icon {
+        text-align: center;
+        img {
+          height: 24px;
+        }
+      }
     }
   }
 }
