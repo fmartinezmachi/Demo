@@ -40,6 +40,7 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
       urlImage: [''],
       projectTechnology: ['', Validators.required],
       navigationType: [''],
+      projectDependencies: [''],
     });
   }
 
@@ -49,9 +50,9 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
    */
   ngOnChanges(changes: SimpleChanges): void {
     const { dependencies } = changes;
-    if (dependencies.currentValue && dependencies.currentValue.length > 0) {
+    /*if (dependencies.currentValue && dependencies.currentValue.length > 0) {
       this.appForm.addControl('projectDependencies', new FormArray(this.dependenciesArray));
-    }
+    }*/
   }
 
   get projectDependencies() {

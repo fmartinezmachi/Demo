@@ -1,0 +1,30 @@
+<div class="create_app_step_two" [formGroup]="formRef">
+  <section class="metadata">
+    <h2 class="title">Let's go to create the {{ formRef.get('projectTechnology').value }} APP</h2>
+    <dl>
+      <dt>Platform</dt>
+      <dd>{{ formRef.get('projectTechnology').value }}</dd>
+      <dt>App Name</dt>
+      <dd>{{ formRef.get('projectName').value }}</dd>
+      <dt>Icon App</dt>
+      <dd>---</dd>
+      <ng-container *ngIf="formRef.get('projectTechnology').value == 'iOS'">
+        <dt>Bundle ID</dt>
+        <dd>{{ formRef.get('projectIdentification').value }}</dd>
+      </ng-container>
+    </dl>
+  </section>
+
+  <section class="search_bar">
+    <h2 class="title">Select the functional components</h2>
+    <app-searcher [(query)]="query" (queryChange)="onQueryChange($event)"></app-searcher>
+  </section>
+
+  <section class="cards">
+    <h3>FUNCTIONAL ({{ count }})</h3>
+    <app-input-select-component
+      formControlName="projectDependencies"
+      [componentList]="filteredDependencies"
+    ></app-input-select-component>
+  </section>
+</div>

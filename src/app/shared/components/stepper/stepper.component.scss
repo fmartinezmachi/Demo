@@ -1,27 +1,44 @@
+@import 'variables';
+@import 'mixins';
+@import 'fonts';
+
 .stepper {
-  --light-gray: #cccccc;
-  --ruby: #990000;
-  --santander: #ec0000;
   display: flex;
-  flex-direction: row;
-  .step {
-    width: 246px;
-    height: 8px;
-    background-color: var(--light-gray);
-    margin-left: 8px;
-    &:first-child {
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-    }
-    &:last-child {
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-    }
-    &--complete {
-      background-color: red;
-    }
-    &--active {
-      background-color: var(--ruby);
+  flex-direction: column;
+  label {
+    text-align: center;
+    font-family: $santander-tx-regular;
+    font-size: em(20);
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4;
+    letter-spacing: normal;
+  }
+  .steps {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .step {
+      width: 246px;
+      height: 8px;
+      background-color: $color-primary-lightgrey;
+      margin-left: 8px;
+      transition: all 3s ease;
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      &:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      &--complete {
+        background-color: $color-primary-santander;
+      }
+      &--active {
+        background-color: $color-primary-ruby;
+      }
     }
   }
 }
