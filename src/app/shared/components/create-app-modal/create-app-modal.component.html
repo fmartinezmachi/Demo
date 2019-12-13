@@ -2,7 +2,13 @@
   {{ title }}
 </ng-template>
 <ng-template #body>
-  <section class="steps"></section>
+  <section class="steps">
+    <app-stepper
+      [titles]="['Definition', 'Component Platform Selection', '3']"
+      [steps]="3"
+      [current]="step"
+    ></app-stepper>
+  </section>
   <section [ngSwitch]="step" class="form__container">
     <form action="" [formGroup]="appForm">
       <ng-container *ngSwitchCase="0">
@@ -12,7 +18,10 @@
         ></app-create-app-step-one>
       </ng-container>
       <ng-container *ngSwitchCase="1">
-        2
+        <app-create-app-step-two
+          [formRef]="appForm"
+          [dependencies]="dependencies"
+        ></app-create-app-step-two>
       </ng-container>
       <ng-container *ngSwitchCase="2">
         3

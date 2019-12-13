@@ -363,9 +363,10 @@ function getAppDependencies() {
           projectProperties: [],
           projectDependencies: [],
         },
-      ].filter(dependency => {
-        return dependency.projectTypeId === 2;
-      }),
+      ].map(x => ({ ...x, projectTypeName: 'Component' })),
+      // .filter(dependency => {
+      //   return dependency.projectTypeId === 2;
+      // }),
     }),
   );
 }
