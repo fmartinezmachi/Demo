@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InputRadioGroupComponent } from './input-radio-group.component';
+import { InputRadioComponent } from './input-radio/input-radio.component';
 
 describe('InputRadioGroupComponent', () => {
   let component: InputRadioGroupComponent;
@@ -8,9 +9,8 @@ describe('InputRadioGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputRadioGroupComponent ]
-    })
-    .compileComponents();
+      declarations: [InputRadioGroupComponent, InputRadioComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
