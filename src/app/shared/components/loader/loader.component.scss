@@ -1,6 +1,6 @@
 @import 'variables';
 @import 'mixins';
-
+$progress-bar-border: #bababa;
 .loader {
   margin: 0 auto;
   max-width: em(600);
@@ -12,10 +12,11 @@
 
   &__progress-bar {
     background-image: linear-gradient(to left, #f7f7f7, #d8d8d8);
-    border: solid 1px #bababa;
+    border: solid 1px $color-primary-grey;
     border-radius: em(16);
     height: em(16);
     object-fit: contain;
+    position: relative;
     margin-bottom: em(15);
     width: 100%;
 
@@ -23,6 +24,64 @@
       background-image: linear-gradient(to right, $color-primary-boston, #ff0000 96%);
       border-radius: em(16);
       height: 100%;
+    }
+  }
+
+  &__steps {
+    display: block;
+    height: em(24);
+    position: relative;
+    margin-bottom: 1px;
+    width: 100%;
+
+    .step {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-end;
+      min-width: em(16);
+      position: absolute;
+
+      &--one {
+        left: calc(25% - #{em(8)});
+      }
+
+      &--two {
+        left: calc(50% - #{em(8)});
+      }
+
+      &--three {
+        left: calc(75% - #{em(8)});
+      }
+
+      &--done {
+        &:before {
+          transform: scale(16, 16);
+        }
+      }
+
+      &:before {
+        content: '';
+        background-image: url('/assets/images/tick-in-a-circle.svg');
+        background-size: contain;
+        display: block;
+        height: em(1);
+        object-fit: contain;
+        margin-bottom: em(6);
+        transition: all 0.2s ease-in-out;
+        width: em(1);
+      }
+
+      &:after {
+        content: '';
+        background-color: $progress-bar-border;
+        border-top-right-radius: 100%;
+        border-top-left-radius: 100%;
+        display: block;
+        height: em(3);
+        width: em(2);
+      }
     }
   }
 

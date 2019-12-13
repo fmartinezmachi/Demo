@@ -2,6 +2,11 @@
   <div class="loader__icon"><img src="assets/images/loader.svg" alt="Loading - Please wait" /></div>
   <div class="loader__bar">
     <div class="loader__checkpoints"></div>
+    <div class="loader__steps">
+      <div class="step step--one" [ngClass]="{ 'step--done': percentage > 25 }"></div>
+      <div class="step step--two" [ngClass]="{ 'step--done': percentage > 50 }"></div>
+      <div class="step step--three" [ngClass]="{ 'step--done': percentage > 75 }"></div>
+    </div>
     <div class="loader__progress-bar">
       <div class="progress" [ngStyle]="{ width: percentage + '%' }"></div>
     </div>
@@ -9,4 +14,5 @@
   <p>{{ percentage }}% Covering code</p>
   <p>Just a moment, please...</p>
   <button>View console code</button>
+  <div class="loader__code-info"></div>
 </section>
