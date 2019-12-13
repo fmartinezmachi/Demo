@@ -7,6 +7,7 @@ import { CustomFormModule } from '../custom-form/custom-form.module';
 
 // Components
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { CardComponent } from './components/card/card.component';
 import { CreateAppModalComponent } from './components/create-app-modal/create-app-modal.component';
 import { CreateAppStepOneComponent } from './components/create-app-modal/create-app-step-one/create-app-step-one.component';
 import { ComponentCardComponent } from './components/component-card/component-card.component';
@@ -26,6 +27,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 
 const components = [
   AccordionComponent,
+  CardComponent,
   CreateAppModalComponent,
   ModalComponent,
   StepperComponent,
@@ -45,6 +47,7 @@ const components = [
 const exports = [
   AccordionComponent,
   ComponentCardComponent,
+  CardComponent,
   CreateAppModalComponent,
   CreateAppStepTwoComponent,
   InputSelectComponentComponent,
