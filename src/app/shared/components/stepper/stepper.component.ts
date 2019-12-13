@@ -25,9 +25,10 @@ export class StepperComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const { current: { currentValue: current = this.current } = {} } = changes;
     this.current = current;
-    this.state = this.state.map((x, idx) => ({
-      active: idx === this.current,
-      complete: idx < this.current,
-    }));
+    console.log(this.state);
+    this.state.forEach((x, idx) => {
+      x.active = idx === this.current;
+      x.complete = idx < this.current;
+    });
   }
 }
