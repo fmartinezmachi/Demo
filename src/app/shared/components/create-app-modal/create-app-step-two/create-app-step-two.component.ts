@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Project } from '@coreModels/project';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-app-step-two',
@@ -13,17 +14,24 @@ export class CreateAppStepTwoComponent implements OnInit, OnChanges {
 
   query: string = '';
   count: number = 0;
+  icon: SafeResourceUrl = null;
   filteredDependencies = this.dependencies;
   testInput: FormGroup;
 
-  constructor() {
+  constructor(private sanitizer: DomSanitizer) {
     this.testInput = new FormGroup({
       test: new FormControl('', Validators.required),
       prueba: new FormControl('', Validators.required),
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const files = this.formRef.controls.urlImage.value;
+    if (files instanceof FileList) {
+      const file = files.item(0);
+      this.icon = this.sanitizer.bypassSecurityTrustResourceUrl(URL.createObjectURL(file));
+    }
+  }
 
   get form() {
     return this.formRef.controls;
