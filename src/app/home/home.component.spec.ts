@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AccordionComponent } from '../shared/components/accordion/accordion.component';
 import { CreateAppModalComponent } from '../shared/components/create-app-modal/create-app-modal.component';
 import { HomeComponent } from './home.component';
+import { LoaderComponent } from '../shared/components/loader/loader.component';
 import { ModalComponent } from '../shared/components/modal/modal.component';
 
 describe('HomeComponent', () => {
@@ -15,7 +16,13 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule],
-      declarations: [AccordionComponent, CreateAppModalComponent, HomeComponent, ModalComponent],
+      declarations: [
+        AccordionComponent,
+        CreateAppModalComponent,
+        HomeComponent,
+        LoaderComponent,
+        ModalComponent,
+      ],
     }).compileComponents();
   }));
 

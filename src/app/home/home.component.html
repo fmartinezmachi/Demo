@@ -3,8 +3,8 @@
     <h1>My Projects</h1>
     <button class="btn btn--red btn--large" (click)="showCreateModal()">Create Application</button>
   </section>
-  <section class="main__container">
-    <app-card><app-loader></app-loader></app-card>
+  <section class="main__container" [ngClass]="{ 'main__container--visible': showLoader }">
+    <app-card><app-loader *ngIf="showLoader"></app-loader></app-card>
   </section>
   <app-create-app-modal
     [dependencies]="componentDependencies$ | async"
