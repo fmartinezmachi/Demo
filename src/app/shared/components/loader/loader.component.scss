@@ -2,7 +2,13 @@
 @import 'mixins';
 
 .loader {
+  margin: 0 auto;
   max-width: em(600);
+  text-align: center;
+
+  &__icon {
+    margin-bottom: em(20);
+  }
 
   &__progress-bar {
     background-image: linear-gradient(to left, #f7f7f7, #d8d8d8);
@@ -10,11 +16,35 @@
     border-radius: em(16);
     height: em(16);
     object-fit: contain;
+    margin-bottom: em(15);
     width: 100%;
 
     .progress {
       background-image: linear-gradient(to right, $color-primary-boston, #ff0000 96%);
+      border-radius: em(16);
       height: 100%;
+    }
+  }
+
+  button {
+    border: none;
+    font-size: em(14);
+    height: em(21, 14);
+    padding: 0;
+
+    &:hover {
+      color: $color-primary-ruby;
+      background: transparent;
+    }
+  }
+
+  p {
+    color: $color-primary-grey;
+    font-size: em(12);
+    margin-bottom: em(5, 12);
+
+    &:first-of-type {
+      font-size: em(16);
     }
   }
 }

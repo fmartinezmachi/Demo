@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
   @Input() isLoading = true;
-  @Input() percentage = 34;
+  @Input() percentage = 0;
 
   constructor() {}
 
