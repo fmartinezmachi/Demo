@@ -35,9 +35,6 @@
   font-weight: bold;
   font-style: normal;
 }
-$open-sans: 'Open Sans';
-$open-sans-light: 'Open Sans Light';
-$open-sans-bold: 'Open Sans Bold';
 
 // SANTANDER
 
@@ -121,8 +118,3 @@ $open-sans-bold: 'Open Sans Bold';
     url('/assets/fonts/santander/SantanderTextW05-BoldItalic.woff') format('woff'),
     url('/assets/fonts/santander/SantanderTextW05-BoldItalic.ttf') format('truetype');
 }
-$santander-tx-light: 'SantanderTextW05-Light';
-$santander-tx-regular: 'SantanderTextW05-Regular';
-$santander-tx-bold: 'SantanderTextW05-Bold';
-$santander-hl-regular: 'SantanderHeadlineW05-Rg';
-$santander-hl-bold: 'SantanderHeadlineW05-Bold';

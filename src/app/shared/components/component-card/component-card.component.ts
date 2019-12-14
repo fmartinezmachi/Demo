@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Project } from '@coreModels/project';
+import { Dependency } from '@coreModels/dependency';
 
 @Component({
   selector: 'app-component-card',
@@ -7,7 +7,7 @@ import { Project } from '@coreModels/project';
   styleUrls: ['./component-card.component.scss'],
 })
 export class ComponentCardComponent implements OnInit {
-  @Input() component: Project;
+  @Input() component: Dependency;
   @Input() active: boolean = false;
   @Input() id = '';
   technologyName: string = 'android';
@@ -16,9 +16,11 @@ export class ComponentCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    /**
     if (this.component && this.component.projectTechnologies.length > 0) {
       this.technologyName = this.component.projectTechnologies[0].technologyName.toLowerCase();
     }
+     */
   }
 
   onClickCard = e => {

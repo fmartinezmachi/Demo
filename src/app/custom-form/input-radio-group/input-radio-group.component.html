@@ -2,8 +2,8 @@
   *ngFor="let radio of radioList"
   [id]="id"
   [name]="name"
-  [label]="radio"
-  [value]="radio"
-  [selected]="radio === value"
+  [label]="radio.label"
+  [value]="radio.value"
+  [selected]="value === radio.value"
   (radioClick)="onRadioClick($event)"
 ></app-input-radio>

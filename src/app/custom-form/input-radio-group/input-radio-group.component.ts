@@ -1,6 +1,7 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseInput } from '../BaseInput';
+import { InputRadio } from './input-radio';
 
 @Component({
   selector: 'app-input-radio-group',
@@ -15,7 +16,7 @@ import { BaseInput } from '../BaseInput';
   ],
 })
 export class InputRadioGroupComponent extends BaseInput<string> implements OnInit {
-  @Input() radioList: any[];
+  @Input() radioList: InputRadio[];
 
   constructor() {
     super();
