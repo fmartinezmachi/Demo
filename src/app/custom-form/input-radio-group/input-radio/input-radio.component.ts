@@ -10,6 +10,7 @@ export class InputRadioComponent implements OnInit {
   @Input() selected = false;
   @Input() label = '';
   @Input() name = '';
+  @Input() id = '';
   @Input() value = '';
   @Output() radioClick = new EventEmitter<string>();
 
