@@ -12,13 +12,13 @@ import { Technology } from '@coreModels/technology';
   providedIn: 'root',
 })
 export class HomeService implements OnDestroy {
-  private dependenciesSource = new BehaviorSubject<Dependency[]>(null);
-  private navigationTypesSource = new BehaviorSubject<NavigationType[]>(null);
-  private technologiesSource = new BehaviorSubject<Technology[]>(null);
+  private dependenciesSource = new BehaviorSubject<Dependency[]>([]);
+  private navigationTypesSource = new BehaviorSubject<NavigationType[]>([]);
+  private technologiesSource = new BehaviorSubject<Technology[]>([]);
   dependencies$ = this.dependenciesSource.asObservable();
   navigationTypes$ = this.navigationTypesSource.asObservable();
   technologies$ = this.technologiesSource.asObservable();
-  subscriptions: Subscription;
+  subscriptions = new Subscription();
 
   constructor(private apiService: ApiService) {}
 
