@@ -15,7 +15,7 @@ import { Project } from '@coreModels/project';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild(CreateAppModalComponent, { static: false }) modalRef: CreateAppModalComponent;
-  appDependencies$: Observable<Dependency[]> = null;
+  dependencies$: Observable<Dependency[]> = null;
   technologies$: Observable<Technology[]>;
   navigationTypes$: Observable<NavigationType[]>;
   subscriptions = new Subscription();
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.homeService.getAppData();
-    this.appDependencies$ = this.homeService.dependencies$;
+    this.dependencies$ = this.homeService.dependencies$;
     this.technologies$ = this.homeService.technologies$;
     this.navigationTypes$ = this.homeService.navigationTypes$;
   }
