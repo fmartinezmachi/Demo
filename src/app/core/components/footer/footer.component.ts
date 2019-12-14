@@ -7,7 +7,6 @@ import { NavMenuOption } from '@sharedModels/nav-menu-option';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  @Input() menu: NavMenuOption[] = [];
   constructor() {}
 
   ngOnInit() {}
