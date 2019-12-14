@@ -13,7 +13,7 @@ export class ApiService {
 
   private formatErrors(error: any) {
     const { statusText, message } = error;
-    //alert(`${statusText}\n ${message}`);
+    alert(`${statusText}\n ${message}`);
     return throwError(error.error);
   }
 

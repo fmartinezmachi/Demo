@@ -16,11 +16,9 @@ export class ComponentCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    /**
-    if (this.component && this.component.projectTechnologies.length > 0) {
-      this.technologyName = this.component.projectTechnologies[0].technologyName.toLowerCase();
+    if (this.component && this.component.dependencyTechnology) {
+      this.technologyName = this.component.dependencyTechnology.toLowerCase();
     }
-     */
   }
 
   onClickCard = e => {

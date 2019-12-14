@@ -15,6 +15,11 @@ export class CreateAppStepOneComponent implements OnInit {
 
   ngOnInit() {}
 
+  get technologyIdentifier() {
+    const { technologyIdentifier = '' } = this.form.projectTechnology.value || {};
+    return technologyIdentifier;
+  }
+
   get radioTechnologies() {
     return this.technologies.map(technology => ({
       label: technology.technologyName,

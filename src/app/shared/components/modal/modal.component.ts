@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
 import { ModalService } from './modal.service';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,7 @@ export class ModalComponent implements OnInit {
   @Input() headerTemplate: TemplateRef<any>;
   @Input() bodyTemplate: TemplateRef<any>;
   @Input() footerTemplate: TemplateRef<any>;
+  @Output() modalClose = new EventEmitter<any>();
 
   isVisible = new Observable<boolean>();
 
@@ -25,5 +26,6 @@ export class ModalComponent implements OnInit {
       return;
     }
     this.modalService.toggleVisibility();
+    this.modalClose.emit();
   };
 }
