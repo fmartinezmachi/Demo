@@ -10,7 +10,11 @@
     </div>
     <h1>My Projects</h1>
   </section>
-  <section class="main__container" [ngClass]="{ 'main__container--visible': showLoader }">
+  <section
+    class="main__container"
+    [ngClass]="{ 'main__container--visible': showLoader }"
+    *ngIf="showLoader"
+  >
     <app-card><app-loader *ngIf="showLoader"></app-loader></app-card>
   </section>
   <app-create-app-modal
