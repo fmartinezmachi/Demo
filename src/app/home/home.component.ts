@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.homeService.sendForm(form).subscribe(response => {
         this.showLoader = true;
         this.modalService.toggleVisibility();
-        this.modalRef.resetForm();
+        this.modalRef.reset();
       }),
     );
   };

@@ -44,4 +44,9 @@
   </section>
 </ng-template>
 
-<app-modal [headerTemplate]="header" [bodyTemplate]="body" [footerTemplate]="footer"></app-modal>
+<app-modal
+  [headerTemplate]="header"
+  [bodyTemplate]="body"
+  [footerTemplate]="footer"
+  (modalClose)="reset()"
+></app-modal>
