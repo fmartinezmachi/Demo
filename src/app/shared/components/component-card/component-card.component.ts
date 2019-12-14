@@ -9,6 +9,7 @@ import { Project } from '@coreModels/project';
 export class ComponentCardComponent implements OnInit {
   @Input() component: Project;
   @Input() active: boolean = false;
+  @Input() id = '';
   technologyName: string = 'android';
   @Output() clickCard = new EventEmitter<boolean[]>();
 
