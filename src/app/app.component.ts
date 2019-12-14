@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 import { NavMenuOption } from '@sharedModels/nav-menu-option';
-import { footerMenu } from '@mocks/menu';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import { footerMenu } from '@mocks/menu';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  footerMenu: NavMenuOption[] = footerMenu;
   showUserFeed = true;
 
   constructor(router: Router) {

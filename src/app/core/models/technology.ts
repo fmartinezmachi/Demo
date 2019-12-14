@@ -1,4 +1,4 @@
 export interface Technology {
-  technologyId: number;
+  technologyIdentifier: number;
   technologyName: string;
 }

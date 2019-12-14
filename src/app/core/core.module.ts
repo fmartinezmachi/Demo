@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 // Components
 import { FooterComponent } from './components/footer/footer.component';
-import { FooterMenuComponent } from './components/footer/footer-menu/footer-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 
 // Services
@@ -17,7 +16,7 @@ import { MockModule } from '@mocks/mock.module';
 import { environment } from './../../environments/environment';
 
 const providers = [ApiService, UserService];
-const components = [FooterComponent, FooterMenuComponent, HeaderComponent];
+const components = [FooterComponent, HeaderComponent];
 
 const extraModules = environment.mockApi ? [MockModule] : [];
 

@@ -7,9 +7,11 @@ import {
   SimpleChanges,
   OnChanges,
 } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, Validators, FormControl } from '@angular/forms';
-import { Technology } from '@coreModels/technology';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Dependency } from '@coreModels/dependency';
+import { NavigationType } from '@coreModels/navigation-type';
 import { Project } from '@coreModels/project';
+import { Technology } from '@coreModels/technology';
 import { ProjectType } from '@coreEnums/project.enum';
 
 @Component({
@@ -18,10 +20,9 @@ import { ProjectType } from '@coreEnums/project.enum';
   styleUrls: ['./create-app-modal.component.scss'],
 })
 export class CreateAppModalComponent implements OnInit, OnChanges {
-  @Input() dependencies: Project[] = null;
-  @Input() images: string[] = null;
-  @Input() navigationTypes: any = null;
-  @Input() technologies: string[] = null;
+  @Input() dependencies: Dependency[] = null;
+  @Input() navigationTypes: NavigationType[] = null;
+  @Input() technologies: Technology[] = null;
 
   @Output() submitClick = new EventEmitter<Project>();
 
@@ -117,6 +118,6 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
 
   submitForm = () => {
     const formData = this.projectData;
-    this.submitClick.emit(formData);
+    this.submitClick.emit();
   };
 }
