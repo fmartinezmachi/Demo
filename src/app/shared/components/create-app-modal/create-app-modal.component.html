@@ -5,7 +5,7 @@
   <section class="steps">
     <app-stepper
       [titles]="['Definition', 'Component Platform Selection', '3']"
-      [steps]="3"
+      [steps]="2"
       [current]="step"
     ></app-stepper>
   </section>
@@ -36,7 +36,7 @@
     </ng-container>
     <ng-container *ngSwitchCase="1">
       <button class="btn" (click)="goToPrevStep()">Back</button>
-      <button class="btn btn--red" (click)="goToNextStep()">Next</button>
+      <button class="btn btn--red" (click)="submitForm()">Generate</button>
     </ng-container>
     <ng-container *ngSwitchCase="2">
       <button class="btn" (click)="goToPrevStep()">Back</button>

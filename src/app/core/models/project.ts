@@ -9,10 +9,10 @@ import { Technology } from '@coreModels/technology';
 export interface Project {
   projectName: string;
   projectDescription: string;
-  projectTypeId: number;
-  projectTypeName: ProjectType;
-  urlImage: string;
-  projectTechnologies: Technology[];
+  projectIdentification: string;
+  projectType: ProjectType;
+  projectTechnologyName: string;
+  projectImageUrl: string;
   projectDependencies: Project[];
   projectId?: string;
   urlSample?: string;

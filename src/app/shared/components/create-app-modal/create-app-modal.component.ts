@@ -1,25 +1,17 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges,
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Dependency } from '@coreModels/dependency';
 import { NavigationType } from '@coreModels/navigation-type';
 import { Project } from '@coreModels/project';
 import { Technology } from '@coreModels/technology';
-import { ProjectType } from '@coreEnums/project.enum';
+import { ProjectType, ProjectScope, ProjectFunctionalArea } from '@coreEnums/project.enum';
 
 @Component({
   selector: 'app-create-app-modal',
   templateUrl: './create-app-modal.component.html',
   styleUrls: ['./create-app-modal.component.scss'],
 })
-export class CreateAppModalComponent implements OnInit, OnChanges {
+export class CreateAppModalComponent implements OnInit {
   @Input() dependencies: Dependency[] = null;
   @Input() navigationTypes: NavigationType[] = null;
   @Input() technologies: Technology[] = null;
@@ -35,71 +27,39 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.appForm = this.formBuilder.group({
       projectName: ['', Validators.required],
-      projectDescription: ['', Validators.required],
-      projectTypeName: [ProjectType.Application], // value fixed, we are generating an app
+      projectType: [ProjectType.Application], // value fixed, we are generating an app
       projectIdentification: ['', Validators.required],
       urlImage: [''],
       projectTechnology: ['', Validators.required],
       navigationType: [''],
-      projectDependencies: [''],
+      projectDependencies: [[]],
     });
-  }
-
-  /**
-   * add form controls dinamically when receiving input values
-   * changes
-   */
-  ngOnChanges(changes: SimpleChanges): void {
-    const { dependencies } = changes;
-    /*if (dependencies.currentValue && dependencies.currentValue.length > 0) {
-      this.appForm.addControl('projectDependencies', new FormArray(this.dependenciesArray));
-    }*/
-  }
-
-  get projectDependencies() {
-    const { projectDependencies } = this.appForm.value;
-    return this.dependencies.filter((dependency, index) => projectDependencies[index]);
-  }
-
-  get projectTechnologies() {
-    // const { projectTechnologies } = this.appForm.value;
-    // return this.technologies.filter((technology, index) => projectTechnologies[index]);
-    return [];
-  }
-
-  get technologiesFBArray() {
-    return this.technologies ? this.technologies.map(() => new FormControl(false)) : [];
-  }
-
-  get dependenciesArray() {
-    return this.dependencies ? this.dependencies.map(() => new FormControl(false)) : [];
   }
 
   get projectData() {
     const {
       projectName,
-      projectDescription,
-      projectTypeName,
-      urlImage,
-      navigationType,
+      projectIdentification,
+      projectType,
+      projectTechnology: { technologyName: projectTechnologyName },
+      projectDependencies,
     } = this.appForm.value;
+
     return {
       projectName,
-      projectDescription,
-      projectTypeName,
-      urlImage,
-      navigationType,
-      projectTechnologies: this.projectTechnologies,
-      projectDependencies: this.projectDependencies,
-      creator: {
-        userId: 2,
-        userName: 'Yensi',
-        userEmail: 'yino@gft.com',
-      },
-      projectTypeId: 1,
-      functionalAreaId: 1,
-      brandId: 1,
-      projectScopeId: 1,
+      projectDescription: '',
+      projectIdentification,
+      projectPath: '',
+      projectImage: '',
+      projectImageUrl: '',
+      projectReadmeUrl: '',
+      projectType,
+      projectTechnologyName,
+      projectNavigationType: '',
+      projectInitialNavigation: '',
+      projectScope: ProjectScope.Functional,
+      projectFunctionalArea: ProjectFunctionalArea.Cards,
+      projectDependencies: projectDependencies,
     };
   }
 
@@ -112,12 +72,13 @@ export class CreateAppModalComponent implements OnInit, OnChanges {
 
   goToPrevStep = () => this.step--;
 
-  resetForm = () => {
+  reset = () => {
+    this.step = 0;
     this.appForm.reset();
   };
 
   submitForm = () => {
     const formData = this.projectData;
-    this.submitClick.emit();
+    this.submitClick.emit(formData);
   };
 }
