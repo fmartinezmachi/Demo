@@ -4,6 +4,7 @@ import { ControlValueAccessor } from '@angular/forms';
 export class BaseInput<T> implements ControlValueAccessor {
   @Input() name? = '';
   @Input() placeholder? = '';
+  @Input() id? = '';
   @Input() error? = '';
   @Input() info? = '';
   @Input() isDisabled? = false;

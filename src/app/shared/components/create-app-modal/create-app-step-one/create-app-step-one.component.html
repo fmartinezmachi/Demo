@@ -4,6 +4,8 @@
       <label for="">Select the platform/s for you application</label>
       <app-input-radio-group
         [radioList]="technologies"
+        [id]="'technology'"
+        [name]="'technology'"
         formControlName="projectTechnology"
       ></app-input-radio-group>
     </div>
@@ -11,6 +13,8 @@
       <label for="">Identify it to find it easily</label>
       <app-input-text
         formControlName="projectName"
+        [id]="'appName'"
+        [name]="'appName'"
         [placeholder]="'App Name'"
         [info]="'The app will be shown with this name in the store'"
       ></app-input-text>
@@ -19,6 +23,8 @@
       <label for="">Identification iOS app:</label>
       <app-input-text
         formControlName="projectIdentification"
+        [id]="'bundleID'"
+        [name]="'bundleID'"
         [placeholder]="'Bundle ID'"
       ></app-input-text>
     </div>

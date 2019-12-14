@@ -1,5 +1,11 @@
 <label [for]="name" class="input-file" [ngClass]="{ 'input-file--loaded': fileLoaded }">
-  <input type="file" [name]="name" accept="image/*" (change)="onFileChange($event.target.files)" />
+  <input
+    type="file"
+    [id]="id"
+    [name]="name"
+    accept="image/*"
+    (change)="onFileChange($event.target.files)"
+  />
   <img [src]="fileLoaded" alt="" *ngIf="fileLoaded" />
   {{ fileToUpload ? 'Change' : 'Upload an icon' }}
 </label>
