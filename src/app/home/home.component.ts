@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private modalService: ModalService, private homeService: HomeService) {}
 
   ngOnInit() {
+    this.homeService.getAppData();
     this.appDependencies$ = this.homeService.dependencies$;
     this.technologies$ = this.homeService.technologies$;
     this.navigationTypes$ = this.homeService.navigationTypes$;
