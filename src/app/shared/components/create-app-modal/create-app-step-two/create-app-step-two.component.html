@@ -1,9 +1,11 @@
 <div class="create_app_step_two" [formGroup]="formRef">
   <section class="metadata">
-    <h2 class="title">Let's go to create the {{ formRef.get('projectTechnology').value }} APP</h2>
+    <h2 class="title">
+      Let's go to create the {{ formRef.get('projectTechnology').value.technologyName }} APP
+    </h2>
     <dl>
       <dt>Platform</dt>
-      <dd>{{ formRef.get('projectTechnology').value }}</dd>
+      <dd>{{ formRef.get('projectTechnology').value.technologyName }}</dd>
       <dt>App Name</dt>
       <dd>{{ formRef.get('projectName').value }}</dd>
       <dt class="icon">Icon App</dt>

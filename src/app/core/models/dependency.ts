@@ -1,6 +1,6 @@
 export interface Dependency {
-  dependecyName: string;
-  dependecyDescription: string;
+  dependencyName: string;
+  dependencyDescription: string;
   dependencyType: string;
   projectDependencyOrder: number;
   version: string;
