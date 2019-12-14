@@ -6,4 +6,5 @@ export const environment = {
   technologiesApi: `${baseApi}technologies`,
   projectApi: `${baseApi}project`,
   dependenciesApi: `${baseApi}projects`,
+  newAppApi: `${baseApi}newapplication`,
 };
