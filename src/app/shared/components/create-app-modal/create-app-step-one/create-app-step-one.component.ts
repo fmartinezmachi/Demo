@@ -18,7 +18,7 @@ export class CreateAppStepOneComponent implements OnInit {
   get radioTechnologies() {
     return this.technologies.map(technology => ({
       label: technology.technologyName,
-      value: technology.technologyIdentifier,
+      value: technology,
     }));
   }
 

@@ -19,7 +19,7 @@
         [info]="'The app will be shown with this name in the store'"
       ></app-input-text>
     </div>
-    <div class="form__group" *ngIf="form?.projectTechnology.value === '02'">
+    <div class="form__group" *ngIf="form?.projectTechnology.value.technologyIdentifier === '2'">
       <label for="">Identification iOS app:</label>
       <app-input-text
         formControlName="projectIdentification"
