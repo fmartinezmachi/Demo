@@ -56,10 +56,12 @@ export class HomeService implements OnDestroy {
     const { newAppApi } = environment;
     this.subscriptions.add(
       this.apiService.get(newAppApi).subscribe(response => {
-        const { technologies = [], dependencies = [], navigationsTypes = [] } = response;
-        this.dependenciesSource.next(dependencies);
-        this.technologiesSource.next(technologies);
-        this.navigationTypesSource.next(navigationsTypes);
+        setTimeout(() => {
+          const { technologies = [], dependencies = [], navigationsTypes = [] } = response;
+          this.dependenciesSource.next(dependencies);
+          this.technologiesSource.next(technologies);
+          this.navigationTypesSource.next(navigationsTypes);
+        }, 3000);
       }),
     );
   };

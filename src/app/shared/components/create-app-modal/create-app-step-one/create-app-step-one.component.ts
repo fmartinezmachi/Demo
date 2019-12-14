@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Technology } from '@coreModels/technology';
 
 @Component({
   selector: 'app-create-app-step-one',
@@ -8,11 +9,18 @@ import { FormGroup } from '@angular/forms';
 })
 export class CreateAppStepOneComponent implements OnInit {
   @Input() formRef: FormGroup;
-  @Input() technologies: string[] = [];
+  @Input() technologies: Technology[] = [];
 
   constructor() {}
 
   ngOnInit() {}
+
+  get radioTechnologies() {
+    return this.technologies.map(technology => ({
+      label: technology.technologyName,
+      value: technology.technologyIdentifier,
+    }));
+  }
 
   get form() {
     return this.formRef.controls;

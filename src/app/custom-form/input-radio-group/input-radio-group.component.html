@@ -4,6 +4,6 @@
   [name]="name"
   [label]="radio.label"
   [value]="radio.value"
-  [selected]="radio === value"
+  [selected]="value === radio.value"
   (radioClick)="onRadioClick($event)"
 ></app-input-radio>
