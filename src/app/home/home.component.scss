@@ -15,10 +15,17 @@
   }
 
   &__header {
-    align-items: flex-end;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     padding: em(40) 0 em(30);
+
+    .btns {
+      margin-bottom: em(20);
+      text-align: right;
+
+      button + button {
+        margin-left: em(15);
+      }
+    }
   }
 }
