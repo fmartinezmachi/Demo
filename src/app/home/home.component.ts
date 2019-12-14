@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   technologies$: Observable<string[]> = null;
   navigationTypes: string[] = [];
   subscriptions = new Subscription();
+  showLoader = false;
 
   constructor(private modalService: ModalService, private homeService: HomeService) {}
 
@@ -41,10 +42,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   submitCreateAppForm = (form: Project) => {
     this.subscriptions.add(
       this.homeService.sendForm(form).subscribe(response => {
-        alert(`App created successfully`);
+        this.showLoader = true;
         this.modalService.toggleVisibility();
         this.modalRef.resetForm();
-        this.appDependencies$ = this.homeService.getApplicationDependencies();
       }),
     );
   };
