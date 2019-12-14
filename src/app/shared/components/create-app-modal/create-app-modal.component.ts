@@ -27,10 +27,10 @@ export class CreateAppModalComponent implements OnInit {
   ngOnInit() {
     this.appForm = this.formBuilder.group({
       projectName: ['', Validators.required],
-      projectType: [ProjectType.Application], // value fixed, we are generating an app
+      // projectType: [ProjectType.Application], // value fixed, we are generating an app
       projectIdentification: ['', Validators.required],
       urlImage: [''],
-      projectTechnology: ['', Validators.required],
+      projectTechnology: [null, Validators.required],
       navigationType: [''],
       projectDependencies: [[]],
     });
@@ -53,13 +53,20 @@ export class CreateAppModalComponent implements OnInit {
       projectImage: '',
       projectImageUrl: '',
       projectReadmeUrl: '',
-      projectType,
+      projectType: ProjectType.Application,
       projectTechnologyName,
       projectNavigationType: '',
       projectInitialNavigation: '',
       projectScope: ProjectScope.Functional,
       projectFunctionalArea: ProjectFunctionalArea.Cards,
-      projectDependencies: projectDependencies,
+      projectDependencies: projectDependencies.map((x, idx) => ({
+        ...x,
+        projectDependencyOrder: idx,
+      })),
+      creator: {
+        name: 'JJ',
+        email: 'jj@gft',
+      },
     };
   }
 

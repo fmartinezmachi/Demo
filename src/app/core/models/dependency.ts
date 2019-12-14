@@ -3,5 +3,6 @@ export interface Dependency {
   dependencyDescription: string;
   dependencyType: string;
   projectDependencyOrder: number;
+  dependencyTechnology: string;
   version: string;
 }

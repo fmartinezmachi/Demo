@@ -23,10 +23,10 @@ export class LoaderComponent implements OnDestroy {
   runProgressBar() {
     this.subscription.add(
       timer(0, 300)
-        .pipe(takeWhile(() => this.restart()))
+        .pipe(takeWhile(() => this.isWidthWithinLimit()))
         .subscribe(() => {
           this.percentage = this.percentage + 1;
-          console.log(this.percentage);
+          // console.log(this.percentage);
         }),
     );
   }

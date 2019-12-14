@@ -39,11 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   };
 
   submitCreateAppForm = (form: Project) => {
-    this.showLoader = true;
     this.subscriptions.add(
       this.homeService.sendForm(form).subscribe(response => {
         this.modalService.toggleVisibility();
         this.modalRef.reset();
+        this.showLoader = true;
       }),
     );
   };
