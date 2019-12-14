@@ -387,62 +387,60 @@ function getNewAppData() {
   return of(
     new HttpResponse({
       status: 200,
-      body: [
-        {
-          technologies: [
-            {
-              technologyName: 'Android',
-              technologyIdentifier: '01',
-            },
-            {
-              technologyName: 'iOS',
-              technologyIdentifier: '02',
-            },
-            {
-              technologyName: 'Angular',
-              technologyIdentifier: '03',
-            },
-          ],
-          dependencies: [
-            {
-              dependecyName: 'Application 1',
-              dependecyDescription:
-                'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-              dependencyType: 'Component',
-              projectDependencyOrder: 0,
-              version: '',
-            },
-            {
-              dependecyName: 'Application 2',
-              dependecyDescription: `It is a long established fact that a reader will be 
+      body: {
+        technologies: [
+          {
+            technologyName: 'Android',
+            technologyIdentifier: '01',
+          },
+          {
+            technologyName: 'iOS',
+            technologyIdentifier: '02',
+          },
+          {
+            technologyName: 'Angular',
+            technologyIdentifier: '03',
+          },
+        ],
+        dependencies: [
+          {
+            dependecyName: 'Application 1',
+            dependecyDescription:
+              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            dependencyType: 'Component',
+            projectDependencyOrder: 0,
+            version: '',
+          },
+          {
+            dependecyName: 'Application 2',
+            dependecyDescription: `It is a long established fact that a reader will be 
               distracted by the readable content of a page when looking at its layout.`,
-              dependencyType: 'Component',
-              projectDependencyOrder: 1,
-              version: '',
-            },
-            {
-              dependecyName: 'Dependency number 2',
-              dependecyDescription: `There are many variations of passages of Lorem Ipsum available, 
+            dependencyType: 'Component',
+            projectDependencyOrder: 1,
+            version: '',
+          },
+          {
+            dependecyName: 'Dependency number 2',
+            dependecyDescription: `There are many variations of passages of Lorem Ipsum available, 
               but the majority have suffered alteration in some form, 
               by injected humour, or randomised words which don't look even slightly believable.`,
-              dependencyType: 'Component',
-              projectDependencyOrder: 2,
-              version: '',
-            },
-          ],
-          navigationTypes: [
-            {
-              navigationTypeName: 'Non',
-            },
-            {
-              navigationTypeName: 'Menu',
-            },
-            {
-              navigationTypeName: 'Tap Bar',
-            },
-          ],
-        },
-      ],
+            dependencyType: 'Component',
+            projectDependencyOrder: 2,
+            version: '',
+          },
+        ],
+        navigationTypes: [
+          {
+            navigationTypeName: 'Non',
+          },
+          {
+            navigationTypeName: 'Menu',
+          },
+          {
+            navigationTypeName: 'Tap Bar',
+          },
+        ],
+      },
     }),
   );
 }
