@@ -9,7 +9,7 @@
   <app-create-app-modal
     [dependencies]="componentDependencies$ | async"
     [technologies]="technologies$ | async"
-    [navigationTypes]="navigationTypes"
+    [navigationTypes]="navigationTypes$ | async"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
 </section>
