@@ -9,6 +9,7 @@ import { BaseInput } from '../../BaseInput';
 export class InputRadioComponent implements OnInit {
   @Input() selected = false;
   @Input() label = '';
+  @Input() name = '';
   @Input() value = '';
   @Output() radioClick = new EventEmitter<string>();
 
