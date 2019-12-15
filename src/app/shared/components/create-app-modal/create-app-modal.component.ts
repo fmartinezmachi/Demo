@@ -1,17 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Dependency } from '@coreModels/dependency';
 import { NavigationType } from '@coreModels/navigation-type';
 import { Project } from '@coreModels/project';
 import { Technology } from '@coreModels/technology';
 import { ProjectType, ProjectScope, ProjectFunctionalArea } from '@coreEnums/project.enum';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-app-modal',
   templateUrl: './create-app-modal.component.html',
   styleUrls: ['./create-app-modal.component.scss'],
 })
-export class CreateAppModalComponent implements OnInit {
+export class CreateAppModalComponent implements OnInit, OnDestroy {
   @Input() dependencies: Dependency[] = null;
   @Input() navigationTypes: NavigationType[] = null;
   @Input() technologies: Technology[] = null;
@@ -19,6 +20,7 @@ export class CreateAppModalComponent implements OnInit {
   @Output() submitClick = new EventEmitter<Project>();
 
   appForm: FormGroup;
+  subscriptions = new Subscription();
   step = 0;
   title = 'Create application';
 
@@ -34,6 +36,11 @@ export class CreateAppModalComponent implements OnInit {
       navigationType: [''],
       projectDependencies: [[]],
     });
+    this.onTechnologyChange();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   get projectData() {
@@ -78,6 +85,17 @@ export class CreateAppModalComponent implements OnInit {
   goToNextStep = () => this.step++;
 
   goToPrevStep = () => this.step--;
+
+  onTechnologyChange() {
+    this.subscriptions.add(
+      this.appForm.get('projectTechnology').valueChanges.subscribe(technology => {
+        const { technologyIdentifier = null } = technology;
+        if (technologyIdentifier !== '2') {
+          this.appForm.get('projectIdentification').patchValue('');
+        }
+      }),
+    );
+  }
 
   reset = () => {
     this.step = 0;
