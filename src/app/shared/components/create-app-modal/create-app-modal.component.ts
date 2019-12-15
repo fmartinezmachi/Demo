@@ -61,7 +61,7 @@ export class CreateAppModalComponent implements OnInit {
       projectFunctionalArea: ProjectFunctionalArea.Cards,
       projectDependencies: projectDependencies.map((x, idx) => ({
         ...x,
-        projectDependencyOrder: idx,
+        dependencyOrder: idx,
       })),
       creator: {
         name: 'JJ',
