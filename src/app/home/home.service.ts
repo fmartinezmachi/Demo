@@ -31,7 +31,7 @@ export class HomeService implements OnDestroy {
     return this.getDependencies().pipe(
       map(dependencies => {
         return dependencies.filter(
-          dependency => dependency.projectTypeName === ProjectType.Application,
+          dependency => dependency.projectType === ProjectType.Application,
         );
       }),
     );
@@ -40,9 +40,7 @@ export class HomeService implements OnDestroy {
   getComponentDependencies(): Observable<Project[]> {
     return this.getDependencies().pipe(
       map(dependencies => {
-        return dependencies.filter(
-          dependency => dependency.projectTypeName === ProjectType.Component,
-        );
+        return dependencies.filter(dependency => dependency.projectType === ProjectType.Component);
       }),
     );
   }
