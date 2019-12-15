@@ -10,7 +10,7 @@
       <dd>{{ formRef.get('projectName').value }}</dd>
       <dt class="icon">Icon App</dt>
       <dd class="icon"><img [src]="icon" *ngIf="icon" /> <span *ngIf="!icon">---</span></dd>
-      <ng-container *ngIf="formRef.get('projectTechnology').value == 'iOS'">
+      <ng-container *ngIf="formRef.get('projectTechnology').value.technologyName == 'iOS'">
         <dt>Bundle ID</dt>
         <dd>{{ formRef.get('projectIdentification').value }}</dd>
       </ng-container>
