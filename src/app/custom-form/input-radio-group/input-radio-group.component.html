@@ -1,6 +1,6 @@
 <app-input-radio
-  *ngFor="let radio of radioList"
-  [id]="id"
+  *ngFor="let radio of radioList; let i = index"
+  [id]="id + '_' + i"
   [name]="name"
   [label]="radio.label"
   [value]="radio.value"

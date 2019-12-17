@@ -89,6 +89,9 @@ export class CreateAppModalComponent implements OnInit, OnDestroy {
   onTechnologyChange() {
     this.subscriptions.add(
       this.appForm.get('projectTechnology').valueChanges.subscribe(technology => {
+        if (!technology) {
+          return;
+        }
         const { technologyIdentifier = null } = technology;
         if (technologyIdentifier !== '2') {
           this.appForm.get('projectIdentification').patchValue('');
