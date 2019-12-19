@@ -32,6 +32,7 @@ describe('CreateAppStepTwoComponent', () => {
       projectName: [''],
       projectTechnology: [''],
       projectDependencies: [''],
+      urlImage: [''],
     });
     fixture.detectChanges();
   });
