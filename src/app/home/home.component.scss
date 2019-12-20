@@ -5,6 +5,47 @@
   @include main-container;
 
   &__container {
-    padding: em(28) em(30);
+    @include container-section;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__container-msg {
+    @include container-section;
+    padding: em(16) em(32);
+    div {
+      color: $color-primary-grey;
+      font-family: $santander-tx-regular;
+      background-color: $color-background-blue;
+      padding: em(16);
+    }
+
+    h3 {
+      font-weight: bold;
+      margin-bottom: em(8);
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    padding: em(40) 0 em(30);
+
+    .btns {
+      margin-bottom: em(20);
+      text-align: right;
+
+      button + button {
+        margin-left: em(15);
+      }
+    }
   }
 }

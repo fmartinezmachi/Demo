@@ -1,0 +1,73 @@
+@import 'variables';
+@import 'mixins';
+
+.create_app_step_two {
+  h2.title {
+    font-size: em(24);
+    font-family: $santander-tx-regular;
+  }
+  section {
+    margin-bottom: em(24);
+  }
+  .metadata {
+    h2 {
+      margin-bottom: em(24);
+      font-family: $santander-tx-regular;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+    }
+  }
+  .search_bar {
+    display: flex;
+    flex-direction: row;
+    h2 {
+      display: inline-block;
+      flex: 1;
+    }
+  }
+  .cards {
+    h3 {
+      border-bottom: 1px $color-primary-lightgrey solid;
+      font-family: $santander-tx-regular;
+      font-size: em(16);
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $color-primary-grey;
+      padding-bottom: em(13);
+      margin-bottom: em(34);
+    }
+  }
+  dl {
+    display: flex;
+    flex-direction: column;
+    height: 46px;
+    flex-wrap: wrap;
+    dt {
+      font-family: $santander-tx-bold;
+      font-size: 16px;
+      color: $color-primary-grey;
+      flex: 1;
+      &.icon {
+        text-align: center;
+      }
+    }
+    dd {
+      font-family: $santander-tx-light;
+      font-size: 16px;
+      color: $color-primary-grey;
+      flex: 1;
+      &.icon {
+        text-align: center;
+        img {
+          height: 24px;
+        }
+      }
+    }
+  }
+}

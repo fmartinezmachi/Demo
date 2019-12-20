@@ -1,19 +1,11 @@
 import { HomeService } from './home.service';
-import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { AditionalContentSection } from '@sharedModels/aditional-content-section';
-import { LearnMoreIcon } from '@sharedModels/learn-more-icon';
-import { NavMenuOption } from '@sharedModels/nav-menu-option';
-import { homeIcons } from '@mocks/icons';
-import { learnMore } from '@mocks/learn-more';
-import { headerMenu } from '@mocks/menu';
-import { sections } from '@mocks/sections';
-import { Icon } from '@sharedModels/icon';
-import { Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { ModalService } from '../shared/components/modal/modal.service';
+import { CreateAppModalComponent } from '../shared/components/create-app-modal/create-app-modal.component';
+import { Dependency } from '@coreModels/dependency';
 import { Technology } from '@coreModels/technology';
 import { Project } from '@coreModels/project';
-import { CreateAppModalComponent } from '../shared/components/create-app-modal/create-app-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -23,52 +15,36 @@ import { CreateAppModalComponent } from '../shared/components/create-app-modal/c
 })
 export class HomeComponent implements OnInit, OnDestroy {
   @ViewChild(CreateAppModalComponent, { static: false }) modalRef: CreateAppModalComponent;
-  headerMenu: NavMenuOption[] = headerMenu;
-  activeHeaderMenuOption = 'My Projects';
-  sections: AditionalContentSection[] = sections;
-  learnMore: LearnMoreIcon[] = learnMore;
-  homeIcons: Icon[] = homeIcons;
-  title = 'My Projects';
-  appDependencies$: Observable<Project[]> = null;
-  componentDependencies$: Observable<Project[]> = null;
-  technologies$: Observable<Technology[]> = null;
-  images$: Observable<string[]> = null;
-  navigationTypes: string[] = [];
+  dependencies$: Observable<Dependency[]> = null;
+  technologies$: Observable<Technology[]>;
+  navigationTypes$: Observable<NavigationType[]>;
   subscriptions = new Subscription();
+  showLoader = false;
 
-  constructor(
-    private router: Router,
-    private modalService: ModalService,
-    private homeService: HomeService,
-  ) {}
+  constructor(private modalService: ModalService, private homeService: HomeService) {}
 
   ngOnInit() {
-    this.appDependencies$ = this.homeService.getApplicationDependencies();
-    this.images$ = this.homeService.getImages();
-    this.technologies$ = this.homeService.getTechnologies();
-    this.componentDependencies$ = this.homeService.getComponentDependencies();
-    this.navigationTypes = this.homeService.navigationTypes;
+    this.homeService.getAppData();
+    this.dependencies$ = this.homeService.dependencies$;
+    this.technologies$ = this.homeService.technologies$;
+    this.navigationTypes$ = this.homeService.navigationTypes$;
   }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
 
-  showCreateModal = () => this.modalService.toggleVisibility();
+  showCreateModal = () => {
+    this.modalService.toggleVisibility();
+  };
 
   submitCreateAppForm = (form: Project) => {
     this.subscriptions.add(
       this.homeService.sendForm(form).subscribe(response => {
-        alert(`App created successfully`);
         this.modalService.toggleVisibility();
-        this.modalRef.resetForm();
-        this.appDependencies$ = this.homeService.getApplicationDependencies();
+        this.modalRef.reset();
+        this.showLoader = true;
       }),
     );
-  };
-
-  updateActiveMenuLink = (option: NavMenuOption) => {
-    this.activeHeaderMenuOption = option.label;
-    this.router.navigate([option.link]);
   };
 }

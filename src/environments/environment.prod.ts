@@ -4,7 +4,7 @@ export const environment = {
   apiUrl: '',
   mockApi: false,
   technologiesApi: `${baseApi}technologies`,
-  imagesApi: `${baseApi}images`,
   projectApi: `${baseApi}project`,
   dependenciesApi: `${baseApi}projects`,
+  newAppApi: `${baseApi}newapplication`,
 };

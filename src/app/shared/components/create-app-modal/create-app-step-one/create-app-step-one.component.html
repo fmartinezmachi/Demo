@@ -1,0 +1,35 @@
+<section class="step-one" [formGroup]="formRef">
+  <div class="step-one__left">
+    <div class="form__group">
+      <label for="">Select the platform/s for you application</label>
+      <app-input-radio-group
+        [radioList]="radioTechnologies"
+        [id]="'technology'"
+        [name]="'technology'"
+        formControlName="projectTechnology"
+      ></app-input-radio-group>
+    </div>
+    <div class="form__group" *ngIf="form?.projectTechnology.value">
+      <label for="">Identify it to find it easily</label>
+      <app-input-text
+        formControlName="projectName"
+        [id]="'appName'"
+        [name]="'appName'"
+        [placeholder]="'App Name'"
+        [info]="'The app will be shown with this name in the store'"
+      ></app-input-text>
+    </div>
+    <div class="form__group" *ngIf="technologyIdentifier === '2'">
+      <label for="">Identification iOS app:</label>
+      <app-input-text
+        formControlName="projectIdentification"
+        [id]="'bundleID'"
+        [name]="'bundleID'"
+        [placeholder]="'Bundle ID'"
+      ></app-input-text>
+    </div>
+  </div>
+  <div class="step-one__right">
+    <app-input-file formControlName="urlImage"></app-input-file>
+  </div>
+</section>

@@ -1,0 +1,9 @@
+<label
+  [for]="label"
+  class="input-radio"
+  [ngClass]="{ 'input-radio--checked': selected }"
+  (click)="updateChecked()"
+>
+  <input type="radio" [value]="value" [name]="name" [id]="id" />
+  {{ label }}
+</label>

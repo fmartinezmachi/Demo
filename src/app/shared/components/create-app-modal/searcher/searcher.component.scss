@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+
+.input-group {
+  position: relative;
+  input {
+    width: 400px;
+    height: 48px;
+    border: 1px $color-primary-mediumgrey solid;
+    border-radius: 24px;
+    font-family: $santander-tx-regular;
+    font-size: em(16);
+    color: $color-primary-mediumgrey;
+    padding-left: em(60);
+    &:focus {
+      outline: none;
+    }
+  }
+  i {
+    position: absolute;
+    top: em(7);
+    left: em(24);
+    &::before {
+      font-size: em(36);
+      color: $color-primary-mediumgrey;
+    }
+  }
+}

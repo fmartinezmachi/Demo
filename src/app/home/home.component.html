@@ -1,26 +1,36 @@
 <section class="main">
-  <app-page-menu
-    [menu]="headerMenu"
-    [activeOption]="activeHeaderMenuOption"
-    (menuLinkClicked)="updateActiveMenuLink($event)"
+  <section class="main__header">
+    <div class="btns">
+      <button class="btn btn--red btn--large" disabled id="create-component">
+        Create Component
+      </button>
+      <button class="btn btn--red btn--large" (click)="showCreateModal()" id="create-app">
+        Create Application
+      </button>
+    </div>
+    <h1>My Projects</h1>
+  </section>
+  <section
+    class="main__container-msg"
+    [ngClass]="{ 'main__container-msg--hidden': showLoader }"
+    *ngIf="!showLoader"
   >
-  </app-page-menu>
-  <section class="main__container">
-    <app-home-header
-      [icons]="homeIcons"
-      [title]="title"
-      (createAppClick)="showCreateModal()"
-    ></app-home-header>
-    <!--app-home-filters></app-home-filters-->
-    <app-accordion><app-table [dependencies]="appDependencies$ | async"></app-table></app-accordion>
-    <app-aditional-content [sections]="sections"></app-aditional-content>
-    <app-learn-more [content]="learnMore"></app-learn-more>
+    <div>
+      <h3>Empty projects</h3>
+      <p>You don´t have any component or application in your projects.</p>
+    </div>
+  </section>
+  <section
+    class="main__container"
+    [ngClass]="{ 'main__container--visible': showLoader }"
+    *ngIf="showLoader"
+  >
+    <app-card><app-loader></app-loader></app-card>
   </section>
   <app-create-app-modal
-    [dependencies]="componentDependencies$ | async"
-    [images]="images$ | async"
+    [dependencies]="dependencies$ | async"
     [technologies]="technologies$ | async"
-    [navigationTypes]="navigationTypes"
+    [navigationTypes]="navigationTypes$ | async"
     (submitClick)="submitCreateAppForm($event)"
   ></app-create-app-modal>
 </section>

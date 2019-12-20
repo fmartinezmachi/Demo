@@ -46,14 +46,14 @@
 }
 
 @mixin icon-style {
-  font-family: 'fontello';
+  font-family: 'icomoon';
   font-style: normal;
   font-weight: normal;
   speak: none;
 
   display: inline-block;
   text-decoration: inherit;
-  width: 1em;
+  //width: 1em;
   margin-right: 0.2em;
   text-align: center;
   /* opacity: .8; */
@@ -96,7 +96,7 @@
 }
 
 @mixin header-title {
-  color: $main;
+  color: $color-primary-santander;
   display: inline-block;
   font-size: em(32);
   font-family: $open-sans-light;
@@ -104,10 +104,13 @@
 }
 
 @mixin main-container {
+  margin: 0 auto;
+  width: em(1128);
+}
+
+@mixin container-section {
   background-color: $white;
-  border-left: 1px solid $grey-border;
-  border-right: 1px solid $grey-border;
-  border-bottom: 1px solid $grey-border;
+  padding: em(36);
 }
 
 /* mixin for multiline */

@@ -1,63 +1,74 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { CustomFormModule } from '../custom-form/custom-form.module';
 
 // Components
-import { ActionMenuComponent } from './components/action-menu/action-menu.component';
-import { AditionalContentComponent } from './components/aditional-content/aditional-content.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
+import { CardComponent } from './components/card/card.component';
 import { CreateAppModalComponent } from './components/create-app-modal/create-app-modal.component';
-import { IconGroupComponent } from './components/icon-group/icon-group.component';
-import { LearnMoreComponent } from './components/learn-more/learn-more.component';
-import { LearnMoreIconComponent } from './components/learn-more/learn-more-icon/learn-more-icon.component';
+import { CreateAppStepOneComponent } from './components/create-app-modal/create-app-step-one/create-app-step-one.component';
+import { ComponentCardComponent } from './components/component-card/component-card.component';
+import { InputSelectComponentComponent } from './components/input-select-component/input-select-component.component';
+import { CreateAppStepTwoComponent } from './components/create-app-modal/create-app-step-two/create-app-step-two.component';
+import { SearcherComponent } from './components/create-app-modal/searcher/searcher.component';
 import { ModalComponent } from './components/modal/modal.component';
-import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
-import { PageMenuComponent } from './components/page-menu/page-menu.component';
-import { SearchInputComponent } from './components/search-input/search-input.component';
-import { TableComponent } from './components/table/table.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AngularSvgIconModule } from 'angular-svg-icon';
+import { SelectableListComponent } from './components/selectable-list/selectable-list.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 import { ModalService } from './components/modal/modal.service';
-import { ReversePipe } from './pipes/reverse.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const components = [
   AccordionComponent,
-  ActionMenuComponent,
-  AditionalContentComponent,
+  CardComponent,
   CreateAppModalComponent,
-  IconGroupComponent,
-  LearnMoreComponent,
-  LearnMoreIconComponent,
   ModalComponent,
-  NavMenuComponent,
-  PageMenuComponent,
-  SearchInputComponent,
-  TableComponent,
+  StepperComponent,
+  ComponentCardComponent,
+  SelectableListComponent,
+  InputSelectComponentComponent,
+  CreateAppStepTwoComponent,
+  CreateAppStepOneComponent,
+  ComponentCardComponent,
+  InputSelectComponentComponent,
+  LoaderComponent,
+  SelectableListComponent,
+  StepperComponent,
+  SearcherComponent,
 ];
 
 const exports = [
   AccordionComponent,
-  ActionMenuComponent,
-  AditionalContentComponent,
+  ComponentCardComponent,
+  CardComponent,
   CreateAppModalComponent,
-  IconGroupComponent,
-  LearnMoreComponent,
+  CreateAppStepTwoComponent,
+  InputSelectComponentComponent,
+  LoaderComponent,
   ModalComponent,
-  NavMenuComponent,
-  PageMenuComponent,
-  SafePipe,
-  SearchInputComponent,
-  TableComponent,
+  SelectableListComponent,
+  StepperComponent,
   AngularSvgIconModule,
+  SafePipe,
 ];
 
 @NgModule({
   declarations: [...components, SafePipe, ReversePipe],
-  imports: [CommonModule, HttpClientModule, AngularSvgIconModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    AngularSvgIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CustomFormModule,
+  ],
   providers: [ModalService],
   exports,
 })

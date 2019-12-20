@@ -1,17 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiService } from '@coreServices/api.service';
-import { Technology } from '@coreModels/technology';
-import { NavigationTypes } from '@coreEnums/navigation-type.enum';
 import { ProjectType } from '@coreEnums/project.enum';
+import { Dependency } from '@coreModels/dependency';
 import { Project } from '@coreModels/project';
+import { Technology } from '@coreModels/technology';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class HomeService implements OnDestroy {
+  private dependenciesSource = new BehaviorSubject<Dependency[]>([]);
+  private navigationTypesSource = new BehaviorSubject<NavigationType[]>([]);
+  private technologiesSource = new BehaviorSubject<Technology[]>([]);
+  dependencies$ = this.dependenciesSource.asObservable();
+  navigationTypes$ = this.navigationTypesSource.asObservable();
+  technologies$ = this.technologiesSource.asObservable();
+  subscriptions = new Subscription();
+
   constructor(private apiService: ApiService) {}
 
   getDependencies(): Observable<Project[]> {
@@ -23,7 +31,7 @@ export class HomeService {
     return this.getDependencies().pipe(
       map(dependencies => {
         return dependencies.filter(
-          dependency => dependency.projectTypeName === ProjectType.Application,
+          dependency => dependency.projectType === ProjectType.Application,
         );
       }),
     );
@@ -32,32 +40,34 @@ export class HomeService {
   getComponentDependencies(): Observable<Project[]> {
     return this.getDependencies().pipe(
       map(dependencies => {
-        return dependencies.filter(
-          dependency => dependency.projectTypeName === ProjectType.Component,
-        );
+        return dependencies.filter(dependency => dependency.projectType === ProjectType.Component);
       }),
     );
   }
 
-  getTechnologies(): Observable<Technology[]> {
+  getTechnologies(): Observable<string[]> {
     const { technologiesApi } = environment;
     return this.apiService.get(technologiesApi);
   }
 
-  getImages(): Observable<string[]> {
-    const { imagesApi } = environment;
-    return this.apiService.get(imagesApi);
-  }
-
-  get navigationTypes(): any[] {
-    return Object.keys(NavigationTypes).map(navType => ({
-      type: navType,
-      label: NavigationTypes[navType],
-    }));
-  }
+  getAppData = () => {
+    const { newAppApi } = environment;
+    this.subscriptions.add(
+      this.apiService.get(newAppApi).subscribe(response => {
+        const { technologies = [], dependencies = [], navigationsTypes = [] } = response;
+        this.dependenciesSource.next(dependencies);
+        this.technologiesSource.next(technologies);
+        this.navigationTypesSource.next(navigationsTypes);
+      }),
+    );
+  };
 
   sendForm(form: Project): Observable<any> {
     const { projectApi } = environment;
     return this.apiService.post(projectApi, form);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

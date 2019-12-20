@@ -1,0 +1,15 @@
+<ng-container *ngIf="component !== null">
+  <div
+    [ngClass]="{ 'component-card': true, active: active }"
+    [id]="id"
+    (click)="onClickCard($event)"
+  >
+    <div [ngClass]="'icon ' + technologyName"></div>
+    <div class="body">
+      <label class="name">{{ component?.dependencyName }}</label>
+      <div class="description">
+        {{ component?.dependencyDescription }}
+      </div>
+    </div>
+  </div>
+</ng-container>

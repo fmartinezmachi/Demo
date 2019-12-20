@@ -1,105 +1,107 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-  OnChanges,
-} from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, Validators, FormControl } from '@angular/forms';
-import { Technology } from '@coreModels/technology';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Dependency } from '@coreModels/dependency';
+import { NavigationType } from '@coreModels/navigation-type';
 import { Project } from '@coreModels/project';
-import { ProjectType } from '@coreEnums/project.enum';
+import { Technology } from '@coreModels/technology';
+import { ProjectType, ProjectScope, ProjectFunctionalArea } from '@coreEnums/project.enum';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-app-modal',
   templateUrl: './create-app-modal.component.html',
   styleUrls: ['./create-app-modal.component.scss'],
 })
-export class CreateAppModalComponent implements OnInit, OnChanges {
-  @Input() dependencies: Project[] = null;
-  @Input() images: string[] = null;
-  @Input() navigationTypes: any = null;
+export class CreateAppModalComponent implements OnInit, OnDestroy {
+  @Input() dependencies: Dependency[] = null;
+  @Input() navigationTypes: NavigationType[] = null;
   @Input() technologies: Technology[] = null;
 
   @Output() submitClick = new EventEmitter<Project>();
 
-  title = 'Create application';
   appForm: FormGroup;
+  subscriptions = new Subscription();
+  step = 0;
+  title = 'Create application';
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.appForm = this.formBuilder.group({
       projectName: ['', Validators.required],
-      projectDescription: ['', Validators.required],
-      projectTypeName: [ProjectType.Application], // value fixed, we are generating an app
-      id: ['', Validators.required],
+      // projectType: [ProjectType.Application], // value fixed, we are generating an app
+      projectIdentification: ['', Validators.required],
       urlImage: [''],
-      projectTechnologies: new FormArray(this.technologiesFBArray),
+      projectTechnology: [null, Validators.required],
       navigationType: [''],
+      projectDependencies: [[]],
     });
+    this.onTechnologyChange();
   }
 
-  /**
-   * add form controls dinamically when receiving input values
-   * changes
-   */
-  ngOnChanges(changes: SimpleChanges): void {
-    const { dependencies } = changes;
-    if (dependencies.currentValue && dependencies.currentValue.length > 0) {
-      this.appForm.addControl('projectDependencies', new FormArray(this.dependenciesArray));
-    }
-  }
-
-  get projectDependencies() {
-    const { projectDependencies } = this.appForm.value;
-    return this.dependencies.filter((dependency, index) => projectDependencies[index]);
-  }
-
-  get projectTechnologies() {
-    const { projectTechnologies } = this.appForm.value;
-    return this.technologies.filter((technology, index) => projectTechnologies[index]);
-  }
-
-  get technologiesFBArray() {
-    return this.technologies ? this.technologies.map(() => new FormControl(false)) : [];
-  }
-
-  get dependenciesArray() {
-    return this.dependencies ? this.dependencies.map(() => new FormControl(false)) : [];
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
   get projectData() {
     const {
       projectName,
-      projectDescription,
-      projectTypeName,
-      urlImage,
-      navigationType,
+      projectIdentification,
+      projectType,
+      projectTechnology: { technologyName: projectTechnologyName },
+      projectDependencies,
     } = this.appForm.value;
+
     return {
       projectName,
-      projectDescription,
-      projectTypeName,
-      urlImage,
-      navigationType,
-      projectTechnologies: this.projectTechnologies,
-      projectDependencies: this.projectDependencies,
+      projectDescription: '',
+      projectIdentification,
+      projectPath: '',
+      projectImage: '',
+      projectImageUrl: '',
+      projectReadmeUrl: '',
+      projectType: ProjectType.Application,
+      projectTechnologyName,
+      projectNavigationType: '',
+      projectInitialNavigation: '',
+      projectScope: ProjectScope.Functional,
+      projectFunctionalArea: ProjectFunctionalArea.Cards,
+      projectDependencies: projectDependencies.map((x, idx) => ({
+        ...x,
+        dependencyOrder: idx,
+      })),
       creator: {
-        userId: 2,
-        userName: 'Yensi',
-        userEmail: 'yino@gft.com',
+        name: 'JJ',
+        email: 'jj@gft',
       },
-      projectTypeId: 1,
-      functionalAreaId: 1,
-      brandId: 1,
-      projectScopeId: 1,
     };
   }
 
-  resetForm = () => {
+  get stepOneValid() {
+    const { controls } = this.appForm;
+    return controls.projectName.value !== '' && controls.projectTechnology.value !== '';
+  }
+
+  goToNextStep = () => this.step++;
+
+  goToPrevStep = () => this.step--;
+
+  onTechnologyChange() {
+    this.subscriptions.add(
+      this.appForm.get('projectTechnology').valueChanges.subscribe(technology => {
+        if (!technology) {
+          return;
+        }
+        const { technologyIdentifier = null } = technology;
+        if (technologyIdentifier !== '2') {
+          this.appForm.get('projectIdentification').patchValue('');
+        }
+      }),
+    );
+  }
+
+  reset = () => {
+    this.step = 0;
     this.appForm.reset();
   };
 

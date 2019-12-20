@@ -6,8 +6,11 @@ export default {
     'http://localhost:4200/technologies': {
       handler: getTechnologies,
     },
-    'http://localhost:4200/images': {
-      handler: getImages,
+    'http://localhost:4200/projects': {
+      handler: getAppDependencies,
+    },
+    'http://localhost:4200/newapplication': {
+      handler: getNewAppData,
     },
   },
 };
@@ -36,7 +39,7 @@ function getAppDependencies() {
           updateDate: '2019-11-26',
           creator: { userId: 2, userName: 'Yensi', userEmail: 'yino@gft.com' },
           projectSupportedPlatform: null,
-          projectTechnologies: [{ technologyId: 1, technologyName: 'Android' }],
+          projectTechnologies: [{ technologyIdentifier: 1, technologyName: 'Android' }],
           projectProperties: [],
           projectDependencies: [
             {
@@ -83,7 +86,7 @@ function getAppDependencies() {
           updateDate: '2019-11-26',
           creator: { userId: 2, userName: 'Yensi', userEmail: 'yino@gft.com' },
           projectSupportedPlatform: null,
-          projectTechnologies: [{ technologyId: 1, technologyName: 'Android' }],
+          projectTechnologies: [{ technologyIdentifier: 1, technologyName: 'Android' }],
           projectProperties: [],
           projectDependencies: [],
         },
@@ -106,7 +109,7 @@ function getAppDependencies() {
           updateDate: '2019-11-26',
           creator: { userId: 2, userName: 'Yensi', userEmail: 'yino@gft.com' },
           projectSupportedPlatform: null,
-          projectTechnologies: [{ technologyId: 1, technologyName: 'Android' }],
+          projectTechnologies: [{ technologyIdentifier: 1, technologyName: 'Android' }],
           projectProperties: [],
           projectDependencies: [],
         },
@@ -129,7 +132,7 @@ function getAppDependencies() {
           updateDate: '2019-11-26',
           creator: { userId: 2, userName: 'Yensi', userEmail: 'yino@gft.com' },
           projectSupportedPlatform: null,
-          projectTechnologies: [{ technologyId: 1, technologyName: 'Android' }],
+          projectTechnologies: [{ technologyIdentifier: 1, technologyName: 'Android' }],
           projectProperties: [],
           projectDependencies: [],
         },
@@ -363,18 +366,10 @@ function getAppDependencies() {
           projectProperties: [],
           projectDependencies: [],
         },
-      ].filter(dependency => {
-        return dependency.projectTypeId === 2;
-      }),
-    }),
-  );
-}
-
-function getImages() {
-  return of(
-    new HttpResponse({
-      status: 200,
-      body: ['ICO red', 'ICO black', 'ICO small', 'ICO big'],
+      ].map(x => ({ ...x, projectTypeName: 'Component' })),
+      // .filter(dependency => {
+      //   return dependency.projectTypeId === 2;
+      // }),
     }),
   );
 }
@@ -383,16 +378,69 @@ function getTechnologies() {
   return of(
     new HttpResponse({
       status: 200,
-      body: [
-        {
-          technologyId: 1,
-          technologyName: 'Android',
-        },
-        {
-          technologyId: 2,
-          technologyName: 'Ios',
-        },
-      ],
+      body: ['Android', 'iOS', 'Angular'],
+    }),
+  );
+}
+
+function getNewAppData() {
+  return of(
+    new HttpResponse({
+      status: 200,
+      body: {
+        technologies: [
+          {
+            technologyName: 'Android',
+            technologyIdentifier: '01',
+          },
+          {
+            technologyName: 'iOS',
+            technologyIdentifier: '02',
+          },
+          {
+            technologyName: 'Angular',
+            technologyIdentifier: '03',
+          },
+        ],
+        dependencies: [
+          {
+            dependencyName: 'Application 1',
+            dependencyDescription:
+              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+            dependencyType: 'Component',
+            projectDependencyOrder: 0,
+            version: '',
+          },
+          {
+            dependencyName: 'Application 2',
+            dependencyDescription: `It is a long established fact that a reader will be 
+              distracted by the readable content of a page when looking at its layout.`,
+            dependencyType: 'Component',
+            projectDependencyOrder: 1,
+            version: '',
+          },
+          {
+            dependencyName: 'Dependency number 2',
+            dependencyDescription: `There are many variations of passages of Lorem Ipsum available, 
+              but the majority have suffered alteration in some form, 
+              by injected humour, or randomised words which don't look even slightly believable.`,
+            dependencyType: 'Component',
+            projectDependencyOrder: 2,
+            version: '',
+          },
+        ],
+        navigationTypes: [
+          {
+            navigationTypeName: 'Non',
+          },
+          {
+            navigationTypeName: 'Menu',
+          },
+          {
+            navigationTypeName: 'Tap Bar',
+          },
+        ],
+      },
     }),
   );
 }

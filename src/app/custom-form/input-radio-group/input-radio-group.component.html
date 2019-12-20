@@ -1,0 +1,9 @@
+<app-input-radio
+  *ngFor="let radio of radioList; let i = index"
+  [id]="id + '_' + i"
+  [name]="name"
+  [label]="radio.label"
+  [value]="radio.value"
+  [selected]="value === radio.value"
+  (radioClick)="onRadioClick($event)"
+></app-input-radio>

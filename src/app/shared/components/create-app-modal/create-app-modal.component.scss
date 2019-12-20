@@ -1,18 +1,13 @@
 @import 'variables';
 @import 'mixins';
-@import 'fonts';
 
 h2 {
   @include header-title;
 }
 
 button {
-  &.btn {
-    &--blue {
-      font-size: em(24);
-      height: em(49, 24);
-      width: em(160, 24);
-    }
+  & + button {
+    margin-left: em(5);
   }
 }
 
@@ -26,4 +21,8 @@ form {
       margin-left: em(15);
     }
   }
+}
+
+.steps {
+  padding: em(16) 0 em(23);
 }

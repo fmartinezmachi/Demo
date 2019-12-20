@@ -1,0 +1,9 @@
+<div class="stepper">
+  <label>{{ titles[current] }}</label>
+  <div class="steps">
+    <div
+      *ngFor="let step of state"
+      [ngClass]="{ step: true, 'step--active': step.active, 'step--complete': step.complete }"
+    ></div>
+  </div>
+</div>
