@@ -58,7 +58,7 @@ if (params.OVERRIDE_JOB_PARAMETERS) {
               DOCKER_BUILD_NAME: 'globilehub-front',
 
               //Docker TAG, if not present it's used VERSION_FILE version with build number
-              //DOCKER_BUILD_TAG: '0.0.1',
+              DOCKER_BUILD_TAG: '0.0.1',
 
               //*DOCKER_BUILD_ARGS: Extra options to build a Docker 'docker build... $DOCKER_BUILD_ARGS'
               //[Optional]DOCKER_BUILD_ARGS: ''

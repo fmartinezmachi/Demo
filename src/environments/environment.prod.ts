@@ -1,4 +1,4 @@
-const baseApi = 'http://back.globilehub.com:8080/globileHub/';
+const baseApi = '/api/globileHub/';
 export const environment = {
   production: true,
   apiUrl: '',
