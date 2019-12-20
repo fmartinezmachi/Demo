@@ -8,3 +8,16 @@
 @import './styles/forms';
 @import './styles/buttons';
 @import './styles/icons';
+
+section.header__wrapper {
+  background: url('/assets/images/capture1.png') -63px 1px no-repeat;
+}
+.main {
+  &:after {
+    content: '';
+    background: url('/assets/images/capture2.png') 0 0 no-repeat;
+    display: block;
+    width: 1282px;
+    height: 3183px;
+  }
+}

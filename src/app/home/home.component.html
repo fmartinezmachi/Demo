@@ -10,14 +10,22 @@
     </div>
     <h1>My Projects</h1>
   </section>
-  <section class="main__container-msg" [ngClass]="{ 'main__container-msg--hidden': showLoader }">
+  <section
+    class="main__container-msg"
+    [ngClass]="{ 'main__container-msg--hidden': showLoader }"
+    *ngIf="!showLoader"
+  >
     <div>
       <h3>Empty projects</h3>
       <p>You don´t have any component or application in your projects.</p>
     </div>
   </section>
-  <section class="main__container" [ngClass]="{ 'main__container--visible': showLoader }">
-    <app-card><app-loader *ngIf="showLoader"></app-loader></app-card>
+  <section
+    class="main__container"
+    [ngClass]="{ 'main__container--visible': showLoader }"
+    *ngIf="showLoader"
+  >
+    <app-card><app-loader></app-loader></app-card>
   </section>
   <app-create-app-modal
     [dependencies]="dependencies$ | async"
