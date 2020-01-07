@@ -32,7 +32,7 @@ button,
     outline: none;
   }
 
-  &--red {
+  &--primary {
     &:not(:disabled) {
       color: $white;
       background-color: $color-primary-santander;
