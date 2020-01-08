@@ -1,7 +1,6 @@
 @import 'variables';
 @import 'mixins';
 
-
 .stepper {
   display: flex;
   flex-direction: column;
@@ -35,10 +34,10 @@
         margin-right: 0;
       }
       &--complete {
-        background-color: $color-primary-santander;
+        background-color: $color-primary-boston;
       }
       &--active {
-        background-color: $color-primary-ruby;
+        background-color: #7f9dc0;
       }
     }
   }
