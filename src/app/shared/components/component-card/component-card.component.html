@@ -4,7 +4,7 @@
     [id]="id"
     (click)="onClickCard($event)"
   >
-    <div [ngClass]="'icon ' + technologyName"></div>
+    <app-tech-icon [technology]="technologyName"></app-tech-icon>
     <div class="body">
       <label class="name">{{ component?.dependencyName }}</label>
       <div class="description">
