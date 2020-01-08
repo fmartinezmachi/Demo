@@ -18,6 +18,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { SelectableListComponent } from './components/selectable-list/selectable-list.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { FilterOrderComponent } from './components/filter-order/filter-order.component';
+import { FilterTechnologyComponent } from './components/filter-technology/filter-technology.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -44,6 +45,7 @@ const components = [
   StepperComponent,
   SearcherComponent,
   FilterOrderComponent,
+  FilterTechnologyComponent,
 ];
 
 const exports = [
@@ -58,6 +60,7 @@ const exports = [
   SelectableListComponent,
   StepperComponent,
   FilterOrderComponent,
+  FilterTechnologyComponent,
   AngularSvgIconModule,
   SafePipe,
 ];
