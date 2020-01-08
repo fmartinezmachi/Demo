@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tech-icon.component.scss'],
 })
 export class TechIconComponent implements OnInit {
-  @Input() technology: string = 'android';
+  @Input() technology: string = '';
   @Input() disabled: boolean = false;
-  className: string = 'icon';
+  className: string = '';
 
   constructor() {}
 

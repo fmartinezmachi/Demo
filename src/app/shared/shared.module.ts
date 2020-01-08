@@ -27,6 +27,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { FilterOrderComponent } from './components/filter-order/filter-order.component';
 import { FilterTechnologyComponent } from './components/filter-technology/filter-technology.component';
 import { TechIconComponent } from './components/tech-icon/tech-icon.component';
+import { AppListComponent } from './app-list/app-list.component';
 
 const components = [
   AccordionComponent,
@@ -48,6 +49,7 @@ const components = [
   FilterOrderComponent,
   FilterTechnologyComponent,
   TechIconComponent,
+  AppListComponent,
 ];
 
 const exports = [
@@ -64,6 +66,7 @@ const exports = [
   FilterOrderComponent,
   FilterTechnologyComponent,
   TechIconComponent,
+  AppListComponent,
   AngularSvgIconModule,
   SafePipe,
 ];
