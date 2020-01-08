@@ -48,4 +48,31 @@
       }
     }
   }
+
+  &__catalogue {
+    margin-top: em(26);
+    display: flex;
+    flex-direction: column;
+    &__title {
+      display: flex;
+      h1 {
+        flex: 1;
+      }
+      &__counter {
+        margin: em(16) 0;
+        &__label {
+          font-size: em(15);
+          font-weight: bold;
+          margin-right: em(12);
+        }
+        &__value {
+          font-size: em(15);
+        }
+      }
+    }
+    &__filters {
+      display: flex;
+      flex: 1;
+    }
+  }
 }
