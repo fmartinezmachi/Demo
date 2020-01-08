@@ -24,6 +24,8 @@ import { ReversePipe } from './pipes/reverse.pipe';
 
 import { ModalService } from './components/modal/modal.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { FilterOrderComponent } from './components/filter-order/filter-order.component';
+import { FilterTechnologyComponent } from './components/filter-technology/filter-technology.component';
 
 const components = [
   AccordionComponent,
@@ -42,6 +44,8 @@ const components = [
   SelectableListComponent,
   StepperComponent,
   SearcherComponent,
+  FilterOrderComponent,
+  FilterTechnologyComponent,
 ];
 
 const exports = [
@@ -55,6 +59,8 @@ const exports = [
   ModalComponent,
   SelectableListComponent,
   StepperComponent,
+  FilterOrderComponent,
+  FilterTechnologyComponent,
   AngularSvgIconModule,
   SafePipe,
 ];

@@ -27,6 +27,20 @@
   >
     <app-card><app-loader></app-loader></app-card>
   </section>
+  <section class="main__catalogue">
+    <span class="main__catalogue__title">
+      <h1>Components Catalogue</h1>
+      <span class="main__catalogue__title__counter">
+        <span class="main__catalogue__title__counter__label">Total number:</span>
+        <span class="main__catalogue__title__counter__value">59</span>
+      </span>
+    </span>
+
+    <section class="main__catalogue__filters">
+      <app-filter-order></app-filter-order>
+      <app-filter-technology></app-filter-technology>
+    </section>
+  </section>
   <app-create-app-modal
     [dependencies]="dependencies$ | async"
     [technologies]="technologies$ | async"
