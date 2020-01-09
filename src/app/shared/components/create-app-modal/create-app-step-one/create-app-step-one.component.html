@@ -17,7 +17,6 @@
         [name]="'appName'"
         [placeholder]="'App Name'"
         [info]="'The app will be shown with this name in the store'"
-        [error]="projectNameError"
       ></app-input-text>
     </div>
     <div class="form__group" *ngIf="technologyIdentifier === '2'">
@@ -27,6 +26,7 @@
         [id]="'bundleID'"
         [name]="'bundleID'"
         [placeholder]="'Bundle ID'"
+        [error]="bundleIDError"
       ></app-input-text>
     </div>
   </div>

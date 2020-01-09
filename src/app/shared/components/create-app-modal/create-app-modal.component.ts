@@ -28,12 +28,9 @@ export class CreateAppModalComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.appForm = this.formBuilder.group({
-      projectName: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z0-9]+([\\s-.-][a-zA-Zd0-9]+)*')],
-      ],
+      projectName: ['', Validators.required],
       // projectType: [ProjectType.Application], // value fixed, we are generating an app
-      projectIdentification: ['', Validators.required],
+      projectIdentification: ['', Validators.pattern('^[a-zA-Z0-9]+([\\s-.-][a-zA-Zd0-9]+)*')],
       urlImage: [''],
       projectTechnology: [null, Validators.required],
       navigationType: [''],

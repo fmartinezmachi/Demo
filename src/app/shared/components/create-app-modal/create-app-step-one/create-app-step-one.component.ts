@@ -36,10 +36,9 @@ export class CreateAppStepOneComponent implements OnInit, OnChanges {
     return this.formRef.controls;
   }
 
-  get projectNameError() {
-    const { projectName } = this.form;
-    console.log(this.form.projectName.status);
-    return projectName.touched && projectName.status === 'INVALID'
+  get bundleIDError() {
+    const { projectIdentification } = this.form;
+    return projectIdentification.value !== '' && projectIdentification.status === 'INVALID'
       ? 'Name does not match requirements. E.g: login.com.santanderapp'
       : null;
   }
