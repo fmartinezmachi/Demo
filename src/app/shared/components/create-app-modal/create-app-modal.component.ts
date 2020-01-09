@@ -80,7 +80,9 @@ export class CreateAppModalComponent implements OnInit, OnDestroy {
   get stepOneValid() {
     const { controls } = this.appForm;
     return (
-      controls.projectName.status !== 'INVALID' && controls.projectTechnology.status !== 'INVALID'
+      controls.projectName.status !== 'INVALID' &&
+      controls.projectTechnology.status !== 'INVALID' &&
+      controls.projectIdentification.status !== 'INVALID'
     );
   }
 
