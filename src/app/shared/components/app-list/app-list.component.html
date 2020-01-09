@@ -1,0 +1,22 @@
+<section class="app-list">
+  <app-card *ngFor="let x of a">
+    <div class="card">
+      <div class="icons">
+        <app-tech-icon [technology]="'ios'" [disabled]="x.icons[0]"></app-tech-icon>
+        <app-tech-icon [technology]="'android'" [disabled]="x.icons[1]"></app-tech-icon>
+        <app-tech-icon [technology]="'angular'" [disabled]="x.icons[2]"></app-tech-icon>
+        <app-tech-icon [technology]="'java'" [disabled]="x.icons[3]"></app-tech-icon>
+      </div>
+      <div class="metadata">
+        <label class="title">{{ x.title }}</label>
+        <label class="subtitle">{{ x.subtitle }}</label>
+        <span class="description">{{ x.description }}</span>
+      </div>
+      <div class="metrics"></div>
+      <div class="actions">
+        <button class="btn btn--primary">Open</button>
+      </div>
+    </div>
+  </app-card>
+  <div class="pagination">View 10 more</div>
+</section>
