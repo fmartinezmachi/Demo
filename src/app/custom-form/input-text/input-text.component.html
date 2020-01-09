@@ -10,6 +10,7 @@
   <input
     #inputRef
     type="text"
+    [ngClass]="{ 'input--error': error && !focused }"
     [id]="id"
     [value]="value"
     [name]="name"
