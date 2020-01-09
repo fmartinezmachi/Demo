@@ -17,6 +17,10 @@ import { SearcherComponent } from './components/create-app-modal/searcher/search
 import { ModalComponent } from './components/modal/modal.component';
 import { SelectableListComponent } from './components/selectable-list/selectable-list.component';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { FilterOrderComponent } from './components/filter-order/filter-order.component';
+import { FilterTechnologyComponent } from './components/filter-technology/filter-technology.component';
+import { TechIconComponent } from './components/tech-icon/tech-icon.component';
+import { AppListComponent } from './components/app-list/app-list.component';
 
 // Pipes
 import { SafePipe } from './pipes/safe.pipe';
@@ -42,6 +46,10 @@ const components = [
   SelectableListComponent,
   StepperComponent,
   SearcherComponent,
+  FilterOrderComponent,
+  FilterTechnologyComponent,
+  TechIconComponent,
+  AppListComponent,
 ];
 
 const exports = [
@@ -55,6 +63,10 @@ const exports = [
   ModalComponent,
   SelectableListComponent,
   StepperComponent,
+  FilterOrderComponent,
+  FilterTechnologyComponent,
+  TechIconComponent,
+  AppListComponent,
   AngularSvgIconModule,
   SafePipe,
 ];

@@ -1,0 +1,66 @@
+@import 'variables';
+@import 'mixins';
+
+.app-list {
+  padding: em(36);
+  background: white;
+  app-card {
+    display: block;
+    margin-bottom: em(32);
+  }
+  .pagination {
+    font-family: $santander-tx-bold;
+    font-size: em(16);
+    color: $color-primary-santander;
+    text-align: center;
+    margin-bottom: em(10);
+  }
+}
+
+.card {
+  display: flex;
+  .icons {
+    width: 87px;
+    height: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-right: em(21);
+  }
+  .metadata {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    label {
+      &.title {
+        font-family: $santander-tx-bold;
+        font-size: em(24);
+        color: $color-primary-grey;
+        margin-bottom: 12px;
+      }
+      &.subtitle {
+        font-size: em(16);
+        text-transform: uppercase;
+        color: $color-primary-mediumgrey;
+        margin-bottom: em(6);
+      }
+    }
+    span.description {
+      color: $color-primary-grey;
+      font-family: $santander-tx-light;
+      font-size: em(16);
+      line-height: em(20);
+    }
+    margin-right: em(21);
+  }
+  .metrics {
+    width: 290px;
+    height: 138px;
+    background: url(/assets/images/metrics.png) no-repeat;
+    margin-top: em(9);
+  }
+  .actions {
+    margin-left: 135px;
+  }
+}

@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px $color-primary-lightgrey solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+  .icon {
+    content: ' ';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    &.android {
+      background-position: 9px 7px;
+      background-image: url('/assets/images/icon_tech_android.svg');
+      &.disabled {
+        background-image: url('/assets/images/icon_tech_android_disabled.svg');
+      }
+    }
+    &.angular {
+      background-position: 8px 8px;
+      background-image: url('/assets/images/icon_tech_angular.svg');
+      &.disabled {
+        background-image: url('/assets/images/icon_tech_angular_disabled.svg');
+      }
+    }
+    &.ios {
+      background-position: 9px 5px;
+      background-image: url('/assets/images/icon_tech_apple.svg');
+      &.disabled {
+        background-image: url('/assets/images/icon_tech_apple_disabled.svg');
+      }
+    }
+    &.java {
+      background-position: 9px 5px;
+      background-image: url('/assets/images/icon_tech_java.svg');
+      &.disabled {
+        background-image: url('/assets/images/icon_tech_java_disabled.svg');
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  flex: 1;
+  text-transform: uppercase;
+  margin: em(32) 0;
+  span {
+    font-weight: bold;
+    margin-right: em(15);
+  }
+  ul,
+  li {
+    display: inline-block;
+    a {
+      color: $color-primary-santander;
+      margin-right: em(18);
+      &.current {
+        font-weight: bold;
+        border-bottom: 1px $color-primary-santander solid;
+      }
+      &:hover {
+        border-bottom: 1px $color-primary-santander solid;
+      }
+    }
+  }
+  span,
+  a {
+    font-size: em(15);
+  }
+}
