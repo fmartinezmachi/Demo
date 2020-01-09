@@ -30,7 +30,7 @@ export class CreateAppModalComponent implements OnInit, OnDestroy {
     this.appForm = this.formBuilder.group({
       projectName: ['', Validators.required],
       // projectType: [ProjectType.Application], // value fixed, we are generating an app
-      projectIdentification: ['', Validators.required],
+      projectIdentification: ['', Validators.pattern('^[a-zA-Z0-9]+([\\s-.-][a-zA-Zd0-9]+)*')],
       urlImage: [''],
       projectTechnology: [null, Validators.required],
       navigationType: [''],
@@ -79,7 +79,11 @@ export class CreateAppModalComponent implements OnInit, OnDestroy {
 
   get stepOneValid() {
     const { controls } = this.appForm;
-    return controls.projectName.value !== '' && controls.projectTechnology.value !== '';
+    return (
+      controls.projectName.status !== 'INVALID' &&
+      controls.projectTechnology.status !== 'INVALID' &&
+      controls.projectIdentification.status !== 'INVALID'
+    );
   }
 
   goToNextStep = () => this.step++;

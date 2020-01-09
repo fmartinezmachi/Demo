@@ -20,6 +20,11 @@ $medium-grey: #676767;
     padding: em(18) em(40) em(6) em(16);
     width: em(321);
 
+    &.input--error {
+      border-color: rgba($color: $color-primary-boston, $alpha: 0.2);
+      border-bottom-color: $color-primary-boston;
+    }
+
     &::-ms-clear {
       display: none;
     }
